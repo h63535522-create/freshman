@@ -1,5 +1,5 @@
 export type ViewMode = 'side-by-side' | 'english' | 'amharic';
-export type ActiveTab = 'reader' | 'summary' | 'summaries' | 'qna' | 'exercises' | 'flashcards';
+export type ActiveTab = 'reader' | 'summary' | 'summaries' | 'qna' | 'exercises' | 'flashcards' | 'dashboard';
 
 export interface BilingualText {
   en: string;
@@ -9,8 +9,8 @@ export interface BilingualText {
 export interface KeyTerm {
   en: string;
   am: string;
-  defEn: string;
-  defAm: string;
+  defEn?: string;
+  defAm?: string;
 }
 
 export interface ParagraphBlock {
@@ -51,6 +51,7 @@ export interface QuizOption {
 
 export interface QuizExercise {
   id: string;
+  number?: number;
   question: BilingualText;
   options: QuizOption[];
   correctOptionId: string;
@@ -83,6 +84,12 @@ export interface Chapter {
   overview: BilingualText;
   learningOutcomes: BilingualText[];
   sections: Section[];
+  coreConcepts?: Array<{
+    termEn: string;
+    termAm: string;
+    defEn?: string;
+    defAm?: string;
+  }>;
   summaries: SummaryNote[];
   qna: QAItem[];
   quizzes: QuizExercise[];
@@ -103,3 +110,26 @@ export interface GlossaryTerm {
 export type QuizQuestion = QuizExercise;
 export type Flashcard = FlashcardItem;
 export type QuestionAnswer = QAItem;
+
+export interface Course {
+  id: string;
+  code: string;
+  englishTitle: string;
+  amharicTitle: string;
+  badge: string;
+  descriptionEn: string;
+  descriptionAm: string;
+  chapters: Chapter[];
+  metadata: any;
+  semester?: 'Semester 1' | 'Semester 2' | 'Semester 1 or 2';
+  stream?: 'Common' | 'Natural Science' | 'Social Science';
+  creditHours?: number;
+  pdfModule?: {
+    filename: string;
+    title: string;
+    authorOrCommittee: string;
+    publishedYear: string;
+    totalUnitsOrChapters: number;
+  };
+  hasInteractiveContent?: boolean;
+}

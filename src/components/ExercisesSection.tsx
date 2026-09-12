@@ -63,7 +63,7 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
       setMatchedPairs((prev) => [...prev, id]);
       setSelectedConcept(null);
       setMatchingError(null);
-      if (matchedPairs.length + 1 === chapter.matching.length) {
+      if (chapter.matching && matchedPairs.length + 1 === chapter.matching.length) {
         try {
           confetti({ particleCount: 50, spread: 60 });
         } catch (e) {}
@@ -115,25 +115,25 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
       </div>
 
       {/* Part 1: Multiple Choice Assessment */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-xs space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
               Part A: Self-Test
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-slate-900">
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
               Multiple Choice Questions (የምርጫ ጥያቄዎች)
             </h3>
           </div>
 
           {submittedQuiz ? (
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="text-xs sm:text-sm font-bold text-slate-800 bg-slate-100 px-3 py-2 rounded-xl border border-slate-200">
-                Score: <span className="text-emerald-700">{calculateScore()}</span> / {chapter.quizzes.length}
+              <div className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+                Score: <span className="text-emerald-700 dark:text-emerald-400">{calculateScore()}</span> / {chapter.quizzes.length}
               </div>
               <button
                 onClick={handleResetQuiz}
-                className="px-3 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors min-h-[40px]"
+                className="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-colors min-h-[40px]"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Retry</span>
@@ -143,7 +143,7 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
             <button
               onClick={handleQuizSubmit}
               disabled={Object.keys(selectedAnswers).length === 0}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white text-xs font-bold transition-all shadow-2xs min-h-[44px]"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 disabled:opacity-50 text-white text-xs font-bold transition-all shadow-2xs min-h-[44px]"
             >
               Check Answers (መልሶችን አረጋግጥ)
             </button>
@@ -159,17 +159,17 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
             return (
               <div
                 key={quiz.id}
-                className="p-3.5 sm:p-5 rounded-2xl border border-slate-100 bg-slate-50/50 space-y-3.5"
+                className="p-3.5 sm:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 space-y-3.5"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3">
-                  <span className="w-6 h-6 rounded-lg bg-slate-200 text-slate-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                  <span className="w-6 h-6 rounded-lg bg-slate-200 dark:bg-slate-750 text-slate-800 dark:text-slate-200 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                     {qIdx + 1}
                   </span>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 leading-snug">
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
                       {quiz.question.en}
                     </h4>
-                    <h5 className="text-xs sm:text-sm font-amharic font-semibold text-emerald-800 mt-1">
+                    <h5 className="text-xs sm:text-sm font-amharic font-semibold text-emerald-800 dark:text-emerald-400 mt-1">
                       {quiz.question.am}
                     </h5>
                   </div>
@@ -181,18 +181,18 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
                     const isSelected = selectedOpt === option.id;
                     const isThisCorrect = quiz.correctOptionId === option.id;
 
-                    let optionStyle = 'bg-white border-slate-200 hover:border-slate-300 text-slate-800';
+                    let optionStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-800 dark:text-slate-200';
 
                     if (submittedQuiz) {
                       if (isThisCorrect) {
-                        optionStyle = 'bg-emerald-100 border-emerald-500 text-emerald-950 font-semibold';
+                        optionStyle = 'bg-emerald-100 dark:bg-emerald-950/60 border-emerald-500 text-emerald-950 dark:text-emerald-200 font-semibold';
                       } else if (isSelected && !isThisCorrect) {
-                        optionStyle = 'bg-rose-100 border-rose-400 text-rose-950';
+                        optionStyle = 'bg-rose-100 dark:bg-rose-950/60 border-rose-400 text-rose-950 dark:text-rose-200';
                       } else {
-                        optionStyle = 'bg-white/60 border-slate-200 text-slate-400';
+                        optionStyle = 'bg-white/60 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500';
                       }
                     } else if (isSelected) {
-                      optionStyle = 'bg-emerald-50 border-emerald-500 text-emerald-900 ring-2 ring-emerald-500/20';
+                      optionStyle = 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-900 dark:text-emerald-200 ring-2 ring-emerald-500/20';
                     }
 
                     return (
@@ -207,13 +207,13 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
                         </span>
                         <div className="flex-1">
                           <span className="block font-medium leading-relaxed">{option.text.en}</span>
-                          <span className="block font-amharic text-slate-600 mt-0.5 leading-relaxed">{option.text.am}</span>
+                          <span className="block font-amharic text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">{option.text.am}</span>
                         </div>
                         {submittedQuiz && isThisCorrect && (
-                          <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         )}
                         {submittedQuiz && isSelected && !isThisCorrect && (
-                          <XCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                          <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
                         )}
                       </button>
                     );
@@ -224,15 +224,15 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
                 {submittedQuiz && (
                   <div
                     className={`p-3 rounded-xl text-xs space-y-1 ${
-                      isCorrect ? 'bg-emerald-50 border border-emerald-200 text-emerald-900' : 'bg-rose-50 border border-rose-200 text-rose-900'
+                      isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-rose-900 dark:text-rose-300'
                     }`}
                   >
                     <div className="flex items-center gap-1.5 font-bold">
                       <HelpCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>{isCorrect ? 'Correct! (ትክክል ነው)' : 'Explanation (የማብራሪያ ፍሬ ሀሳብ):'}</span>
                     </div>
-                    <p className="text-slate-700 leading-relaxed">{quiz.explanation.en}</p>
-                    <p className="font-amharic text-slate-700 leading-relaxed">{quiz.explanation.am}</p>
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{quiz.explanation.en}</p>
+                    <p className="font-amharic text-slate-700 dark:text-slate-300 leading-relaxed">{quiz.explanation.am}</p>
                   </div>
                 )}
               </div>
@@ -243,21 +243,21 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
 
       {/* Part 2: Interactive Concept Matching Pairs */}
       {chapter.matching && chapter.matching.length > 0 && (
-        <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-xs space-y-4">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
               Part B: Concept Match
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-slate-900">
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
               Concept Matching Matrix (የፅንሰ-ሀሳብ ማዛመድ)
             </h3>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Tap a Concept on the left, then tap its matching Definition on the right.
             </p>
           </div>
 
           {matchingError && (
-            <div className="p-2.5 rounded-xl bg-rose-50 text-rose-800 text-xs font-medium border border-rose-200 animate-shake">
+            <div className="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-800 dark:text-rose-200 text-xs font-medium border border-rose-200 dark:border-rose-800 animate-shake">
               {matchingError}
             </div>
           )}
@@ -265,7 +265,7 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Concepts Column */}
             <div className="space-y-2">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-1">
                 Concepts (ፅንሰ-ሀሳቦች)
               </span>
               {chapter.matching.map((pair) => {
@@ -279,17 +279,17 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
                     disabled={isMatched}
                     className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between min-h-[48px] ${
                       isMatched
-                        ? 'bg-emerald-50 border-emerald-200 text-emerald-900 opacity-60'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 opacity-60'
                         : isSelected
-                        ? 'bg-amber-50 border-amber-400 text-amber-950 ring-2 ring-amber-300'
-                        : 'bg-white border-slate-200 hover:border-slate-300 text-slate-800'
+                        ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-400 text-amber-950 dark:text-amber-200 ring-2 ring-amber-300 dark:ring-amber-500'
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-800 dark:text-slate-200'
                     }`}
                   >
                     <div>
                       <div className="font-bold">{pair.concept.en}</div>
-                      <div className="font-amharic text-emerald-800 mt-0.5">{pair.concept.am}</div>
+                      <div className="font-amharic text-emerald-800 dark:text-emerald-400 mt-0.5">{pair.concept.am}</div>
                     </div>
-                    {isMatched && <Check className="w-4 h-4 text-emerald-600 shrink-0" />}
+                    {isMatched && <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />}
                   </button>
                 );
               })}
@@ -297,7 +297,7 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
 
             {/* Definitions Column */}
             <div className="space-y-2">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-1">
                 Definitions (ፍቺዎች)
               </span>
               {chapter.matching.map((pair) => {
@@ -310,15 +310,15 @@ export const ExercisesSection: React.FC<ExercisesSectionProps> = ({
                     disabled={isMatched}
                     className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between min-h-[48px] ${
                       isMatched
-                        ? 'bg-emerald-50 border-emerald-200 text-emerald-900 opacity-60'
-                        : 'bg-white border-slate-200 hover:border-emerald-300 text-slate-700'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 opacity-60'
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-600 text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <div>
                       <div className="leading-relaxed">{pair.definition.en}</div>
-                      <div className="font-amharic text-slate-600 mt-1 leading-relaxed">{pair.definition.am}</div>
+                      <div className="font-amharic text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{pair.definition.am}</div>
                     </div>
-                    {isMatched && <Check className="w-4 h-4 text-emerald-600 shrink-0 ml-2" />}
+                    {isMatched && <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 ml-2" />}
                   </button>
                 );
               })}

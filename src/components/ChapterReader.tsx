@@ -107,8 +107,8 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
       </div>
 
       {/* In-Page Quick Section Jump Tabs (Horizontal scroll on mobile) */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-slate-200 no-scrollbar -mx-2 px-2 sm:mx-0 sm:px-0">
-        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider shrink-0 pl-1">
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-slate-200 dark:border-slate-800 no-scrollbar -mx-2 px-2 sm:mx-0 sm:px-0">
+        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider shrink-0 pl-1">
           Sections:
         </span>
         {chapter.sections.map((sec) => (
@@ -118,8 +118,8 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
             onClick={() => setActiveSectionId(sec.id)}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1 min-h-[36px] ${
               activeSectionId === sec.id
-                ? 'bg-emerald-700 text-white shadow-2xs'
-                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                ? 'bg-emerald-700 dark:bg-emerald-600 text-white shadow-2xs'
+                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750'
             }`}
           >
             <span className="font-bold">{sec.number}</span>
@@ -130,18 +130,18 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
 
       {/* Selected Term Popover Bar */}
       {selectedTerm && (
-        <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4 shadow-xs flex items-start justify-between gap-4 animate-fadeIn">
+        <div className="bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700 rounded-2xl p-4 shadow-xs flex items-start justify-between gap-4 animate-fadeIn">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-bold text-amber-950 text-sm">{selectedTerm.en}</span>
-              <span className="text-amber-800 font-amharic text-sm font-semibold">({selectedTerm.am})</span>
+              <span className="font-bold text-amber-950 dark:text-amber-200 text-sm">{selectedTerm.en}</span>
+              <span className="text-amber-800 dark:text-amber-300 font-amharic text-sm font-semibold">({selectedTerm.am})</span>
             </div>
-            <p className="text-xs text-slate-700 mt-1">{selectedTerm.defEn}</p>
-            <p className="text-xs text-slate-600 font-amharic mt-0.5">{selectedTerm.defAm}</p>
+            {selectedTerm.defEn && <p className="text-xs text-slate-700 dark:text-slate-300 mt-1">{selectedTerm.defEn}</p>}
+            {selectedTerm.defAm && <p className="text-xs text-slate-600 dark:text-slate-400 font-amharic mt-0.5">{selectedTerm.defAm}</p>}
           </div>
           <button
             onClick={() => setSelectedTerm(null)}
-            className="text-amber-800 hover:text-amber-950 text-xs font-bold px-2.5 py-1.5 bg-amber-200/70 rounded-lg shrink-0 min-h-[36px] flex items-center"
+            className="text-amber-800 dark:text-amber-200 hover:text-amber-950 dark:hover:text-white text-xs font-bold px-2.5 py-1.5 bg-amber-200/70 dark:bg-amber-900/60 rounded-lg shrink-0 min-h-[36px] flex items-center transition-colors"
           >
             Close ✕
           </button>
@@ -157,16 +157,16 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
             className="scroll-mt-28 space-y-4"
           >
             {/* Section Header */}
-            <div className="border-b-2 border-emerald-600/30 pb-2">
+            <div className="border-b-2 border-emerald-600/30 dark:border-emerald-500/30 pb-2">
               <div className="flex items-start sm:items-center gap-2">
-                <span className="px-2.5 py-1 rounded-lg bg-emerald-600 text-white font-bold text-xs shrink-0 mt-0.5 sm:mt-0">
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-bold text-xs shrink-0 mt-0.5 sm:mt-0">
                   {section.number}
                 </span>
                 <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-snug">
                     {section.title.en}
                   </h3>
-                  <h4 className="text-sm sm:text-base md:text-lg font-amharic font-semibold text-emerald-800">
+                  <h4 className="text-sm sm:text-base md:text-lg font-amharic font-semibold text-emerald-800 dark:text-emerald-400">
                     {section.title.am}
                   </h4>
                 </div>
@@ -187,18 +187,18 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                     onMouseLeave={() => onHoverParagraph(null)}
                     className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                       isHovered
-                        ? 'border-emerald-400 bg-emerald-50/20 shadow-xs ring-1 ring-emerald-300'
-                        : 'border-slate-200 bg-white hover:border-slate-300'
+                        ? 'border-emerald-400 dark:border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/30 shadow-xs ring-1 ring-emerald-300 dark:ring-emerald-600'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-700'
                     }`}
                   >
                     {/* Paragraph Utility Sub-Bar */}
-                    <div className="px-3 sm:px-4 py-2 bg-slate-50/80 border-b border-slate-100 flex items-center justify-between text-xs text-slate-500 gap-2">
+                    <div className="px-3 sm:px-4 py-2 bg-slate-50/80 dark:bg-slate-850/80 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
                       <div className="flex items-center gap-1.5 font-medium truncate">
                         {para.subheading && (
                           <div className="truncate">
-                            <span className="text-slate-800 font-semibold">{para.subheading.en}</span>
-                            <span className="text-slate-400 mx-1.5">•</span>
-                            <span className="font-amharic text-emerald-700">{para.subheading.am}</span>
+                            <span className="text-slate-800 dark:text-slate-200 font-semibold">{para.subheading.en}</span>
+                            <span className="text-slate-400 dark:text-slate-600 mx-1.5">•</span>
+                            <span className="font-amharic text-emerald-700 dark:text-emerald-400">{para.subheading.am}</span>
                           </div>
                         )}
                       </div>
@@ -207,7 +207,7 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                         {/* Audio Narrate */}
                         <button
                           onClick={() => onSpeakText(para.en)}
-                          className="hover:text-emerald-700 p-2 rounded-lg hover:bg-slate-200/70 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center text-slate-600"
+                          className="hover:text-emerald-700 dark:hover:text-emerald-400 p-2 rounded-lg hover:bg-slate-200/70 dark:hover:bg-slate-800 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center text-slate-600 dark:text-slate-400"
                           title="Read English text aloud"
                           aria-label="Read paragraph aloud"
                         >
@@ -219,14 +219,14 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                           onClick={() => onToggleBookmark(para.id)}
                           className={`p-2 rounded-lg transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center ${
                             isBookmarked
-                              ? 'text-amber-600 bg-amber-50'
-                              : 'hover:text-slate-800 hover:bg-slate-200/70 text-slate-500'
+                              ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60'
+                              : 'hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/70 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400'
                           }`}
                           title="Bookmark this section"
                           aria-label="Bookmark paragraph"
                         >
                           {isBookmarked ? (
-                            <BookmarkCheck className="w-4 h-4 fill-amber-500 text-amber-600" />
+                            <BookmarkCheck className="w-4 h-4 fill-amber-500 text-amber-600 dark:fill-amber-400 dark:text-amber-400" />
                           ) : (
                             <Bookmark className="w-4 h-4" />
                           )}
@@ -239,8 +239,8 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                       {viewMode === 'side-by-side' && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
                           {/* English Block */}
-                          <div className={`text-slate-800 ${getTextClass()} bg-slate-50/50 md:bg-transparent p-3 md:p-0 rounded-xl md:rounded-none border md:border-none border-slate-100`}>
-                            <div className="flex items-center gap-1.5 mb-1.5 text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                          <div className={`text-slate-800 dark:text-slate-200 ${getTextClass()} bg-slate-50/50 dark:bg-slate-850/50 md:bg-transparent dark:md:bg-transparent p-3 md:p-0 rounded-xl md:rounded-none border md:border-none border-slate-100 dark:border-slate-800`}>
+                            <div className="flex items-center gap-1.5 mb-1.5 text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                               <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
                               <span>English</span>
                             </div>
@@ -250,13 +250,13 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
 
                             {/* In-line key terms */}
                             {para.highlightTerms && para.highlightTerms.length > 0 && (
-                              <div className="mt-3 pt-2 border-t border-slate-100 flex items-center gap-1.5 flex-wrap">
-                                <span className="text-[10px] uppercase font-bold text-slate-400">Terms:</span>
+                              <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 flex-wrap">
+                                <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500">Terms:</span>
                                 {para.highlightTerms.map((t, tidx) => (
                                   <button
                                     key={tidx}
                                     onClick={() => setSelectedTerm(t)}
-                                    className="px-2 py-1 rounded-lg bg-emerald-100/70 hover:bg-emerald-200 text-emerald-900 text-[11px] font-medium border border-emerald-200 transition-colors min-h-[32px]"
+                                    className="px-2 py-1 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/60 hover:bg-emerald-200 dark:hover:bg-emerald-900/80 text-emerald-900 dark:text-emerald-300 text-[11px] font-medium border border-emerald-200 dark:border-emerald-800 transition-colors min-h-[32px]"
                                   >
                                     {t.en} ({t.am})
                                   </button>
@@ -266,12 +266,12 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                           </div>
 
                           {/* Amharic Block */}
-                          <div className={`font-amharic text-slate-800 ${getTextClass()} bg-amber-50/30 md:bg-transparent p-3 md:p-0 rounded-xl md:rounded-none border md:border-l md:border-t-0 md:border-r-0 md:border-b-0 border-amber-100 md:border-slate-100 md:pl-6`}>
-                            <div className="flex items-center gap-1.5 mb-1.5 text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-wider">
+                          <div className={`font-amharic text-slate-800 dark:text-slate-200 ${getTextClass()} bg-amber-50/30 dark:bg-slate-850/50 md:bg-transparent dark:md:bg-transparent p-3 md:p-0 rounded-xl md:rounded-none border md:border-l md:border-t-0 md:border-r-0 md:border-b-0 border-amber-100 dark:border-slate-800 md:border-slate-200 dark:md:border-slate-800 md:pl-6`}>
+                            <div className="flex items-center gap-1.5 mb-1.5 text-[10px] sm:text-[11px] font-bold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider">
                               <span className="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span>
                               <span>አማርኛ</span>
                             </div>
-                            <p className="whitespace-pre-line text-justify text-slate-800 leading-relaxed">
+                            <p className="whitespace-pre-line text-justify leading-relaxed">
                               {para.am}
                             </p>
                           </div>
@@ -279,18 +279,18 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                       )}
 
                       {viewMode === 'english' && (
-                        <div className={`text-slate-800 ${getTextClass()}`}>
+                        <div className={`text-slate-800 dark:text-slate-200 ${getTextClass()}`}>
                           <p className="whitespace-pre-line text-justify leading-relaxed">
                             {para.en}
                           </p>
                           {para.highlightTerms && para.highlightTerms.length > 0 && (
-                            <div className="mt-3 pt-2 border-t border-slate-100 flex items-center gap-1.5 flex-wrap">
-                              <span className="text-[10px] uppercase font-bold text-slate-400">Terms:</span>
+                            <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 flex-wrap">
+                              <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500">Terms:</span>
                               {para.highlightTerms.map((t, tidx) => (
                                 <button
                                   key={tidx}
                                   onClick={() => setSelectedTerm(t)}
-                                  className="px-2.5 py-1 rounded-lg bg-emerald-100/70 hover:bg-emerald-200 text-emerald-900 text-xs font-medium border border-emerald-200 transition-colors"
+                                  className="px-2.5 py-1 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/60 hover:bg-emerald-200 dark:hover:bg-emerald-900/80 text-emerald-900 dark:text-emerald-300 text-xs font-medium border border-emerald-200 dark:border-emerald-800 transition-colors"
                                 >
                                   {t.en} ({t.am})
                                 </button>
@@ -301,7 +301,7 @@ export const ChapterReader: React.FC<ChapterReaderProps> = ({
                       )}
 
                       {viewMode === 'amharic' && (
-                        <div className={`font-amharic text-slate-800 ${getTextClass()}`}>
+                        <div className={`font-amharic text-slate-800 dark:text-slate-200 ${getTextClass()}`}>
                           <p className="whitespace-pre-line text-justify leading-relaxed">
                             {para.am}
                           </p>

@@ -1,6 +1,6 @@
 {
-  "name": "Ethiopian Freshman Courses (Psyc 1011 & FLEn 1011)",
-  "description": "Bilingual (English & Amharic) learning platform for Ethiopian University Freshman courses: General Psychology (Psyc 1011) and Communicative English Language Skills I (FLEn 1011) with side-by-side texts, summaries, Q&A, and mock exams.",
+  "name": "Ethiopian Freshman Courses (Psyc 1011, FLEn 1011, FLEn 1012 & Phys 1011)",
+  "description": "Bilingual (English & Amharic) learning platform and analytics dashboard for Ethiopian University Freshman courses across official MoSHE PDF modules including General Physics (Phys 1011), Social Anthropology (Anth 1012), Entrepreneurship (Mgmt 1012), and History of Ethiopia and the Horn (Hist 1012), with interactive side-by-side texts, summaries, Q&A, and dark mode.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

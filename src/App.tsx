@@ -7,6 +7,7 @@ import { ChapterReader } from './components/ChapterReader';
 import { SummarySection } from './components/SummarySection';
 import { QnASection } from './components/QnASection';
 import { ExercisesSection } from './components/ExercisesSection';
+import { DashboardSection } from './components/DashboardSection';
 import { FlashcardsModal } from './components/FlashcardsModal';
 import { GlossaryModal } from './components/GlossaryModal';
 import { ExamModeModal } from './components/ExamModeModal';
@@ -21,10 +22,33 @@ import {
   CheckCircle2,
   Search,
   Layers,
-  Sparkles
+  Sparkles,
+  BarChart3
 } from 'lucide-react';
 
 export default function App() {
+  // Theme State (Dark mode with persistence)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('moshe_dark_mode');
+      if (saved !== null) return saved === 'true';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('moshe_dark_mode', String(isDarkMode));
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  }, [isDarkMode]);
+
   // Course State (default to Communicative English FLEn 1011 or saved choice)
   const [currentCourseId, setCurrentCourseId] = useState<string>(() => {
     try {
@@ -229,7 +253,7 @@ export default function App() {
   const unitOrChapterLabel = isEnglishCourse ? 'Unit' : 'Chapter';
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col font-sans selection:bg-emerald-200 selection:text-emerald-950">
+    <div className={`min-h-screen ${isDarkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-100 text-slate-900'} flex flex-col font-sans selection:bg-emerald-200 selection:text-emerald-950 transition-colors duration-200`}>
       {/* Top Application Header */}
       <Header
         currentCourse={currentCourse}
@@ -239,6 +263,7 @@ export default function App() {
         onViewModeChange={setViewMode}
         onOpenGlossary={() => setIsGlossaryOpen(true)}
         onOpenExam={() => setIsExamOpen(true)}
+        onOpenDashboard={() => setActiveTab('dashboard')}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         fontSize={fontSize}
@@ -246,20 +271,22 @@ export default function App() {
         isReadingAudio={isReadingAudio}
         onToggleAudio={handleToggleAudio}
         onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
       />
 
       {/* Instant Search Results Floating Dropdown */}
       {searchQuery && (
         <div className="max-w-4xl mx-auto w-full px-3 sm:px-4 relative z-40">
-          <div className="absolute top-2 left-3 right-3 sm:left-4 sm:right-4 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 sm:p-4 max-h-96 overflow-y-auto">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider pb-2 border-b border-slate-100">
+          <div className="absolute top-2 left-3 right-3 sm:left-4 sm:right-4 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-3 sm:p-4 max-h-96 overflow-y-auto">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
               <span className="flex items-center gap-1.5 truncate">
                 <Search className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Results for "{searchQuery}" ({searchResults.length})</span>
               </span>
               <button
                 onClick={() => setSearchQuery('')}
-                className="text-slate-400 hover:text-slate-600 p-1"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
               >
                 ✕
               </button>
@@ -270,7 +297,7 @@ export default function App() {
                 No matching topics found for "{searchQuery}".
               </div>
             ) : (
-              <div className="divide-y divide-slate-100 mt-2">
+              <div className="divide-y divide-slate-100 dark:divide-slate-800 mt-2">
                 {searchResults.map((res, ridx) => (
                   <button
                     key={ridx}
@@ -281,17 +308,17 @@ export default function App() {
                       setCurrentChapterId(res.chapterId);
                       setSearchQuery('');
                     }}
-                    className="w-full text-left py-2.5 px-2 hover:bg-emerald-50/60 rounded-xl transition-colors group flex items-start justify-between gap-3 min-h-[44px]"
+                    className="w-full text-left py-2.5 px-2 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 rounded-xl transition-colors group flex items-start justify-between gap-3 min-h-[44px]"
                   >
                     <div>
-                      <div className="text-xs font-bold text-slate-900 group-hover:text-emerald-800">
+                      <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400">
                         {res.title}
                       </div>
-                      <div className="text-[11px] text-slate-600 mt-0.5 line-clamp-1">
+                      <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 line-clamp-1">
                         {res.matchText}
                       </div>
                     </div>
-                    <span className="text-[10px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md shrink-0">
+                    <span className="text-[10px] font-semibold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md shrink-0">
                       {res.type}
                     </span>
                   </button>
@@ -318,17 +345,18 @@ export default function App() {
           completedChapters={completedChapters}
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
+          onOpenDashboard={() => setActiveTab('dashboard')}
         />
 
         {/* Right Main Content Area */}
         <main className="flex-1 min-w-0 p-3 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 pb-24 lg:pb-10">
           {/* Mobile Quick Chapter/Unit Selector Strip */}
-          <div className="lg:hidden flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="lg:hidden flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 shadow-2xs">
             <button
               onClick={() => setIsSidebarOpen(true)}
-              className="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 text-xs font-bold flex items-center gap-1.5 min-h-[38px]"
+              className="px-2.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-300 text-xs font-bold flex items-center gap-1.5 min-h-[38px]"
             >
-              <Menu className="w-4 h-4 text-emerald-700" />
+              <Menu className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
               <span>
                 {currentCourse.code} • {unitOrChapterLabel} {currentChapter.number} of {currentCourse.chapters.length} (ቀይር)
               </span>
@@ -338,8 +366,8 @@ export default function App() {
               onClick={handleToggleCompleteChapter}
               className={`p-1.5 rounded-lg text-xs font-bold flex items-center gap-1 ${
                 completedChapters.includes(currentChapter.id)
-                  ? 'text-emerald-700 bg-emerald-50'
-                  : 'text-slate-400 hover:text-slate-600'
+                  ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 dark:text-emerald-300'
+                  : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
@@ -349,9 +377,26 @@ export default function App() {
             </button>
           </div>
 
-          {/* Functional Tabs Bar (Reader, Summary, Q&A, Exercises) */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-1.5 sm:p-2 shadow-xs flex items-center justify-between gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
+          {/* Functional Tabs Bar (Dashboard, Reader, Summary, Q&A, Exercises) */}
+          <div className="bg-white dark:bg-slate-850 rounded-2xl border border-slate-200 dark:border-slate-800 p-1.5 sm:p-2 shadow-xs flex items-center justify-between gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
             <div className="flex items-center gap-1 sm:gap-1.5">
+              {/* Tab: Dashboard & Stats */}
+              <button
+                id="tab-dashboard"
+                onClick={() => setActiveTab('dashboard')}
+                className={`px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all whitespace-nowrap min-h-[40px] ${
+                  activeTab === 'dashboard'
+                    ? 'bg-emerald-700 text-white shadow-2xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <BarChart3 className="w-4 h-4 shrink-0" />
+                <span>Dashboard & Stats</span>
+                <span className="hidden md:inline font-amharic text-[11px] font-normal text-emerald-200">
+                  (ዳሽቦርድ)
+                </span>
+              </button>
+
               {/* Tab: Reader */}
               <button
                 id="tab-reader"
@@ -361,7 +406,7 @@ export default function App() {
                     ? isEnglishCourse
                       ? 'bg-indigo-700 text-white shadow-2xs'
                       : 'bg-emerald-700 text-white shadow-2xs'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <BookOpen className="w-4 h-4 shrink-0" />
@@ -378,7 +423,7 @@ export default function App() {
                 className={`px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all whitespace-nowrap min-h-[40px] ${
                   activeTab === 'summary'
                     ? 'bg-amber-600 text-white shadow-2xs'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <FileText className="w-4 h-4 shrink-0" />
@@ -395,7 +440,7 @@ export default function App() {
                 className={`px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all whitespace-nowrap min-h-[40px] ${
                   activeTab === 'qna'
                     ? 'bg-blue-700 text-white shadow-2xs'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <HelpCircle className="w-4 h-4 shrink-0" />
@@ -412,7 +457,7 @@ export default function App() {
                 className={`px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all whitespace-nowrap min-h-[40px] ${
                   activeTab === 'exercises'
                     ? 'bg-purple-700 text-white shadow-2xs'
-                    : 'text-slate-600 hover:bg-slate-100'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <Award className="w-4 h-4 shrink-0" />
@@ -423,29 +468,56 @@ export default function App() {
               </button>
             </div>
 
-            {/* Desktop Mark as Completed Button */}
-            <button
-              onClick={handleToggleCompleteChapter}
-              className={`hidden sm:flex px-3 py-1.5 rounded-xl border text-xs font-bold items-center gap-1.5 shrink-0 transition-colors min-h-[40px] ${
-                completedChapters.includes(currentChapter.id)
-                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              <CheckCircle2
-                className={`w-4 h-4 ${
+            {/* Desktop Mark as Completed Button (shown on Reader tab) */}
+            {activeTab !== 'dashboard' && (
+              <button
+                onClick={handleToggleCompleteChapter}
+                className={`hidden sm:flex px-3 py-1.5 rounded-xl border text-xs font-bold items-center gap-1.5 shrink-0 transition-colors min-h-[40px] ${
                   completedChapters.includes(currentChapter.id)
-                    ? 'text-emerald-600'
-                    : 'text-slate-400'
+                    ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
-              />
-              <span>
-                {completedChapters.includes(currentChapter.id) ? 'Completed' : 'Mark as Read'}
-              </span>
-            </button>
+              >
+                <CheckCircle2
+                  className={`w-4 h-4 ${
+                    completedChapters.includes(currentChapter.id)
+                      ? 'text-emerald-600 dark:text-emerald-400'
+                      : 'text-slate-400'
+                  }`}
+                />
+                <span>
+                  {completedChapters.includes(currentChapter.id) ? 'Completed' : 'Mark as Read'}
+                </span>
+              </button>
+            )}
           </div>
 
           {/* Tab Content Display */}
+          {activeTab === 'dashboard' && (
+            <DashboardSection
+              allCourses={allCourses}
+              currentCourse={currentCourse}
+              onSelectCourse={(courseId) => {
+                handleSelectCourse(courseId);
+              }}
+              onSelectChapterAndNavigate={(courseId, chapterId) => {
+                handleSelectCourse(courseId);
+                setCurrentChapterId(chapterId);
+                setActiveTab('reader');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              completedChapters={completedChapters}
+              onToggleChapterCompletion={(chapterId) => {
+                setCompletedChapters((prev) =>
+                  prev.includes(chapterId)
+                    ? prev.filter((id) => id !== chapterId)
+                    : [...prev, chapterId]
+                );
+              }}
+              bookmarkedParagraphsCount={bookmarkedParagraphs.length}
+            />
+          )}
+
           {activeTab === 'reader' && (
             <ChapterReader
               chapter={currentChapter}
@@ -475,59 +547,76 @@ export default function App() {
             />
           )}
 
-          {/* Bottom Pagination Bar */}
-          <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <button
-              onClick={goToPrevChapter}
-              disabled={currentChapterIndex === 0}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-30 text-slate-700 text-xs font-bold flex items-center justify-center gap-2 shadow-2xs transition-all min-h-[44px]"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              <span>
-                Previous {unitOrChapterLabel} (
-                {Math.max(1, currentChapter.number - 1)})
-              </span>
-            </button>
+          {/* Bottom Pagination Bar (for Reader, Notes, Q&A, Tests) */}
+          {activeTab !== 'dashboard' && (
+            <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <button
+                onClick={goToPrevChapter}
+                disabled={currentChapterIndex === 0}
+                className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 disabled:opacity-30 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-2 shadow-2xs transition-all min-h-[44px]"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                <span>
+                  Previous {unitOrChapterLabel} (
+                  {Math.max(1, currentChapter.number - 1)})
+                </span>
+              </button>
 
-            <div className="text-xs text-slate-500 text-center font-medium">
-              <span>
-                {currentCourse.code} • {unitOrChapterLabel} {currentChapter.number} of {currentCourse.chapters.length}
-              </span>
-              <span className="mx-2">•</span>
-              <span className="font-amharic">የኢትዮጵያ ዩኒቨርሲቲ ሞጁል</span>
+              <div className="text-xs text-slate-500 dark:text-slate-400 text-center font-medium">
+                <span>
+                  {currentCourse.code} • {unitOrChapterLabel} {currentChapter.number} of {currentCourse.chapters.length}
+                </span>
+                <span className="mx-2">•</span>
+                <span className="font-amharic">የኢትዮጵያ ዩኒቨርሲቲ ሞጁል</span>
+              </div>
+
+              <button
+                onClick={goToNextChapter}
+                disabled={currentChapterIndex === currentCourse.chapters.length - 1}
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 disabled:opacity-30 text-white dark:text-slate-900 text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-all min-h-[44px]"
+              >
+                <span>
+                  Next {unitOrChapterLabel} (
+                  {Math.min(currentCourse.chapters.length, currentChapter.number + 1)})
+                </span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
-
-            <button
-              onClick={goToNextChapter}
-              disabled={currentChapterIndex === currentCourse.chapters.length - 1}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-30 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-all min-h-[44px]"
-            >
-              <span>
-                Next {unitOrChapterLabel} (
-                {Math.min(currentCourse.chapters.length, currentChapter.number + 1)})
-              </span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          )}
         </main>
       </div>
 
       {/* Mobile Sticky Bottom Navigation Bar */}
       <nav
         aria-label="Mobile Navigation"
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-1 flex items-center justify-around shadow-lg"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-2 py-1 flex items-center justify-around shadow-lg"
       >
+        <button
+          onClick={() => {
+            setActiveTab('dashboard');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
+            activeTab === 'dashboard'
+              ? 'text-emerald-600 dark:text-emerald-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400'
+          }`}
+        >
+          <BarChart3 className="w-5 h-5" />
+          <span className="text-[10px] mt-0.5">Stats</span>
+        </button>
+
         <button
           onClick={() => {
             setActiveTab('reader');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors min-h-[48px] ${
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
             activeTab === 'reader'
               ? isEnglishCourse
-                ? 'text-indigo-700 font-bold'
-                : 'text-emerald-700 font-bold'
-              : 'text-slate-500'
+                ? 'text-indigo-700 dark:text-indigo-400 font-bold'
+                : 'text-emerald-700 dark:text-emerald-400 font-bold'
+              : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           <BookOpen className="w-5 h-5" />
@@ -539,8 +628,8 @@ export default function App() {
             setActiveTab('summary');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors min-h-[48px] ${
-            activeTab === 'summary' ? 'text-amber-600 font-bold' : 'text-slate-500'
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
+            activeTab === 'summary' ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           <FileText className="w-5 h-5" />
@@ -552,8 +641,8 @@ export default function App() {
             setActiveTab('qna');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors min-h-[48px] ${
-            activeTab === 'qna' ? 'text-blue-700 font-bold' : 'text-slate-500'
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
+            activeTab === 'qna' ? 'text-blue-700 dark:text-blue-400 font-bold' : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           <HelpCircle className="w-5 h-5" />
@@ -565,8 +654,8 @@ export default function App() {
             setActiveTab('exercises');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-colors min-h-[48px] ${
-            activeTab === 'exercises' ? 'text-purple-700 font-bold' : 'text-slate-500'
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
+            activeTab === 'exercises' ? 'text-purple-700 dark:text-purple-400 font-bold' : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           <Award className="w-5 h-5" />
@@ -575,7 +664,7 @@ export default function App() {
 
         <button
           onClick={() => setIsSidebarOpen(true)}
-          className="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-slate-600 hover:text-emerald-700 transition-colors min-h-[48px]"
+          className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-emerald-700 transition-colors min-h-[48px]"
         >
           <Layers className="w-5 h-5" />
           <span className="text-[10px] mt-0.5">Courses</span>
