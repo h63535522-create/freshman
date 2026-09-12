@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="bg-gradient-to-r from-emerald-900 via-slate-900 to-indigo-950 text-white text-[11px] sm:text-xs px-3 sm:px-4 py-1 flex items-center justify-between border-b border-white/5">
         <div className="flex items-center gap-1.5 sm:gap-2 font-medium tracking-wide truncate">
           <span className="inline-block w-2 h-2 rounded-full bg-yellow-400 animate-pulse shrink-0"></span>
-          <span className="truncate">FDRE MoSHE • Ethiopian Freshman University Curriculum</span>
+          <span className="truncate">FDRE MoE • Ethiopian Freshman University Curriculum</span>
         </div>
         <div className="flex items-center gap-2 text-yellow-300 font-amharic text-xs shrink-0">
           <span className="hidden sm:inline">የመጀመሪያ ዓመት ኮርሶች</span>
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
                   />
                   <div className="absolute left-0 top-full mt-2 w-72 sm:w-84 max-h-96 overflow-y-auto bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 z-40 animate-fadeIn">
                     <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between">
-                      <span>Select Course ({allCourses.length} MoSHE)</span>
+                      <span>Select Course ({allCourses.length} MoE)</span>
                       {onOpenDashboard && (
                         <button
                           onClick={() => {

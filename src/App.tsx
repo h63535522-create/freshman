@@ -30,7 +30,7 @@ export default function App() {
   // Theme State (Dark mode with persistence)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     try {
-      const saved = localStorage.getItem('moshe_dark_mode');
+      const saved = localStorage.getItem('moe_dark_mode') ?? localStorage.getItem('moshe_dark_mode');
       if (saved !== null) return saved === 'true';
       return window.matchMedia('(prefers-color-scheme: dark)').matches;
     } catch {
@@ -40,7 +40,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('moshe_dark_mode', String(isDarkMode));
+      localStorage.setItem('moe_dark_mode', String(isDarkMode));
       if (isDarkMode) {
         document.documentElement.classList.add('dark');
       } else {
@@ -52,7 +52,7 @@ export default function App() {
   // Course State (default to Communicative English FLEn 1011 or saved choice)
   const [currentCourseId, setCurrentCourseId] = useState<string>(() => {
     try {
-      return localStorage.getItem('moshe_active_course_id') || 'flen1011';
+      return localStorage.getItem('moe_active_course_id') || localStorage.getItem('moshe_active_course_id') || 'flen1011';
     } catch {
       return 'flen1011';
     }
@@ -85,7 +85,7 @@ export default function App() {
   // User Local Storage Persistence
   const [bookmarkedParagraphs, setBookmarkedParagraphs] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('moshe_courses_bookmarks');
+      const saved = localStorage.getItem('moe_courses_bookmarks') || localStorage.getItem('moshe_courses_bookmarks');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -94,7 +94,7 @@ export default function App() {
 
   const [completedChapters, setCompletedChapters] = useState<number[]>(() => {
     try {
-      const saved = localStorage.getItem('moshe_courses_completed');
+      const saved = localStorage.getItem('moe_courses_completed') || localStorage.getItem('moshe_courses_completed');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -104,19 +104,19 @@ export default function App() {
   // Save changes to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('moshe_active_course_id', currentCourseId);
+      localStorage.setItem('moe_active_course_id', currentCourseId);
     } catch (e) {}
   }, [currentCourseId]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('moshe_courses_bookmarks', JSON.stringify(bookmarkedParagraphs));
+      localStorage.setItem('moe_courses_bookmarks', JSON.stringify(bookmarkedParagraphs));
     } catch (e) {}
   }, [bookmarkedParagraphs]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('moshe_courses_completed', JSON.stringify(completedChapters));
+      localStorage.setItem('moe_courses_completed', JSON.stringify(completedChapters));
     } catch (e) {}
   }, [completedChapters]);
 

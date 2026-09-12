@@ -6,7 +6,7 @@ import { unit2 as eng2U2 } from './englishUnits2/unit2';
 import { unit3 as eng2U3 } from './englishUnits2/unit3';
 import { unit4 as eng2U4 } from './englishUnits2/unit4';
 import { unit5 as eng2U5 } from './englishUnits2/unit5';
-import { moshePdfCoursesList } from './moshePdfCourses';
+import { moePdfCoursesList } from './moePdfCourses';
 
 export type { Course };
 
@@ -17,7 +17,7 @@ export const english2CourseMetadata = {
   titleEn: 'Communicative English Language Skills II',
   titleAm: 'ተግባቦታዊ የእንግሊዝኛ ቋንቋ ክህሎት ፪',
   author: 'Dr. Abiy Yigzaw (Jan. 2020)',
-  institution: 'Federal Democratic Republic of Ethiopia - Ministry of Science and Higher Education (MoSHE)',
+  institution: 'Federal Democratic Republic of Ethiopia - Ministry of Education (MoE)',
   creditHours: 3,
   year: 'Freshman Second Semester'
 };
@@ -36,9 +36,9 @@ export const allCourses: Course[] = [
     creditHours: 3,
     hasInteractiveContent: true,
     pdfModule: {
-      filename: 'Communicative_English_Language_Skills_I_MoSHE_2019.pdf',
+      filename: 'Communicative_English_Language_Skills_I_MoE_2019.pdf',
       title: 'Communicative English Language Skills I Module',
-      authorOrCommittee: 'MoSHE National English Panel',
+      authorOrCommittee: 'MoE National English Panel',
       publishedYear: '2019',
       totalUnitsOrChapters: 5
     },
@@ -58,9 +58,9 @@ export const allCourses: Course[] = [
     creditHours: 3,
     hasInteractiveContent: true,
     pdfModule: {
-      filename: 'Communicative_English_Language_Skills_II_MoSHE_2020.pdf',
+      filename: 'Communicative_English_Language_Skills_II_MoE_2020.pdf',
       title: 'Communicative English Language Skills II Module',
-      authorOrCommittee: 'Dr. Abiy Yigzaw (MoSHE)',
+      authorOrCommittee: 'Dr. Abiy Yigzaw (MoE)',
       publishedYear: '2020',
       totalUnitsOrChapters: 5
     },
@@ -80,7 +80,7 @@ export const allCourses: Course[] = [
     creditHours: 3,
     hasInteractiveContent: true,
     pdfModule: {
-      filename: 'General_Psychology_MoSHE_2019.pdf',
+      filename: 'General_Psychology_MoE_2019.pdf',
       title: 'General Psychology Student Module',
       authorOrCommittee: 'National Psychology Curriculum Committee',
       publishedYear: '2019',
@@ -89,5 +89,5 @@ export const allCourses: Course[] = [
     chapters: psychologyChapters,
     metadata: psychologyMetadata
   },
-  ...moshePdfCoursesList
+  ...moePdfCoursesList
 ];
