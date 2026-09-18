@@ -54,7 +54,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
   const [courseSearch, setCourseSearch] = useState<string>('');
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
 
-  // Compute stats across all MoSHE courses
+  // Compute stats across all MoE courses
   const stats = useMemo(() => {
     let totalChaptersCount = 0;
     let completedChaptersCount = 0;
@@ -190,17 +190,17 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>MoSHE National Freshman Curriculum Dashboard</span>
+              <span>MoE National Freshman Curriculum Dashboard</span>
             </div>
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white">
               Student Progress & Learning Analytics
             </h1>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Real-time mastery tracking across all <strong className="text-emerald-300">14 official MoSHE PDF course modules</strong>.
+              Real-time mastery tracking across all <strong className="text-emerald-300">14 official MoE PDF course modules</strong>.
               Monitor your completed chapters, track credit hours, and prepare for midterms and exit examinations.
             </p>
             <p className="font-amharic text-xs text-yellow-300/90">
-              በኢትዮጵያ ሳይንስና ከፍተኛ ትምህርት ሚኒስቴር (MoSHE) የተዘጋጁ 14ቱንም የመጀመሪያ ዓመት የዩኒቨርሲቲ ሞጁሎች እድገትዎን ይመልከቱ።
+              በትምህርት ሚኒስቴር (MoE) የተዘጋጁ 14ቱንም የመጀመሪያ ዓመት የዩኒቨርሲቲ ሞጁሎች እድገትዎን ይመልከቱ።
             </p>
           </div>
 
@@ -226,7 +226,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
         {/* Card 1 */}
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs font-semibold mb-2">
-            <span>MoSHE PDF Courses</span>
+            <span>MoE PDF Courses</span>
             <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           </div>
           <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
@@ -291,7 +291,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
                 <span>Chapter Completion by Course (በየኮርሱ የተጠናቀቁ ምዕራፎች)</span>
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Comparing completed vs remaining chapters across all 14 MoSHE PDF modules
+                Comparing completed vs remaining chapters across all 14 MoE PDF modules
               </p>
             </div>
             <div className="flex items-center gap-3 text-xs">
@@ -438,14 +438,14 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
         </div>
       </div>
 
-      {/* All MoSHE PDF Courses Full Interactive Directory */}
+      {/* All MoE PDF Courses Full Interactive Directory */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs overflow-hidden">
         {/* Header & Filter Controls */}
         <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <FileText className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              <span>All MoSHE PDF Curriculum Courses ({allCourses.length})</span>
+              <span>All MoE PDF Curriculum Courses ({allCourses.length})</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
               Browse syllabus, toggle completed chapters, and jump into interactive bilingual modules.
@@ -558,7 +558,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
                     {c.amharicTitle}
                   </p>
 
-                  {/* MoSHE PDF Module Details */}
+                  {/* MoE PDF Module Details */}
                   {c.pdfModule && (
                     <div className="text-[11px] text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/60 rounded-lg p-2 mb-3 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
                       <span className="truncate pr-1">

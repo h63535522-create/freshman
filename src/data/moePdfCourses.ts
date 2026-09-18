@@ -133,9 +133,9 @@ export const emergingTechCourse: Course = {
   code: 'EmTe 1012',
   englishTitle: 'Introduction to Emerging Technologies',
   amharicTitle: 'አዳዲስ እና ተስፈኛ ቴክኖሎጂዎች መግቢያ',
-  badge: '6 Chapters (PDF)',
-  descriptionEn: 'National MoE freshman module introducing Fourth Industrial Revolution innovations: AI, Data Science, IoT, Cybersecurity, Cloud, and AR/VR/Robotics.',
-  descriptionAm: 'አራተኛው የኢንዱስትሪ አብዮት ያመጣቸውን አዳዲስ ቴክኖሎጂዎች፡ አርቴፊሻል ኢንተለጀንስ (AI)፣ ዳታ ሳይንስ፣ IoT፣ ሳይበር ደህንነት እና ሮቦቲክስን የሚያጠና ሞጁል።',
+  badge: '7 Chapters (PDF)',
+  descriptionEn: 'National MoE freshman module introducing Fourth Industrial Revolution innovations: AI, Data Science, IoT, Cybersecurity, Cloud, AR/VR/Robotics, Nanotechnology, and Emerging Trends.',
+  descriptionAm: 'አራተኛው የኢንዱስትሪ አብዮት ያመጣቸውን አዳዲስ ቴክኖሎጂዎች፡ አርቴፊሻል ኢንተለጀንስ (AI)፣ ዳታ ሳይንስ፣ IoT፣ ሳይበር ደህንነት፣ ሮቦቲክስ፣ ናኖቴክኖሎጂ እና የወደፊት አዝማሚያዎችን የሚያጠና ሞጁል።',
   semester: 'Semester 2',
   stream: 'Common',
   creditHours: 3,
@@ -145,7 +145,7 @@ export const emergingTechCourse: Course = {
     title: 'Introduction to Emerging Technologies Module',
     authorOrCommittee: 'National ICT and Emerging Tech Curriculum Committee',
     publishedYear: '2019',
-    totalUnitsOrChapters: 6
+    totalUnitsOrChapters: 7
   },
   metadata: { courseCode: 'EmTe 1012', creditHours: 3, academicYear: 'Freshman Year' },
   chapters: [
@@ -154,73 +154,75 @@ export const emergingTechCourse: Course = {
     makePdfChapter(603, 3, 'Artificial Intelligence and Machine Learning', 'ሰው ሰራሽ አስተውሎት (AI) እና ማሽን ለርኒንግ', 'AI enables machines to simulate human cognitive functions including learning, reasoning, perception, problem solving, and language comprehension.', 'ሰው ሰራሽ አስተውሎት (AI) ማሽኖች እንደ ሰው እንዲያስቡ፣ እንዲማሩ፣ ቋንቋ እንዲረዱ እና ችግሮችን እንዲፈቱ የሚያስችል ቴክኖሎጂ ነው።', 'MoE Emerging Tech Team', [{ termEn: 'Machine Learning', termAm: 'ማሽን ለርኒንግ', defEn: 'Subfield of AI focusing on algorithms that learn patterns directly from data.', defAm: 'ማሽኖች ካለፉ መረጃዎች ተነስተው በራሳቸው እንዲማሩ የሚያስችል የAI ንዑስ ዘርፍ።' }], ['Narrow AI excels at specific tasks; General AI simulates human intelligence.'], ['ጠባብ AI ለአንድ ስራ የተሰራ ሲሆን፣ አጠቃላይ AI እንደ ሰው ልጅ ያስባል።'], [], []),
     makePdfChapter(604, 4, 'Internet of Things (IoT) and Smart Systems', 'የእቃዎች በይነመረብ (IoT) እና ስማርት ስርአቶች', 'IoT connects physical objects embedded with sensors, software, and network connectivity, enabling data exchange in smart cities, agriculture, and healthcare.', 'IoT እቃዎች በሴንሰር እና በኢንተርኔት ተገናኝተው መረጃ እንዲለዋወጡ የሚያደርግ ሲሆን በስማርት ከተሞች፣ በግብርና እና በህክምና ስራ ላይ ይውላል።', 'MoE Emerging Tech Team', [{ termEn: 'Sensors and Actuators', termAm: 'ሴንሰሮችና አንቀሳቃሾች', defEn: 'Hardware components collecting environmental data and executing actions.', defAm: 'የአካባቢን መረጃ የሚሰበስቡና ትእዛዝን ወደ ተግባር የሚቀይሩ አካላት።' }], ['Smart agriculture in Ethiopia optimizes water and fertilizer delivery.'], ['ስማርት ግብርና በኢትዮጵያ የውሃና ማዳበሪያ አጠቃቀምን ያሻሽላል።'], [], []),
     makePdfChapter(605, 5, 'Cybersecurity and Digital Privacy', 'የሳይበር ደህንነት እና ዲጂታል ግላዊነት', 'Cybersecurity protects computer systems, networks, and confidential data from digital attacks, malware, unauthorized access, and identity theft.', 'የሳይበር ደህንነት የኮምፒውተር ስርአቶችን፣ ኔትወርኮችን እና ሚስጥራዊ መረጃዎችን ከጠላፊዎችና ከቫይረስ ጥቃት የሚከላከል የሳይንስ ዘርፍ ነው።', 'MoE Emerging Tech Team', [{ termEn: 'Encryption', termAm: 'ምስጠራ', defEn: 'Encoding information so only authorized parties with keys can read it.', defAm: 'መረጃን ቁልፍ ባላቸው አካላት ብቻ እንዲነበብ አድርጎ የመቀየር ሂደት።' }], ['Defending critical infrastructure is essential for digital sovereignty.'], ['ወሳኝ ሀገራዊ መዋቅሮችን ከሳይበር ጥቃት መጠበቅ ለሉዓላዊነት አስፈላጊ ነው።'], [], []),
-    makePdfChapter(606, 6, 'Augmented Reality (AR), Virtual Reality (VR) and Robotics', 'AR፣ VR እና ሮቦቲክስ', 'Immersive extended reality (XR) creates interactive simulated experiences, while robotics combines mechanical engineering and AI to automate complex physical tasks.', 'ምናባዊ እውነታ (VR) እና የተጨመረ እውነታ (AR) ህያው ተሞክሮዎችን ሲፈጥሩ፣ ሮቦቲክስ ውስብስብ ስራዎችን በራስ-ሰር ያከናውናል።', 'MoE Emerging Tech Team', [{ termEn: 'Virtual Reality', termAm: 'ምናባዊ እውነታ (VR)', defEn: 'Computer-generated simulation replacing real-world sensory environment.', defAm: 'እውነተኛውን ዓለም የሚተካ በኮምፒውተር የሚፈጠር ምናባዊ ተሞክሮ።' }], ['AR/VR revolutionizes medical training, remote surgery, and engineering.'], ['AR/VR የህክምና ስልጠናን እና የምህንድስና ዲዛይንን አሻሽሏል።'], [], [])
+    makePdfChapter(606, 6, 'Augmented Reality (AR), Virtual Reality (VR) and Robotics', 'AR፣ VR እና ሮቦቲክስ', 'Immersive extended reality (XR) creates interactive simulated experiences, while robotics combines mechanical engineering and AI to automate complex physical tasks.', 'ምናባዊ እውነታ (VR) እና የተጨመረ እውነታ (AR) ህያው ተሞክሮዎችን ሲፈጥሩ፣ ሮቦቲክስ ውስብስብ ስራዎችን በራስ-ሰር ያከናውናል።', 'MoE Emerging Tech Team', [{ termEn: 'Virtual Reality', termAm: 'ምናባዊ እውነታ (VR)', defEn: 'Computer-generated simulation replacing real-world sensory environment.', defAm: 'እውነተኛውን ዓለም የሚተካ በኮምፒውተር የሚፈጠር ምናባዊ ተሞክሮ።' }], ['AR/VR revolutionizes medical training, remote surgery, and engineering.'], ['AR/VR የህክምና ስልጠናን እና የምህንድስና ዲዛይንን አሻሽሏል።'], [], []),
+    makePdfChapter(607, 7, 'Other Emerging Technologies, Nanotechnology & Future Trends', 'ሌሎች አዳዲስ ቴክኖሎጂዎች፣ ናኖቴክኖሎጂ እና የወደፊት አዝማሚያዎች', 'Nanotechnology, biotechnology, quantum computing, blockchain, and additive manufacturing (3D printing) converging into future digital society.', 'ናኖቴክኖሎጂ፣ ባዮቴክኖሎጂ፣ ኳንተም ኮምፒውቲንግ፣ ብሎክቼይን እና 3D ፕሪንቲንግ የወደፊቱን የቴክኖሎጂ ዓለም ይቀርፃሉ።', 'MoE Emerging Tech Team', [{ termEn: 'Nanotechnology', termAm: 'ናኖቴክኖሎጂ', defEn: 'Manipulation of matter on an atomic and molecular scale (1 to 100 nanometers).', defAm: 'ቁስ አካላትን በአቶሚክና ሞለኪውላዊ ልኬት (ከ1 እስከ 100 ናኖሜትር) የመቆጣጠር ቴክኖሎጂ።' }, { termEn: 'Quantum Computing', termAm: 'ኳንተም ኮምፒውቲንግ', defEn: 'Computation harnessing quantum mechanics superposition and entanglement.', defAm: 'የኳንተም ፊዚክስ መርሆችን በመጠቀም እጅግ ፈጣን ስሌት የሚያከናውን የኮምፒውተር ቴክኖሎጂ።' }], ['Emerging technologies converge to solve global energy, health, and climate challenges.'], ['አዳዲስ ቴክኖሎጂዎች ተቀናጅተው ዓለም አቀፍ የሃይል፣ የጤና እና የአየር ንብረት ችግሮችን ይፈታሉ።'], [], [])
   ]
 };
 
-// 5. Mathematics for Natural Sciences / Social Sciences (Math 1011)
+// 5. Mathematics for Social Sciences (Math 1011)
 export const mathCourse: Course = {
   id: 'math1011',
   code: 'Math 1011',
-  englishTitle: 'Mathematics for Freshman Students',
-  amharicTitle: 'የመጀመሪያ ዓመት ሒሳብ',
-  badge: '5 Chapters (PDF)',
-  descriptionEn: 'National MoE freshman module: Propositional logic, set theory, functions and relations, polynomial and rational functions, and analytic geometry.',
-  descriptionAm: 'የአመክንዮ ሂሳብ፣ የሴት ንድፈ-ሀሳብ፣ ፈንክሽኖች፣ ፖሊኖሚያል፣ እና አናሊቲክ ጂኦሜትሪን የሚያስተምር የMoE ሞጁል።',
+  englishTitle: 'Mathematics for Social Sciences',
+  amharicTitle: 'ሒሳብ ለማህበራዊ ሳይንስ ተማሪዎች',
+  badge: '4 Chapters (217 Pages PDF)',
+  descriptionEn: 'Official MoSHE freshman module: Propositional logic and set theory, real functions and graphs, matrices, determinants and linear systems, and differential and integral calculus.',
+  descriptionAm: 'የአመክንዮ ሂሳብ እና የሴት ንድፈ-ሀሳብ፣ ፈንክሽኖች፣ ማትሪክስ እና ዲተርሚናንት፣ እንዲሁም ዲፈረንሺያልና ኢንተግራል ካልኩለስን የያዘ ይፋዊ የMoSHE ሞጁል።',
   semester: 'Semester 1',
-  stream: 'Common',
+  stream: 'Social Science',
   creditHours: 3,
   hasInteractiveContent: true,
   pdfModule: {
-    filename: 'Mathematics_for_Natural_Sciences_MoE_2019.pdf',
-    title: 'Mathematics Student Module',
-    authorOrCommittee: 'National Mathematics Committee (MoE)',
+    filename: 'Mathematics_for_Social_Sciences_MoSHE_2019.pdf',
+    title: 'Mathematics for Social Sciences Module',
+    authorOrCommittee: 'Dr. Berhanu Bekele, Ato Mulugeta Naizghi, Dr. Simon Derkee, Ato Wondwosen Zemene (MoSHE)',
     publishedYear: '2019',
-    totalUnitsOrChapters: 5
+    totalUnitsOrChapters: 4
   },
   metadata: { courseCode: 'Math 1011', creditHours: 3, academicYear: 'Freshman Year' },
   chapters: [
-    makePdfChapter(701, 1, 'Propositional Logic and Set Theory', 'የመግለጫዎች አመክንዮ እና የሴት ንድፈ-ሀሳብ', 'Logic provides formal symbolic tools for mathematical reasoning, truth tables, and set operations including union, intersection, and complements.', 'ስነ-አመክንዮ ለሂሳባዊ ማረጋገጫዎች መደበኛ ምልክቶችን ሲሰጥ፣ የሴት ስራዎች ህብረት፣ መቆራረጥ እና ማሟያን ያጠናል።', 'MoE Math Team', [{ termEn: 'Truth Table', termAm: 'የእውነት ሠንጠረዥ', defEn: 'Mathematical table used to determine functional values of logical propositions.', defAm: 'የአመክንዮ መግለጫዎችን እውነተኝነት ለመወሰን የሚያገለግል ሠንጠረዥ።' }], ['Compound statements use connectives: NOT, AND, OR, IF...THEN, and IFF.'], ['ውሁድ ዓረፍተ-ነገሮች አገናኞችን ይጠቀማሉ: አይደለም፣ እና፣ ወይም፣ ከሆነ...ያኔ።'], [], []),
-    makePdfChapter(702, 2, 'Relations and Functions', 'ዝምድናዎች እና ፈንክሽኖች', 'A function is a special relation where each input element in domain maps to exactly one output value in the codomain.', 'ፈንክሽን ማለት በግቤት (Domain) ውስጥ ላለ ለእያንዳንዱ አባል በትክክል አንድ ውጤት (Range) የሚሰጥ ልዩ ዝምድና ነው።', 'MoE Math Team', [{ termEn: 'Injective Function', termAm: 'አንድ ለአንድ ፈንክሽን', defEn: 'Function where distinct domain inputs produce distinct range outputs.', defAm: 'የተለያዩ ግቤቶች የተለያዩ ውጤቶችን የሚያስገኙበት ፈንክሽን።' }], ['One-to-one and onto functions possess inverses.'], ['አንድ-ለአንድ እና ሙሉ። ፈንክሽኖች ግልባጭ (Inverse) አላቸው።'], [], []),
-    makePdfChapter(703, 3, 'Polynomial and Rational Functions', 'ፖሊኖሚያል እና ረሽናል ፈንክሽኖች', 'Investigating roots, zeroes, synthetic division, and asymptotes of polynomial expressions and rational fractions.', 'የፖሊኖሚያል እና የክፍልፋይ (ረሽናል) ፈንክሽኖች ዜሮዎችን፣ ማካፈልን እና አስምፕቶቶችን መመርመር።', 'MoE Math Team', [{ termEn: 'Asymptote', termAm: 'አስምፕቶት', defEn: 'Line that a curve approaches arbitrarily closely as coordinates tend to infinity.', defAm: 'አንድ ኩርባ መስመር ወደ ወሰን-አልባ ሲጓዝ እየተጠጋው የሚሄድ መስመር።' }], ['Rational functions have vertical and horizontal asymptotes.'], ['ረሽናል ፈንክሽኖች ቋሚና አግድም አስምፕቶቶች አሏቸው።'], [], []),
-    makePdfChapter(704, 4, 'Exponential and Logarithmic Functions', 'ኤክስፖኔንሻል እና ሎጋሪዝሚክ ፈንክሽኖች', 'Exponential models describe population growth and decay, while logarithmic functions serve as their natural mathematical inverses.', 'ኤክስፖኔንሻል ፈንክሽኖች የህዝብ እድገትና የተፈጥሮ ቅነሳን ሲገልጹ፣ ሎጋሪዝም የተፈጥሮ ግልባጫቸው ነው።', 'MoE Math Team', [{ termEn: 'Logarithm', termAm: 'ሎጋሪዝም', defEn: 'Exponent to which base must be raised to produce that number.', defAm: 'መሰረቱ የተፈለገውን ቁጥር ለመስጠት ሊረባበት የሚገባው ገላጭ።' }], ['Logarithm rules simplify complex multiplication and exponentiation.'], ['የሎጋሪዝም ህጎች ውስብስብ ማባዛትና ማርባትን ያቃልላሉ።'], [], []),
-    makePdfChapter(705, 5, 'Trigonometric Functions and Analytic Geometry', 'ትሪጎኖሜትሪ እና አናሊቲክ ጂኦሜትሪ', 'Circles, parabolas, ellipses, and hyperbolas analyzed algebraically in the Cartesian coordinate plane alongside trigonometric identities.', 'ክቦች፣ ፓራቦላ፣ ኤሊፕስ እና ሀይፐርቦላ በካርቴዥያን የቁጥር አውድ ውስጥ ከትሪጎኖሜትሪ ህጎች ጋር ይተነተናሉ።', 'MoE Math Team', [{ termEn: 'Conic Sections', termAm: 'የሾጣጣ ቅጾች', defEn: 'Curves obtained by the intersection of a cone with a flat plane.', defAm: 'አንድ ሾጣጣ ቅርፅ ከጠፍጣፋ ወለል ጋር ሲቆራረጥ የሚፈጠሩ ኩርባዎች።' }], ['Analytic geometry bridges algebraic formulas with geometric figures.'], ['አናሊቲክ ጂኦሜትሪ አልጀብራን ከስዕላዊ ቅርጾች ጋር ያገናኛል።'], [], [])
+    makePdfChapter(701, 1, 'Propositional Logic and Set Theory', 'የመግለጫዎች አመክንዮ እና የሴት ንድፈ-ሀሳብ', 'Propositional logic, connectives, truth tables, tautology, contradiction, open statements, universal and existential quantifiers, valid arguments, rules of inference, set operations, and Venn diagrams.', 'ስነ-አመክንዮ፣ አገናኞች፣ የእውነት ሠንጠረዥ፣ ታውቶሎጂ፣ ተቃርኖ፣ ክፍት መግለጫዎች፣ አማካዮች (∀ እና ∃)፣ ተቀባይነት ያላቸው ክርክሮች፣ የማረጋገጫ ደንቦች፣ የሴት ስራዎች እና የቬን ዲያግራም።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Tautology', termAm: 'ታውቶሎጂ', defEn: 'A compound proposition that is always true regardless of component truth values.', defAm: 'በሁሉም ሁኔታዎች ሁልጊዜ እውነት የሚሆን ውሁድ መግለጫ።' }, { termEn: 'Rule of Inference', termAm: 'የመደምደሚያ ደንብ', defEn: 'Logical argument form guaranteed to yield a valid conclusion from true premises.', defAm: 'ከእውነተኛ መነሻዎች ወደ ትክክለኛ መደምደሚያ የሚያደርስ አመክንዮአዊ ደንብ።' }], ['De Morgan\'s laws apply symmetrically across both propositional logic and set theory.'], ['የዲ ሞርጋን ህጎች በሁለቱም በአመክንዮ እና በሴት ንድፈ-ሀሳብ ላይ በእኩልነት ይሰራሉ።'], [], []),
+    makePdfChapter(702, 2, 'Functions and Their Graphs', 'ፈንክሽኖች እና ግራፎቻቸው', 'Real number system, linear and quadratic equations and inequalities, relations, domains, operations on functions, one-to-one, onto, polynomial zeros, rational functions and asymptotes, exponential, logarithmic, and trigonometric functions.', 'የእውነተኛ ቁጥሮች ስርአት፣ ሊኒየር እና ኳድራቲክ እኩልታዎችና አለእኩልነቶች፣ ዝምድናዎች፣ ዶሜይንና ሬንጅ፣ የፈንክሽን ስሌቶች፣ አንድ-ለአንድ፣ ፖሊኖሚያል፣ ረሽናል ፈንክሽኖች እና አስምፕቶቶች፣ ኤክስፖኔንሻል፣ ሎጋሪዝም እና ትሪጎኖሜትሪ።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Injective Function', termAm: 'አንድ ለአንድ ፈንክሽን', defEn: 'Function where distinct domain inputs produce distinct outputs; passes horizontal line test.', defAm: 'የተለያዩ ግቤቶች የተለያዩ ውጤቶችን የሚያስገኙበት ፈንክሽን።' }, { termEn: 'Asymptote', termAm: 'አስምፕቶት', defEn: 'A line that a graph approaches closer and closer as coordinates approach infinity.', defAm: 'አንድ ኩርባ መስመር ወደ ወሰን-አልባ ሲጓዝ እየተጠጋው የሚሄድ መስመር።' }], ['Only one-to-one functions have an inverse function.'], ['ግልባጭ (Inverse) ሊኖራቸው የሚችለው አንድ-ለአንድ የሆኑ ፈንክሽኖች ብቻ ናቸው።'], [], []),
+    makePdfChapter(703, 3, 'Matrices, Determinants and Systems of Linear Equations', 'ማትሪክስ፣ ዲተርሚናንት እና የመስመራዊ እኩልታዎች ስርአት', 'Matrix algebra, addition, scalar multiplication, matrix multiplication, transpose, elementary row operations, row echelon forms (REF & RREF), rank, minors, cofactors, determinants, adjoint, matrix inversion, Gaussian elimination, and Cramer\'s rule.', 'ማትሪክስ አልጀብራ፣ መደመር፣ ማባዛት፣ ትራንስፖዝ፣ መሰረታዊ የረድፍ ስራዎች፣ የኤቼሎን ቅጾች (REF እና RREF)፣ ደረጃ (Rank)፣ ዲተርሚናንት፣ አድጆይንት፣ ግልባጭ ማትሪክስ፣ የጋውስ ማጣሪያ እና የክሬመርስ ህግ።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Reduced Row Echelon Form', termAm: 'የተቀነሰ የረድፍ ኤቼሎን ቅጽ', defEn: 'Matrix where each leading entry is 1 and the only nonzero entry in its column.', defAm: 'እያንዳንዱ መሪ አባል 1 ሆኖ በአምዱ ውስጥ ከእሱ ውጪ ሌሎቹ በሙሉ ዜሮ የሆኑበት ቅጽ።' }, { termEn: 'Cramer\'s Rule', termAm: 'የክሬመርስ ህግ', defEn: 'Explicit determinant-based formula for solving square systems of linear equations.', defAm: 'በዲተርሚናንት ስሌት የመስመራዊ እኩልታዎችን መፍትሔ በቀጥታ የሚያስገኝ ቀመር።' }], ['Matrix multiplication is associative but generally non-commutative (AB ≠ BA).'], ['የማትሪክስ ብዜት የማጣመር ህግን ያሟላል ነገር ግን የመቀያየር ህግን አያሟላም (AB ≠ BA)።'], [], []),
+    makePdfChapter(704, 4, 'Introduction to Calculus', 'የመግቢያ ካልኩለስ', 'Limits and continuity, one-sided limits, squeeze theorem, asymptotes, Intermediate Value Theorem, derivative definition, product/quotient/chain rules, trig/exponential/log derivatives, relative extrema, optimization, indefinite and definite integrals, substitution, integration by parts, and Fundamental Theorem of Calculus.', 'ወሰኖች (Limits) እና ቀጣይነት፣ የስኩዊዝ ቴዎረም፣ አስምፕቶቶች፣ የመካከለኛ ዋጋ ቴዎረም (IVT)፣ የዲሪቬቲቭ ትርጉም፣ የማስላት ደንቦች፣ ከፍተኛና ዝቅተኛ ዋጋ፣ ማመቻቸት (Optimization)፣ ያልተወሰነና የተወሰነ ኢንተግራል፣ በቅያሪና በክፍል መስራት፣ እና የካልኩለስ መሰረታዊ ቴዎረም።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Fundamental Theorem of Calculus', termAm: 'የካልኩለስ መሰረታዊ ቴዎረም', defEn: 'Establishes the inverse relationship between differentiation and integration.', defAm: 'በዲፈረንሺዬሽን እና በኢንተግሬሽን መካከል ያለውን የተቃራኒ ግንኙነት የሚያረጋግጥ ቴዎረም።' }, { termEn: 'Intermediate Value Theorem', termAm: 'የመካከለኛ ዋጋ ቴዎረም', defEn: 'Continuous function takes all intermediate values between its endpoints.', defAm: 'ቀጣይ የሆነ ፈንክሽን በሁለቱ ጫፎች መካከል የሚገኙትን እሴቶች በሙሉ ያገኛል።' }], ['The derivative represents instantaneous rate of change and geometric tangent line slope.'], ['ዲሪቬቲቭ ቅጽበታዊ የለውጥ ምጣኔን እና የታንጀንት መስመር ቁልቁለትን ይወክላል።'], [], [])
   ]
 };
 
 // 6. Social Anthropology (Anth 1012) - Full 6-Unit Interactive Curriculum
 export const anthropologyCourse: Course = fullAnthropologyCourse;
 
-// 7. Moral and Civic Education (MCDE 1012)
+// 7. Moral and Citizenship Education (MCED 1011 / MCDE 1012)
 export const civicsCourse: Course = {
   id: 'mcde1012',
-  code: 'MCDE 1012',
-  englishTitle: 'Moral and Civic Education',
-  amharicTitle: 'ስነ-ምግባር እና የዜግነት ትምህርት',
+  code: 'MCED 1011',
+  englishTitle: 'Moral and Citizenship Education',
+  amharicTitle: 'የስነ-ምግባር እና የዜግነት ትምህርት',
   badge: '6 Chapters (PDF)',
-  descriptionEn: 'National MoE module: Ethics, morality, state and society, constitutional democracy, human rights, and rule of law in Ethiopia.',
-  descriptionAm: 'ስነ-ምግባር፣ መንግስትና ማህበረሰብ፣ ህገ-መንግስታዊ ዲሞክራሲ፣ ሰብአዊ መብቶች እና የህግ የበላይነትን የሚያስተምር የMoE ሞጁል።',
-  semester: 'Semester 2',
+  descriptionEn: 'National MoE/MoSHE standardized freshman module: Ethics, morality, normative ethical theories, ethical decision-making, state, government, citizenship, constitution, human rights, and social values in Ethiopia.',
+  descriptionAm: 'የኢትዮጵያ ሳይንስና ከፍተኛ ትምህርት ሚኒስቴር (MoSHE) ይፋዊ ሞጁል፡ ስነ-ምግባር፣ የስነ-ምግባር ንድፈ-ሀሳቦች፣ የውሳኔ አሰጣጥ፣ መንግስትና ዜግነት፣ ህገ-መንግስት፣ ሰብአዊ መብቶች እና አገራዊ ማህበራዊ እሴቶችን የሚያጠና።',
+  semester: 'Semester 1 or 2',
   stream: 'Common',
   creditHours: 3,
   hasInteractiveContent: true,
   pdfModule: {
-    filename: 'Moral_and_Civic_Education_MoE_2019.pdf',
-    title: 'Moral and Civic Education Student Module',
-    authorOrCommittee: 'National Civic and Ethical Studies Curriculum Committee',
+    filename: 'Moral_and_Citizenship_Education_MoE_2019.pdf',
+    title: 'Moral and Citizenship Education Student Module (MCED 1011)',
+    authorOrCommittee: 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE / MoE)',
     publishedYear: '2019',
     totalUnitsOrChapters: 6
   },
-  metadata: { courseCode: 'MCDE 1012', creditHours: 3, academicYear: 'Freshman Year' },
+  metadata: { courseCode: 'MCED 1011', creditHours: 3, academicYear: 'Freshman Year' },
   chapters: [
-    makePdfChapter(901, 1, 'Understanding Ethics, Morality and Civic Life', 'ስነ-ምግባር እና የዜግነት ህይወት መረዳት', 'Ethics investigates moral principles guiding right conduct; civics studies citizen rights, duties, and participatory governance.', 'ስነ-ምግባር ትክክለኛ የሰው ልጅ ባህሪን ሲያጠና፣ ዜግነት የመብት፣ ግዴታ እና የማህበረሰብ ተሳትፎን ይመረምራል።', 'MoE Civics Team', [{ termEn: 'Civic Engagement', termAm: 'የዜግነት ተሳትፎ', defEn: 'Active participation of citizens in public decision-making.', defAm: 'ዜጎች በሀገራዊ እና ማህበራዊ ውሳኔዎች ላይ በንቃት መሳተፋቸው።' }], ['Moral integrity builds a transparent, corruption-free society.'], ['የስነ-ምግባር ታማኝነት ከሙስና የጸዳ ማህበረሰብ ይገነባል።'], [], []),
-    makePdfChapter(902, 2, 'Ethical Theories and Moral Principles', 'የስነ-ምግባር ንድፈ-ሀሳቦች እና መርሆች', 'Utilitarianism, deontology, virtue ethics, and ethical egoism examined as frameworks for resolving real-world moral dilemmas.', 'ጥቅም-ተኮር፣ ግዴታ-ተኮር እና በጎ ምግባር-ተኮር የስነ-ምግባር ንድፈ-ሀሳቦች የሰዎችን ውሳኔ ይመራሉ::', 'MoE Civics Team', [{ termEn: 'Deontology', termAm: 'ግዴታ-ተኮር ስነ-ምግባር', defEn: 'Duty-based ethics asserting actions are inherently right or wrong.', defAm: 'ተግባራት ከውጤታቸው ባሻገር በራሳቸው ትክክል ወይም ስህተት ናቸው የሚል ንድፈ-ሀሳብ።' }], ['Virtue ethics emphasizes character development over rigid rules.'], ['በጎ-ምግባር ከህጎች ይልቅ የሰውን መልካም ስብዕና ማዳበር ላይ ያተኩራል።'], [], []),
-    makePdfChapter(903, 3, 'Society, State and Government', 'ማህበረሰብ፣ መንግስትና አስተዳደር', 'The social contract theory explains the legitimacy of government in protecting sovereignty, order, and citizen welfare.', 'የማህበራዊ ውል ንድፈ-ሀሳብ የመንግስትን ህጋዊነት፣ ሉዓላዊነትን ማስጠበቅ እና የህዝብ ደህንነትን ማረጋገጥ ያስረዳል::', 'MoE Civics Team', [{ termEn: 'Rule of Law', termAm: 'የህግ የበላይነት', defEn: 'Principle that all citizens and institutions are accountable to law.', defAm: 'ሁሉም ዜጎችና ባለስልጣናት በህግ ፊት እኩል ተጠያቂ መሆናቸውን የሚያረጋግጥ መርህ።' }], ['Separation of powers prevents autocratic abuse.'], ['የስልጣን ክፍፍል የአምባገነንነትን አደጋ ይከላከላል።'], [], []),
-    makePdfChapter(904, 4, 'Constitution and Constitutionalism in Ethiopia', 'ህገ-መንግስት እና ህገ-መንግስታዊነት በኢትዮጵያ', 'Constitutional history from the 1931 written constitution to the 1995 FDRE Constitution establishing federalism and bill of rights.', 'ከ1923 ዓ.ም ጀምሮ እስከ 1987 ዓ.ም የኢፌዲሪ ህገ-መንግስት ድረስ የነበረው ታሪካዊ ጉዞና የፌዴራሊዝም መዋቅር።', 'MoE Civics Team', [{ termEn: 'Constitutionalism', termAm: 'ህገ-መንግስታዊነት', defEn: 'Adherence to constitutional principles limiting arbitrary government power.', defAm: 'የመንግስት ስልጣን በህገ-መንግስቱ ገደብ መሰረት ብቻ እንዲሰራ ማድረግ።' }], ['The constitution is the supreme law of the land.'], ['ህገ-መንግስቱ የሀገሪቱ የበላይ ህግ ነው።'], [], []),
-    makePdfChapter(905, 5, 'Human Rights and Fundamental Freedoms', 'ሰብአዊ መብቶች እና መሰረታዊ ነፃነቶች', 'Civil, political, economic, social, and cultural rights enshrined in Universal Declaration of Human Rights and regional charters.', 'በዓለም አቀፍ የሰብአዊ መብቶች ድንጋጌዎችና በአህጉራዊ ቻርተሮች እውቅና ያገኙ የዜጎች መብቶች።', 'MoE Civics Team', [{ termEn: 'Inherent Rights', termAm: 'የተፈጥሮ መብቶች', defEn: 'Rights born with every human being regardless of nationality or creed.', defAm: 'ማንኛውም ሰው ሰው በመሆኑ ብቻ የሚያገኛቸው የማይገፈፉ መብቶች።' }], ['Human rights are universal, inalienable, and indivisible.'], ['ሰብአዊ መብቶች ዓለም አቀፋዊ፣ የማይገፈፉ እና የማይከፋፈሉ ናቸው።'], [], []),
-    makePdfChapter(906, 6, 'Peacebuilding, Conflict Resolution and Good Governance', 'ሰላም ግንባታ፣ ግጭት አፈታትና መልካም አስተዳደር', 'Transforming destructive disputes through dialogue, restorative justice, democratic tolerance, and institutional accountability.', 'ግጭቶችን በውይይት፣ በእርቅ እና በዲሞክራሲያዊ መቻቻል ወደ ዘላቂ ሰላም የመቀየር ሂደት።', 'MoE Civics Team', [{ termEn: 'Good Governance', termAm: 'መልካም አስተዳደር', defEn: 'Transparent, accountable, inclusive, and effective state management.', defAm: 'ግልፅነት፣ ተጠያቂነት፣ አሳታፊነትና ቅልጥፍና የተሞላበት የመንግስት አሰራር።' }], ['Sustainable development requires enduring national peace.'], ['ዘላቂ ልማት ያለ አስተማማኝ ሰላም እውን ሊሆን አይችልም።'], [], [])
+    makePdfChapter(901, 1, 'Understanding Civics and Ethics', 'ስነ-ዜጋ እና ስነ-ምግባርን መረዳት', 'Civics and ethics cultivate competent, informed, and active citizens with moral integrity, examining ethical principles, legal frameworks, and moral philosophy.', 'ስነ-ዜጋ እና ስነ-ምግባር እውቀትና ንቁ ተሳትፎ ያላቸውን፣ በስነ-ምግባር የታነጹ ዜጎችን ለማፍራት የሚያስችሉ መሰረታዊ መርሆችን፣ የህግ ማዕቀፎችን እና የፍልስፍና እሳቤዎችን ያጠናል።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Civic Education', termAm: 'የዜግነት ትምህርት', defEn: 'Education cultivating active, responsible, and informed participation in democratic governance.', defAm: 'ዜጎች በዲሞክራሲያዊ አስተዳደር ውስጥ ንቁ፣ ኃላፊነት የሚሰማቸውና የተገነዘቡ ተሳታፊ እንዲሆኑ የሚያዘጋጅ ትምህርት።' }, { termEn: 'Moral Integrity', termAm: 'የሞራል ታማኝነት', defEn: 'Consistency between moral beliefs, professed values, and actual ethical conduct.', defAm: 'በሞራል እምነት፣ በሚታወጁ እሴቶችና በተግባራዊ የስነ-ምግባር ምግባር መካከል ያለው ስምምነት።' }], ['Civics cultivates public duty and democratic responsibility.', 'Ethics provides rational guidance for navigating human action and moral choices.'], ['የዜግነት ትምህርት የህዝባዊ ኃላፊነትንና ዲሞክራሲያዊ ግዴታን ያዳብራል።', 'ስነ-ምግባር ለሰው ልጅ ተግባራትና ለሞራል ምርጫዎች ምክንያታዊ መመሪያን ይሰጣል።'], [], []),
+    makePdfChapter(902, 2, 'Approaches to Ethics and Normative Theories', 'የስነ-ምግባር አቀራረቦችና ንድፈ-ሀሳቦች', 'Normative ethical frameworks: Teleological (utilitarianism, egoism), Deontological (Kantian duties, rights theory), and Virtue Ethics (Aristotelian character development).', 'የስነ-ምግባር ንድፈ-ሀሳቦች፡ ጥቅም-ተኮር (ዩቲሊታሪያኒዝም፣ ኢጎኢዝም)፣ ግዴታ-ተኮር (ካንትና የሰብአዊ መብት ንድፈ-ሀሳብ)፣ እና በጎ ምግባር-ተኮር (የአሪስቶትል ስብዕና ግንባታ)።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Deontology', termAm: 'ግዴታ-ተኮር ስነ-ምግባር', defEn: 'Duty-based normative theory holding that actions are intrinsically right or wrong regardless of consequences.', defAm: 'ተግባራት ከውጤታቸው ባሻገር በባህሪያቸው በራሳቸው ትክክል ወይም ስህተት እንደሆኑ የሚያስተምር የስነ-ምግባር ንድፈ-ሀሳብ።' }, { termEn: 'Utilitarianism', termAm: 'ጥቅም-ተኮር ስነ-ምግባር (ዩቲሊታሪያኒዝም)', defEn: 'Consequentialist theory asserting the right action produces the greatest good for the greatest number.', defAm: 'ለብዙሃኑ የላቀውን ጥቅም የሚያስገኝ ተግባር ትክክለኛ ነው የሚል የውጤት-ተኮር ስነ-ምግባር እሳቤ።' }], ['Kant’s categorical imperative mandates treating humans as ends in themselves.', 'Virtue ethics focuses on cultivating internal habits of excellence and character.'], ['የካንት ፍጹም ትዕዛዝ ሰውን በራሱ እንደ ግብ እንጂ እንደ መጠቀሚያ እንዳንመለከት ያዛል።', 'በጎ ምግባር-ተኮር ስነ-ምግባር ውስጣዊ የመልካምነት ልማዶችንና ስብዕናን በማነጽ ላይ ያተኩራል።'], [], []),
+    makePdfChapter(903, 3, 'Ethical Decision Making and Moral Judgments', 'ስነ-ምግባራዊ ውሳኔ አሰጣጥ እና የሞራል ፍርዶች', 'Systematic frameworks for ethical reasoning, analyzing moral dilemmas, applying ethical principles, and evaluating consequences in public and professional life.', 'ስነ-ምግባራዊ ችግሮችን ለመፍታት፣ የሞራል ውስብስቦችን ለመተንተን እና በመንግስታዊና በሙያዊ ህይወት ውስጥ ምክንያታዊ ውሳኔ ለመስጠት የሚያስችሉ ስልታዊ ማዕቀፎች።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Moral Dilemma', termAm: 'የሞራል ውስብስብ (ዳይሌማ)', defEn: 'Situation requiring a choice between two conflicting moral obligations where neither can be fully resolved without sacrificing the other.', defAm: 'ሁለት እርስ በእርስ የሚጋጩ የሞራል ግዴታዎች አጋጥመው አንዱን ለመፈጸም ሌላውን መስዋዕት ማድረግ የሚያስገድድ ሁኔታ።' }], ['Ethical decision making integrates moral principles, empathy, and consequence awareness.', 'Professional codes of conduct establish standard boundaries for occupational integrity.'], ['ስነ-ምግባራዊ ውሳኔ አሰጣጥ የሞራል መርሆችን፣ ርህራሄንና የውጤት ግንዛቤን ያጣምራል።', 'የሙያ ስነ-ምግባር ደንቦች ለሙያዊ ታማኝነት መደበኛ ወሰኖችን ያስቀምጣሉ።'], [], []),
+    makePdfChapter(904, 4, 'State, Government and Citizenship', 'መንግስት፣ አስተዳደር እና ዜግነት', 'The concepts of statehood, sovereignty, forms and organs of government, constitutional democracy, theories of citizenship, and citizen rights and obligations.', 'የመንግስት ምንነት፣ ሉዓላዊነት፣ የመንግስት አካላትና ቅርጾች፣ ህገ-መንግስታዊ ዲሞክራሲ፣ የዜግነት ንድፈ-ሀሳቦች፣ እና የዜጎች መብትና ግዴታዎች ጥናት።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Rule of Law', termAm: 'የህግ የበላይነት', defEn: 'Principle ensuring that all citizens, leaders, and public institutions are equally accountable to the law.', defAm: 'ሁሉም ዜጎች፣ መሪዎችና የመንግስት ተቋማት በእኩልነት ለህግ ተገዥና ተጠያቂ መሆናቸውን የሚያረጋግጥ መርህ።' }, { termEn: 'Sovereignty', termAm: 'ሉዓላዊነት', defEn: 'Supreme authority within a territorial boundary, free from external control.', defAm: 'አንድ ሀገር በወሰኗ ውስጥ ያላት የበላይ ስልጣንና ከውጭ ጣልቃ ገብነት ነፃ የመሆን መብት።' }], ['Separation of powers into legislative, executive, and judicial branches prevents autocracy.', 'Active citizenship requires civic vigilance, public participation, and community responsibility.'], ['ስልጣንን በህግ አውጪ፣ አስፈጻሚ እና ተርጓሚ መክፈል አምባገነንነትን ይከላከላል።', 'ንቁ ዜግነት የህዝብ ተሳትፎን፣ የማህበረሰብ ኃላፊነትንና ንቁ ንቃተ-ህሊናን ይጠይቃል።'], [], []),
+    makePdfChapter(905, 5, 'Constitution, Constitutionalism and Democracy', 'ህገ-መንግስት፣ ህገ-መንግስታዊነት እና ዲሞክራሲ', 'Constitutional development in Ethiopia, core constitutional principles, limits of sovereign state power, democratic participation, and protection of institutional legitimacy.', 'የኢትዮጵያ የህገ-መንግስት ታሪክ፣ መሰረታዊ ህገ-መንግስታዊ መርሆች፣ የመንግስት ስልጣን ወሰን፣ ዲሞክራሲያዊ ተሳትፎ እና የተቋማት ህጋዊነት ጥበቃ።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Constitutionalism', termAm: 'ህገ-መንግስታዊነት', defEn: 'Political philosophy requiring government authority to be derived from and limited by fundamental law.', defAm: 'የመንግስት ስልጣን ከህገ-መንግስት የሚመነጭና በህግ የተገደበ መሆን እንዳለበት የሚያስተምር የፖለቲካ ፍልስፍና።' }], ['A written constitution serves as the supreme law of the democratic state.', 'Constitutionalism safeguards individual freedoms against majoritarian or authoritarian overreach.'], ['የተጻፈ ህገ-መንግስት የዲሞክራሲያዊ ሀገር የበላይ ህግ ሆኖ ያገለግላል።', 'ህገ-መንግስታዊነት የግለሰብ ነፃነቶችን ከአምባገነናዊ ጭቆና ይጠብቃል።'], [], []),
+    makePdfChapter(906, 6, 'Human Rights, Peace and Social Values', 'ሰብአዊ መብቶች፣ ሰላም እና ማህበራዊ እሴቶች', 'Generations of human rights, Ethiopian constitutional rights provisions, conflict transformation, sustainable peacebuilding, tolerance, and shared civic patriotism.', 'የሰብአዊ መብት ትውልዶች፣ የኢትዮጵያ ህገ-መንግስት የመብት ድንጋጌዎች፣ የግጭት አፈታትና ሽግግር፣ ዘላቂ ሰላም ግንባታ፣ መቻቻልና የጋራ አገራዊ ፍቅር።', 'Shewit Gebrezgabher & Gebretsadik Awgichew (MoSHE)', [{ termEn: 'Inalienable Rights', termAm: 'የማይገፈፉ መብቶች', defEn: 'Rights inherent to every human being that cannot be legitimately taken away or transferred.', defAm: 'እያንዳንዱ ሰው ሰው በመሆኑ ብቻ የሚያገኛቸውና በማንም ሊወሰዱ የማይችሉ መሰረታዊ መብቶች።' }, { termEn: 'Peacebuilding', termAm: 'ሰላም ግንባታ', defEn: 'Constructive measures undertaken to transform structural causes of conflict and cultivate lasting coexistence.', defAm: 'የግጭቶችን ስር የሰደዱ መንስኤዎች በማስወገድ ዘላቂ አብሮ መኖርን የሚያሰፍኑ ገንቢ ተግባራት።' }], ['Human rights are universal, inalienable, indivisible, and interdependent.', 'Enduring national prosperity rests on justice, mutual respect, and participatory peace.'], ['ሰብአዊ መብቶች ዓለም አቀፋዊ፣ የማይገፈፉ፣ የማይከፋፈሉ እና እርስ በእርስ የተሳሰሩ ናቸው።', 'ዘላቂ ሀገራዊ ብልጽግና በፍትህ፣ በመከባበርና በአሳታፊ ሰላም ላይ የተመሰረተ ነው።'], [], [])
   ]
 };
+
+export const moralCitizenshipCourse = civicsCourse;
 
 // 8. Inclusiveness (SNIE 1012)
 export const inclusivenessCourse: Course = {
@@ -319,7 +321,341 @@ export const globalTrendsCourse: Course = {
 // 12. Entrepreneurship (Mgmt 1012) - Full 6 Units Interactive MoE Curriculum
 export { entrepreneurshipCourse };
 
-// Array of all 12 additional MoE PDF courses
+// 13. Introduction to Economics (Econ 1011)
+export const economicsCourse: Course = {
+  id: 'econ1011',
+  code: 'Econ 1011',
+  englishTitle: 'Introduction to Economics',
+  amharicTitle: 'የኢኮኖሚክስ መግቢያ',
+  badge: '6 Chapters (PDF)',
+  descriptionEn: 'National MoSHE/MoE freshman module: Nature and methods of economics, theory of demand and supply, consumer behavior, production and cost analysis, market structures, and macroeconomic fundamentals in Ethiopia.',
+  descriptionAm: 'የኢትዮጵያ ሳይንስና ከፍተኛ ትምህርት ሚኒስቴር (MoSHE) ይፋዊ ሞጁል፡ የኢኮኖሚክስ ምንነትና ተፈጥሮ፣ የፍላጎትና አቅርቦት ንድፈ-ሀሳብ፣ የተጠቃሚዎች ባህሪ፣ የምርትና የወጪ ትንተና፣ የገበያ መዋቅሮች እና የማክሮ ኢኮኖሚክስ መሰረታዊ ፅንሰ-ሀሳቦች።',
+  semester: 'Semester 1 or 2',
+  stream: 'Common',
+  creditHours: 3,
+  hasInteractiveContent: true,
+  pdfModule: {
+    filename: 'Introduction_to_Economics_MoE_2019.pdf',
+    title: 'Introduction to Economics Student Module (Econ 1011)',
+    authorOrCommittee: 'Ministry of Science and Higher Education (MoSHE)',
+    publishedYear: '2019',
+    totalUnitsOrChapters: 6
+  },
+  metadata: { courseCode: 'Econ 1011', creditHours: 3, academicYear: 'Freshman Year' },
+  chapters: [
+    makePdfChapter(
+      1401,
+      1,
+      'Theory of Scarcity, Choice and Economic Systems',
+      'የእጥረት፣ ምርጫ እና የኢኮኖሚ ስርአቶች ንድፈ-ሀሳብ',
+      'Economics is the study of allocating scarce resources to satisfy unlimited human wants. Scarcity necessitates choice, creating opportunity cost illustrated by the Production Possibility Frontier (PPF).',
+      'ኢኮኖሚክስ ያልተገደበ የሰዎችን ፍላጎት ውስን በሆኑ ሀብቶች እንዴት ማርካት እንደሚቻል የሚያጠና የማህበራዊ ሳይንስ ዘርፍ ነው። እጥረት ምርጫን ያስከትላል፤ ምርጫ ደግሞ የእድል ዋጋን (Opportunity Cost) በምርት አቅም ወሰን (PPF) ያስከትላል።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Scarcity', termAm: 'እጥረት', defEn: 'Fundamental economic problem where society has insufficient productive resources to fulfill all human desires.', defAm: 'የሰው ልጅ ካለው ያልተገደበ ፍላጎት አንጻር የሚገኙት የተፈጥሮና ሰው ሰራሽ ሀብቶች ውስን መሆን።' },
+        { termEn: 'Opportunity Cost', termAm: 'የእድል ዋጋ (ኦፖርቹኒቲ ኮስት)', defEn: 'The value of the next best alternative forgone when a decision is made.', defAm: 'አንድን አማራጭ ለመምረጥ ሲባል የተተወው ቀጣዩ ምርጥ አማራጭ ዋጋ።' },
+        { termEn: 'PPF Curve', termAm: 'የምርት አቅም ወሰን ከርቭ', defEn: 'Graph showing maximum combination of two goods an economy can produce given fixed resources and technology.', defAm: 'በአንድ ኢኮኖሚ ውስጥ ባሉ ውስን ሀብቶችና ቴክኖሎጂ ሊመረቱ የሚችሉትን የሁለት ምርቶች ከፍተኛ ጥምረት የሚያሳይ ግራፍ።' }
+      ],
+      [
+        'Microeconomics examines individual economic agents (households, firms); Macroeconomics examines aggregate economy-wide phenomena.',
+        'Economic systems resolve the three core questions (What, How, For Whom) via traditional, command, free market, or mixed frameworks.'
+      ],
+      [
+        'ማይክሮ ኢኮኖሚክስ የግለሰብና ድርጅቶችን ውሳኔዎች ያጠናል፤ ማክሮ ኢኮኖሚክስ አጠቃላይ ሀገራዊ ምጣኔ-ሀብትን ይተነትናል።',
+        'የኢኮኖሚ ስርአቶች ሶስቱን መሰረታዊ ጥያቄዎች (ምን፣ እንዴት፣ ለማን) በባህላዊ፣ በትዕዛዝ፣ በነፃ ገበያ ወይም በድብልቅ ስርአት ይፈታሉ።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1402,
+      2,
+      'Theory of Demand and Supply and Market Equilibrium',
+      'የፍላጎትና አቅርቦት ንድፈ-ሀሳብ እና የገበያ ሚዛን',
+      'Market interactions governed by the Law of Demand (inverse price-quantity relation) and Law of Supply (direct price-quantity relation), establishing equilibrium price and quantity.',
+      'የገበያ እንቅስቃሴዎች በፍላጎት ህግ (በዋጋና በፍላጎት መጠን መካከል ያለው የተገላቢጦሽ ዝምድና) እና በአቅርቦት ህግ (በዋጋና በአቅርቦት መጠን መካከል ያለው ቀጥተኛ ዝምድና) የሚመሩ ሲሆን የገበያ ሚዛንን ያመጣሉ።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Law of Demand', termAm: 'የፍላጎት ህግ', defEn: 'Other things remaining constant (ceteris paribus), as price rises, quantity demanded falls.', defAm: 'ሌሎች ሁኔታዎች ሳይለወጡ (ሴተሪስ ፓሪቡስ)፣ የአንድ እቃ ዋጋ ሲጨምር የሚፈለገው መጠን ይቀንሳል።' },
+        { termEn: 'Law of Supply', termAm: 'የአቅርቦት ህግ', defEn: 'Other things remaining constant, as price rises, quantity supplied rises.', defAm: 'ሌሎች ሁኔታዎች ሳይለወጡ፣ የአንድ እቃ ዋጋ ሲጨምር ወደ ገበያ የሚቀርበው መጠን ይጨምራል።' },
+        { termEn: 'Price Elasticity of Demand', termAm: 'የፍላጎት የዋጋ ተለዋዋጭነት (ኤላስቲክነት)', defEn: 'Measurement of the responsiveness of quantity demanded to changes in the price of the commodity.', defAm: 'የአንድ እቃ ዋጋ ሲቀያየር የሸማቾች የፍላጎት መጠን ምን ያህል ምላሽ እንደሚሰጥ የሚለካበት መንገድ።' }
+      ],
+      [
+        'Market equilibrium occurs at the intersection of demand and supply curves where Quantity Demanded equals Quantity Supplied.',
+        'Elasticity measures behavioral sensitivity of consumers and producers to price and income shifts.'
+      ],
+      [
+        'የገበያ ሚዛን የሚፈጠረው የፍላጎትና የአቅርቦት ከርቮች በሚገናኙበትና የሚፈለገው መጠን ከሚቀርበው መጠን ጋር እኩል በሚሆንበት ነጥብ ላይ ነው።',
+        'የዋጋ ተለዋዋጭነት (Elasticity) የሸማቾችንና የአምራቾችን የዋጋና የገቢ ለውጥ ምላሽ ይለካል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1403,
+      3,
+      'Theory of Consumer Behavior: Utility and Indifference Curves',
+      'የተጠቃሚዎች ባህሪ ንድፈ-ሀሳብ፡ እርካታ እና ኢንዲፈረንስ ከርቭ',
+      'Analysis of consumer choice optimization through Cardinal Utility (Total & Marginal Utility, Law of Diminishing Marginal Utility) and Ordinal Utility (Indifference Curves, Budget Constraints).',
+      'የተጠቃሚዎች ምርጫና እርካታ ማመቻቸት በቁጥር በሚለካ እርካታ (ጠቅላላና የትርፍ እርካታ፣ የቀነሰ የትርፍ እርካታ ህግ) እና በደረጃ በሚቀመጥ እርካታ (ኢንዲፈረንስ ከርቮችና የበጀት ወሰን) ትንተና።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Marginal Utility (MU)', termAm: 'የትርፍ እርካታ (ማርጂናል ዩቲሊቲ)', defEn: 'The additional satisfaction derived from consuming one more unit of a good or service.', defAm: 'አንድ ተጨማሪ እቃ ወይም አገልግሎት በመጠቀም የሚገኝ ተጨማሪ እርካታ።' },
+        { termEn: 'Law of Diminishing Marginal Utility', termAm: 'የቀነሰ የትርፍ እርካታ ህግ', defEn: 'As consumption of a specific good increases, the marginal utility obtained from each subsequent unit decreases.', defAm: 'የአንድን እቃ አጠቃቀም እየጨመርን ስንሄድ ከእያንዳንዱ ተጨማሪ እቃ የሚገኘው እርካታ እየቀነሰ ይሄዳል የሚል ህግ።' },
+        { termEn: 'Indifference Curve', termAm: 'ኢንዲፈረንስ ከርቭ', defEn: 'A curve depicting all bundles of two commodities that yield identical levels of satisfaction to the consumer.', defAm: 'ለሸማቹ እኩል የሆነ የእርካታ መጠን የሚያስገኙ የሁለት ምርቶች ጥምረቶችን የሚያሳይ ኩርባ።' }
+      ],
+      [
+        'Consumer equilibrium is achieved when the marginal rate of substitution equals the price ratio (MRSxy = Px / Py).',
+        'Budget constraints define the maximum affordable combinations given consumer income and prevailing commodity prices.'
+      ],
+      [
+        'የተጠቃሚ ሚዛን የሚገኘው የሸቀጦች የመተካካት ምጣኔ (MRS) ከዋጋ ንፅፅር ጋር እኩል ሲሆን ነው (MRSxy = Px / Py)።',
+        'የበጀት ወሰን ሸማቹ ባለው ገቢና በገበያው የዋጋ መጠን ሊገዛቸው የሚችላቸውን ምርጥ ጥምረቶች ይወስናል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1404,
+      4,
+      'Theory of Production and Cost',
+      'የምርት እና የወጪ ንድፈ-ሀሳብ',
+      'Production functions examine how input factors (labor, capital, land) transform into output. Explores Short-Run (Law of Diminishing Returns, Fixed vs Variable Costs) and Long-Run (Isoquants, Returns to Scale).',
+      'የምርት ፈንክሽን የምርት ግብአቶች (ጉልበት፣ ካፒታል፣ መሬት) ወደ ተጨባጭ ምርት እንዴት እንደሚቀየሩ ያጠናል። የአጭር ጊዜ (የቀነሰ ምርት ህግ፣ ቋሚና ተለዋዋጭ ወጪዎች) እና የረጅም ጊዜ (አይሶኳንት፣ የመጠን ምርታማነት) ትንተና።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Production Function', termAm: 'የምርት ፈንክሽን', defEn: 'Technical relationship showing the maximum output producible from a given set of factor inputs.', defAm: 'ከተሰጡ የምርት ግብአቶች ሊገኝ የሚችለውን ከፍተኛ የምርት መጠን የሚያሳይ ቴክኒካዊ ዝምድና።' },
+        { termEn: 'Law of Diminishing Marginal Returns', termAm: 'የቀነሰ የትርፍ ምርት ህግ', defEn: 'In short run, adding variable units of an input to fixed inputs eventually yields progressively smaller increases in output.', defAm: 'በአጭር ጊዜ ውስጥ በቋሚ ግብአት ላይ ተጨማሪ ተለዋዋጭ ግብአት (እንደ ጉልበት) እየጨመሩ ሲሄዱ ውሎ አድሮ የሚገኘው ተጨማሪ ምርት ይቀንሳል።' },
+        { termEn: 'Marginal Cost (MC)', termAm: 'የትርፍ ወጪ (ማርጂናል ኮስት)', defEn: 'The change in total cost resulting from manufacturing one additional unit of output.', defAm: 'አንድ ተጨማሪ ምርት ለማምረት የሚወጣ ተጨማሪ ወጪ።' }
+      ],
+      [
+        'Total Cost is partitioned into Fixed Costs (independent of output) and Variable Costs (varying directly with output).',
+        'Long-run average cost curves reflect economies of scale, constant returns, and diseconomies of scale.'
+      ],
+      [
+        'ጠቅላላ ወጪ በቋሚ ወጪዎች (ከምርት መጠን ጋር የማይቀያየሩ) እና ተለዋዋጭ ወጪዎች (ከምርት መጠን ጋር የሚቀያየሩ) ይከፈላል።',
+        'የረጅም ጊዜ አማካኝ ወጪ ከርቭ የመጠን ቁጠባንና (Economies of Scale) የመጠን ኪሳራን ያሳያል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1405,
+      5,
+      'Market Structure and Imperfect Competition',
+      'የገበያ መዋቅር እና ውድድር',
+      'Examination of market classifications: Perfect Competition (price takers, zero economic profit in long run), Pure Monopoly (single seller, barriers to entry), Monopolistic Competition, and Oligopoly.',
+      'የገበያ አይነቶች ምደባ፡ ፍጹም ፉክክር ያለበት ገበያ (ዋጋ ተቀባዮች፣ በረጅም ጊዜ መደበኛ ትርፍ ብቻ)፣ ሞኖፖሊ (አንድ ሻጭ፣ የገበያ መግቢያ እንቅፋቶች)፣ ሞኖፖሊያዊ ውድድር እና ኦሊጎፖሊ (ጥቂት ግዙፍ ሻጮች)።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Perfect Competition', termAm: 'ፍጹም ፉክክር ያለበት ገበያ', defEn: 'Market structure with numerous buyers and sellers, homogeneous products, perfect information, and free entry and exit.', defAm: 'በርካታ ገዢዎችና ሻጮች ያሉበት፣ ተመሳሳይ ምርት የሚሸጥበት እና ነፃ የገበያ መግቢያና መውጫ ያለው የገበያ አይነት።' },
+        { termEn: 'Monopoly', termAm: 'ሞኖፖሊ', defEn: 'Market structure where a single firm produces a unique good without close substitutes, protected by entry barriers.', defAm: 'ተቀራራቢ ተካካይ የሌለው ምርት በአንድ አምራች ብቻ የሚቀርብበትና ወደ ገበያው ለመግባት ከፍተኛ እንቅፋት ያለበት ገበያ።' },
+        { termEn: 'Profit Maximization Rule', termAm: 'የትርፍ ማሳደጊያ መርህ', defEn: 'Condition where firm produces output level where Marginal Revenue equals Marginal Cost (MR = MC).', defAm: 'አንድ ድርጅት ትርፉን ወደ ላቀ ደረጃ ለማድረስ የሚያመርተው የትርፍ ገቢ ከትርፍ ወጪ ጋር እኩል በሚሆንበት ነጥብ ላይ ነው (MR = MC)።' }
+      ],
+      [
+        'Profit maximization for all competitive and non-competitive firms occurs where Marginal Revenue equals Marginal Cost (MR = MC).',
+        'Oligopoly is characterized by strategic mutual interdependence among a small number of dominant firms.'
+      ],
+      [
+        'ለሁሉም ድርጅቶች ትርፍን የማሳደጊያ ወርቃማ ህግ ማርጂናል ሬቨኑ ከማርጂናል ኮስት ጋር እኩል መሆን ነው (MR = MC)።',
+        'ኦሊጎፖሊ በጥቂት ግዙፍ ድርጅቶች መካከል ባለው ስትራቴጂካዊ የእርስ በእርስ ጥገኝነት ይታወቃል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1406,
+      6,
+      'Fundamental Concepts of Macroeconomics',
+      'የማክሮ ኢኮኖሚክስ መሰረታዊ ፅንሰ-ሀሳቦች',
+      'Macroeconomic goals, Gross Domestic Product (GDP) measurement (Expenditure, Income, Value-Added approaches), nominal vs real GDP, business cycles, unemployment categories, and inflation causes.',
+      'የማክሮ ኢኮኖሚክስ ግቦች፣ ጠቅላላ የአገር ውስጥ ምርት (GDP) ስሌት (የወጪ፣ የገቢ፣ የተጨመረ እሴት ዘዴዎች)፣ የኢኮኖሚ ዑደት፣ የስራ አጥነት አይነቶች እና የዋጋ ግሽበት መንስኤዎች።',
+      'MoSHE National Economics Committee',
+      [
+        { termEn: 'Gross Domestic Product (GDP)', termAm: 'ጠቅላላ የአገር ውስጥ ምርት (GDP)', defEn: 'Monetary market value of all final goods and services produced within a country borders in a given year.', defAm: 'በአንድ ሀገር ወሰን ውስጥ በአንድ አመት ውስጥ የተመረቱ የመጨረሻ እቃዎችና አገልግሎቶች የገበያ ዋጋ ድምር።' },
+        { termEn: 'Inflation', termAm: 'የዋጋ ግሽበት', defEn: 'A continuous, sustained increase in the general price level of goods and services over time.', defAm: 'በአጠቃላይ የሸቀጦችና አገልግሎቶች የገበያ ዋጋ ላይ የሚታይ ቀጣይነት ያለው ጭማሪ።' },
+        { termEn: 'Fiscal Policy', termAm: 'የፊስካል ፖሊሲ', defEn: 'Government taxation and spending policies used to influence national macroeconomic activity.', defAm: 'መንግስት የታክስና የመንግስት ወጪዎችን በመጠቀም አጠቃላይ ኢኮኖሚውን የሚመራበት ፖሊሲ።' }
+      ],
+      [
+        'Nominal GDP values output at current prices; Real GDP is adjusted for inflation using constant base-year prices.',
+        'Macroeconomic policy uses monetary tools (National Bank interest rates and money supply) and fiscal tools (taxes, government expenditure).'
+      ],
+      [
+        'ኖሚናል ጂዲፒ ምርትን በወቅቱ የገበያ ዋጋ ሲለካ፤ ሪል ጂዲፒ ደግሞ የዋጋ ግሽበትን በቋሚ ዋጋ በማስተካከል ትክክለኛውን እድገት ይለካል።',
+        'የማክሮ ኢኮኖሚክስ ፖሊሲ የገንዘብ ፖሊሲን (የወለድ ምጣኔና የገንዘብ መጠን) እና የፊስካል ፖሊሲን (ታክስና የመንግስት ወጪ) ይጠቀማል።'
+      ],
+      [],
+      []
+    )
+  ]
+};
+
+// 14. General Biology (Biol 1012)
+export const biologyCourse: Course = {
+  id: 'biol1012',
+  code: 'Biol 1012',
+  englishTitle: 'General Biology',
+  amharicTitle: 'አጠቃላይ ባዮሎጂ',
+  badge: '6 Chapters (PDF)',
+  descriptionEn:
+    'Comprehensive university module covering introduction to biological sciences, macromolecules, cell structure and membrane transport, cellular metabolism and metabolic disorders, Mendelian and molecular genetics, evolutionary theories, ecology, and conservation of natural resources in Ethiopia.',
+  descriptionAm:
+    'የባዮሎጂ ሳይንስ መግቢያ፣ ማክሮሞለኪውሎች፣ የሴል አወቃቀር እና የሽፋን ዝውውር፣ ሴሉላር ሜታቦሊዝም እና የሜታቦሊክ መታወክ፣ ሜንዴሊያን እና ሞለኪውላዊ ጄኔቲክስ፣ የዝግመተ-ለውጥ ንድፈ-ሀሳቦች፣ ኢኮሎጂ እና በኢትዮጵያ የተፈጥሮ ሀብት ጥበቃን ያካተተ ይፋዊ የዩኒቨርሲቲ ሞጁል።',
+  semester: 'Semester 2',
+  stream: 'Natural Science',
+  creditHours: 3,
+  hasInteractiveContent: true,
+  pdfModule: {
+    filename: 'General_Biology_Biol_1012_MoE.pdf',
+    title: 'General Biology Student Module (Biol 1012)',
+    authorOrCommittee: 'Ministry of Science and Higher Education (MoSHE)',
+    publishedYear: '2020',
+    totalUnitsOrChapters: 6
+  },
+  metadata: { courseCode: 'Biol 1012', creditHours: 3, academicYear: 'Freshman Year' },
+  chapters: [
+    makePdfChapter(
+      1501,
+      1,
+      'Introduction to Biology',
+      'የባዮሎጂ ሳይንስ መግቢያ',
+      'Nature of science, branches of biology, the scientific method, microscopy advancements, and ethical principles in biological inquiry.',
+      'የሳይንስ ምንነት፣ የባዮሎጂ ቅርንጫፎች፣ ሳይንሳዊ የምርምር ዘዴ፣ የማይክሮስኮፕ እድገት እና በባዮሎጂ ጥናት ውስጥ የስነ-ምግባር መርሆች።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Scientific Method', termAm: 'ሳይንሳዊ የምርምር ዘዴ', defEn: 'Systematic approach to research involving observation, hypothesis formulation, experimentation, and conclusion.', defAm: 'ምልከታን፣ መላ-ምትን፣ ሙከራንና ድምዳሜን ያካተተ ስልታዊ የምርምር አካሄድ።' },
+        { termEn: 'Cell Theory', termAm: 'የሴል ንድፈ-ሀሳብ', defEn: 'Fundamental biological theory stating that all living things are composed of cells, the cell is basic unit of life, and cells arise from pre-existing cells.', defAm: 'ሁሉም ህያዋን ከሴል እንደተገነቡ፣ ሴል የህይወት መሰረት እንደሆነና አዳዲስ ሴሎች ከነባር ሴሎች እንደሚገኙ የሚገልጽ ንድፈ-ሀሳብ።' }
+      ],
+      [
+        'Biology is the scientific study of living organisms and their vital biological processes.',
+        'The scientific method relies on empirical testing and falsifiable hypotheses.'
+      ],
+      [
+        'ባዮሎጂ ስለ ህያዋን ፍጥረታት እና የህይወት ሂደቶች የሚያጠና የተፈጥሮ ሳይንስ ነው።',
+        'ሳይንሳዊ ዘዴ በተጨባጭ ሙከራና በሚፈተሽ መላ-ምት ላይ የተመሰረተ ነው።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1502,
+      2,
+      'Biological Macromolecules',
+      'ባዮሎጂካል ማክሮሞለኪውሎች',
+      'Structure and functions of carbohydrates (monosaccharides, polysaccharides), lipids (triglycerides, phospholipids), proteins (peptide bonds, four protein structures), and nucleic acids (DNA, RNA).',
+      'የካርቦሃይድሬቶች፣ የሊፒዶች፣ የፕሮቲኖች (አራት ደረጃዎች) እና የኒውክሊክ አሲዶች (DNA እና RNA) መዋቅር እና ስነ-ህይወታዊ ተግባራት።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Peptide Bond', termAm: 'ፔፕታይድ ቦንድ', defEn: 'Covalent chemical bond formed between two amino acid molecules when the carboxyl group of one reacts with the amino group of the other.', defAm: 'በአንድ አሚኖ አሲድ ካርቦክሲል እና በሌላው አሚኖ ቡድን መካከል የሚፈጠር ጠንካራ የኮቫለንት ቦንድ።' },
+        { termEn: 'Phospholipids', termAm: 'ፎስፎሊፒዶች', defEn: 'Amphipathic lipid molecules forming the structural basis of cellular membranes with hydrophilic phosphate heads and hydrophobic fatty acid tails.', defAm: 'ውሃ-ወዳድ ራስ እና ውሃ-ጠል ጭራ ያላቸው የሴል ሽፋንን የሚገነቡ ቅባቶች።' }
+      ],
+      [
+        'Macromolecules are polymers formed by dehydration condensation reactions of repeating monomers.',
+        'Proteins carry out structural, enzymatic, transport, and defensive functions determined by their 3D conformations.'
+      ],
+      [
+        'ማክሮሞለኪውሎች ከሞኖመሮች በኮንደንሴሽን ምላሽ የሚገነቡ ትላልቅ ፖሊመሮች ናቸው።',
+        'የፕሮቲኖች ተግባር የሚወሰነው በሚኖራቸው ባለ 3-ልኬት ቅርጽ ነው።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1503,
+      3,
+      'Cellular Biology',
+      'የሴል ባዮሎጂ',
+      'Cell theory, differences between prokaryotic and eukaryotic cells, cytoplasmic organelles (nucleus, ER, Golgi, lysosomes, mitochondria, chloroplasts), cell membrane architecture, and active/passive transport.',
+      'የሴል ንድፈ-ሀሳብ፣ በፕሮካሪዮትና ዩካሪዮት መካከል ያለው ልዩነት፣ የሴል ኦርጋኔሎች፣ የሴል ሽፋን አወቃቀር እና የንጥረ-ነገሮች ማጓጓዝ መንገዶች።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Fluid Mosaic Model', termAm: 'ፍሉይድ ሞዛይክ ሞዴል', defEn: 'Model describing the plasma membrane as a dynamic, fluid phospholipid bilayer with embedded functional proteins.', defAm: 'የፕላዝማ ሽፋን ተለዋዋጭና ፈሳሽ መሰል የፎስፎሊፒድ ድርብ ንጣፍ ከነፕሮቲኖቹ መሆኑን የሚገልጽ ሞዴል።' },
+        { termEn: 'Endosymbiosis', termAm: 'ኢንዶሲምባዮሲስ', defEn: 'Evolutionary theory stating that eukaryotic organelles like mitochondria and chloroplasts originated as free-living prokaryotic endosymbionts.', defAm: 'ማይቶኮንድሪያ እና ክሎሮፕላስት ከጥንታዊ ባክቴሪያዎች ጋር አብሮ በመኖር ወደ ሴል ኦርጋኔል እንደተቀየሩ የሚያስረዳ ንድፈ-ሀሳብ።' }
+      ],
+      [
+        'Eukaryotic cells are compartmentalized with membrane-bound organelles performing specialized metabolic functions.',
+        'Selective permeability regulates cellular homeostasis via passive diffusion, osmosis, facilitated diffusion, and active transport.'
+      ],
+      [
+        'የዩካሪዮት ሴሎች በሽፋን የተከለሉ ልዩ ልዩ ተግባራትን የሚያከናውኑ ኦርጋኔሎች አሏቸው።',
+        'የሴል ሽፋን ወደ ሴል የሚገቡና የሚወጡ ንጥረ-ነገሮችን በመቆጣጠር የሴል ውስጣዊ ሚዛንን (homeostasis) ይጠብቃል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1504,
+      4,
+      'Cellular Metabolism and Metabolic Disorders',
+      'ሴሉላር ሜታቦሊዝም እና የሜታቦሊክ መታወክ',
+      'Catabolism vs anabolism, enzyme kinetics, glycolysis 10 enzymatic reactions, TCA cycle, electron transport chain, photosynthesis (light & Calvin cycle, C4/CAM), and inherited/acquired metabolic disorders.',
+      'ካታቦሊዝም እና አናቦሊዝም፣ የኢንዛይም አሰራር፣ አስሩ የግላይኮሊሲስ ደረጃዎች፣ የክሬብስ ዑደት፣ ETC፣ ፎቶሲንተሲስ (የብርሃንና የካልቪን ዑደት) እና የሜታቦሊክ መታወክ በሽታዎች።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Glycolysis', termAm: 'ግላይኮሊሲስ', defEn: 'The 10-step anaerobic catabolic pathway in cytosol breaking down glucose into two pyruvate molecules yielding net 2 ATP and 2 NADH.', defAm: 'በሳይቶፕላዝም ውስጥ አንድ ግሉኮስ ተሰባብሮ ወደ ሁለት ፓይሩቬት የሚቀየርበት እና 2 ATP/2 NADH የሚያስገኝ ሂደት።' },
+        { termEn: 'Rubisco', termAm: 'ሩቢስኮ', defEn: 'Key enzyme of the Calvin cycle catalyzing carbon fixation by attaching CO2 to ribulose-1,5-bisphosphate.', defAm: 'በፎቶሲንተሲስ የካልቪን ዑደት ውስጥ CO2ን በማሰር ስኳር እንዲመረት የሚያፋጥን ወሳኝ ኢንዛይም።' }
+      ],
+      [
+        'Cellular respiration oxidizes organic substrates through glycolysis, pyruvate transition, TCA cycle, and oxidative phosphorylation.',
+        'Metabolic disorders stem from genetic enzyme defects (e.g. PKU, Gaucher) or acquired lifestyle imbalances.'
+      ],
+      [
+        'ሴሉላር ሬስፒሬሽን ግሉኮስን በግላይኮሊሲስ፣ በክሬብስ ዑደትና በETC በማቃጠል ATP ያመነጫል።',
+        'የሜታቦሊክ ህመሞች በዘረ-መል የኢንዛይም ጉድለት (እንደ PKU) ወይም በኑሮ ዘይቤ ምክንያት ይከሰታሉ።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1505,
+      5,
+      'Genetics and Evolution',
+      'ጄኔቲክስ እና ዝግመተ-ለውጥ',
+      'Mendelian genetics, laws of segregation and independent assortment, molecular genetics (DNA replication, transcription, translation, genetic code), mutations, genetic engineering, ABO/Rh blood groups, and Darwinian natural selection.',
+      'የሜንዴሊያን ውርስ ህጎች፣ ሞለኪውላር ጄኔቲክስ (የዲኤንኤ ቅጂ፣ ትራንስክሪፕሽን፣ ትራንስሌሽን)፣ ሚውቴሽኖች፣ ጄኔቲክ ኢንጂነሪንግ፣ የABO የደም ቡድኖች እና የዳርዊን የተፈጥሮ ምርጫ።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Natural Selection', termAm: 'የተፈጥሮ ምርጫ', defEn: 'Evolutionary mechanism where organisms with traits better adapted to their environment tend to survive and reproduce more successfully.', defAm: 'ለአካባቢያቸው ይበልጥ ተስማሚ የሆኑ ባህሪያት ያላቸው ፍጥረታት በህይወት የመቆየትና የመራባት እድላቸው የሰፋ የሚሆንበት የዝግመተ-ለውጥ መርህ።' },
+        { termEn: 'Semi-Conservative Replication', termAm: 'ከፊል-ጠባቂ የዲኤንኤ ቅጂ', defEn: 'Mechanism of DNA duplication where each new double helix retains one parent template strand and one newly synthesized strand.', defAm: 'አዲስ የሚሰራው የዲኤንኤ ሞለኪውል አንዱን የወላጅ ሰንሰለትና አንዱን አዲስ ሰንሰለት የሚይዝበት መንገድ።' }
+      ],
+      [
+        'The Central Dogma describes directional flow of genetic information: DNA to mRNA (transcription) to protein (translation).',
+        'Evolution by natural selection operates on phenotypic variations produced by mutations and recombination within gene pools.'
+      ],
+      [
+        'የሴንትራል ዶግማ መርህ የዘረ-መል መረጃ ከዲኤንኤ ወደ አርኤንኤ ከዚያም ወደ ፕሮቲን እንደሚተላለፍ ያስረዳል።',
+        'ዝግመተ-ለውጥ በሚውቴሽንና በመራባት በሚፈጠሩ የዘረ-መል ልዩነቶች ላይ የተፈጥሮ ምርጫን በማካሄድ ይከናወናል።'
+      ],
+      [],
+      []
+    ),
+    makePdfChapter(
+      1506,
+      6,
+      'Ecology and Conservation of Natural Resources',
+      'ኢኮሎጂ እና የተፈጥሮ ሀብት ጥበቃ',
+      'Levels of ecological organization, energy flow and food webs, biogeochemical cycles (N, C, H2O), ecological pyramids, population ecology, species interactions, Ethiopian endemic biodiversity, threats, and conservation strategies (In-situ, Ex-situ, CRGE, Green Legacy).',
+      'የኢኮሎጂ አደረጃጀት፣ የሀይል ፍሰት እና የምግብ ድር፣ ባዮጂኦኬሚካላዊ ዑደቶች፣ የህዝብ ብዛት እድገት፣ የኢትዮጵያ ብርቅዬ ብዝሃ-ህይወት፣ አደጋዎች እና የጥበቃ ስልቶች (In-situ፣ Ex-situ፣ CRGE፣ አረንጓዴ አሻራ)።',
+      'MoSHE Biology Curriculum Committee',
+      [
+        { termEn: 'Endemism', termAm: 'ብርቅዬነት (ኢንደሚዝም)', defEn: 'Ecological state of a species being uniquely native to a defined geographical location and nowhere else in the world.', defAm: 'አንድ የዱር እንስሳ ወይም ተክል በአንድ በተወሰነ መልክዓ-ምድራዊ ክልል ብቻ ተወስኖ መገኘት።' },
+        { termEn: 'Trophic Level', termAm: 'የትሮፊክ ደረጃ', defEn: 'The hierarchical position an organism occupies in a food web, defined by how many energy transfers separate it from primary producers.', defAm: 'አንድ ህያው ፍጡር በምግብ ሰንሰለት ወይም ድር ውስጥ የሚይዘው የአመጋገብ ደረጃ።' }
+      ],
+      [
+        'Only approximately 10% of chemical energy transfers between sequential trophic levels; 90% is dissipated as metabolic heat.',
+        'Ethiopia possesses extraordinary endemic species (Walia Ibex, Ethiopian Wolf, Mountain Nyala) requiring active in-situ habitat conservation and community participation.'
+      ],
+      [
+        'ከአንዱ ትሮፊክ ደረጃ ወደ ቀጣዩ የሚተላለፈው 10% የሚሆነው ሀይል ብቻ ነው፤ 90% በሙቀት መልክ ይባክናል።',
+        'ኢትዮጵያ በዓለም ብርቅዬ የሆኑ በርካታ ዝርያዎች (ዋሊያ፣ ቀይ ቀበሮ፣ የደጋ አጋዘን) ያሏት ሲሆን ማህበረሰቡን ያሳተፈ የጥበቃ ስራ ይሻሉ።'
+      ],
+      [],
+      []
+    )
+  ]
+};
+
+// Array of all 14 MoE PDF courses
 export const moePdfCoursesList: Course[] = [
   logicCourse,
   geographyCourse,
@@ -332,8 +668,11 @@ export const moePdfCoursesList: Course[] = [
   physicsCourse,
   sportsCourse,
   globalTrendsCourse,
-  entrepreneurshipCourse
+  entrepreneurshipCourse,
+  economicsCourse,
+  biologyCourse
 ];
 
 // Re-export with legacy alias to maintain backward compatibility if needed
 export const moshePdfCoursesList = moePdfCoursesList;
+

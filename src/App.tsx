@@ -8,9 +8,11 @@ import { SummarySection } from './components/SummarySection';
 import { QnASection } from './components/QnASection';
 import { ExercisesSection } from './components/ExercisesSection';
 import { DashboardSection } from './components/DashboardSection';
+import { MoePdfViewer } from './components/MoePdfViewer';
 import { FlashcardsModal } from './components/FlashcardsModal';
 import { GlossaryModal } from './components/GlossaryModal';
 import { ExamModeModal } from './components/ExamModeModal';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import {
   BookOpen,
   FileText,
@@ -81,6 +83,25 @@ export default function App() {
 
   // Audio Speech Synthesis state
   const [isReadingAudio, setIsReadingAudio] = useState<boolean>(false);
+
+  // Safe Reading Mode (Minimizes header and sticky toolbar height to prevent obstruction)
+  const [isSafeReadingMode, setIsSafeReadingMode] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('moe_safe_reading_mode') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleToggleSafeReadingMode = () => {
+    setIsSafeReadingMode((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('moe_safe_reading_mode', String(next));
+      } catch {}
+      return next;
+    });
+  };
 
   // User Local Storage Persistence
   const [bookmarkedParagraphs, setBookmarkedParagraphs] = useState<string[]>(() => {
@@ -273,6 +294,8 @@ export default function App() {
         onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
         isDarkMode={isDarkMode}
         onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+        isSafeReadingMode={isSafeReadingMode}
+        onToggleSafeReadingMode={handleToggleSafeReadingMode}
       />
 
       {/* Instant Search Results Floating Dropdown */}
@@ -466,10 +489,27 @@ export default function App() {
                   (ልምምድ)
                 </span>
               </button>
+
+              {/* Tab: MoE PDF Full Modular Text */}
+              <button
+                id="tab-moepdf"
+                onClick={() => setActiveTab('moepdf')}
+                className={`px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 sm:gap-2 transition-all whitespace-nowrap min-h-[40px] ${
+                  activeTab === 'moepdf'
+                    ? 'bg-rose-700 text-white shadow-2xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <FileText className="w-4 h-4 shrink-0 text-amber-300" />
+                <span>MoE PDF</span>
+                <span className="hidden md:inline font-amharic text-[11px] font-normal text-rose-100">
+                  (ይፋዊ ሞጁል)
+                </span>
+              </button>
             </div>
 
             {/* Desktop Mark as Completed Button (shown on Reader tab) */}
-            {activeTab !== 'dashboard' && (
+            {activeTab !== 'dashboard' && activeTab !== 'moepdf' && (
               <button
                 onClick={handleToggleCompleteChapter}
                 className={`hidden sm:flex px-3 py-1.5 rounded-xl border text-xs font-bold items-center gap-1.5 shrink-0 transition-colors min-h-[40px] ${
@@ -519,17 +559,21 @@ export default function App() {
           )}
 
           {activeTab === 'reader' && (
-            <ChapterReader
-              chapter={currentChapter}
-              viewMode={viewMode}
-              fontSize={fontSize}
-              activeParagraphId={activeParagraphId}
-              onHoverParagraph={setActiveParagraphId}
-              onSpeakText={handleSpeakText}
-              isAudioActive={isReadingAudio}
-              bookmarkedParagraphs={bookmarkedParagraphs}
-              onToggleBookmark={handleToggleBookmark}
-            />
+            <ErrorBoundary fallbackTitle="Error loading chapter content">
+              <ChapterReader
+                chapter={currentChapter}
+                viewMode={viewMode}
+                fontSize={fontSize}
+                activeParagraphId={activeParagraphId}
+                onHoverParagraph={setActiveParagraphId}
+                onSpeakText={handleSpeakText}
+                isAudioActive={isReadingAudio}
+                bookmarkedParagraphs={bookmarkedParagraphs}
+                onToggleBookmark={handleToggleBookmark}
+                isSafeReadingMode={isSafeReadingMode}
+                onToggleSafeReadingMode={handleToggleSafeReadingMode}
+              />
+            </ErrorBoundary>
           )}
 
           {activeTab === 'summary' && (
@@ -547,8 +591,25 @@ export default function App() {
             />
           )}
 
+          {activeTab === 'moepdf' && (
+            <ErrorBoundary fallbackTitle="Error loading official PDF view">
+              <MoePdfViewer
+                courseId={currentCourseId}
+                initialChapterNumber={currentChapter.number}
+                onBackToReader={() => setActiveTab('reader')}
+                viewMode={viewMode}
+                fontSize={fontSize}
+                onSpeakText={handleSpeakText}
+                isAudioActive={isReadingAudio}
+                onSelectCourse={handleSelectCourse}
+                isSafeReadingMode={isSafeReadingMode}
+                onToggleSafeReadingMode={handleToggleSafeReadingMode}
+              />
+            </ErrorBoundary>
+          )}
+
           {/* Bottom Pagination Bar (for Reader, Notes, Q&A, Tests) */}
-          {activeTab !== 'dashboard' && (
+          {activeTab !== 'dashboard' && activeTab !== 'moepdf' && (
             <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
               <button
                 onClick={goToPrevChapter}
@@ -660,6 +721,19 @@ export default function App() {
         >
           <Award className="w-5 h-5" />
           <span className="text-[10px] mt-0.5">Quiz</span>
+        </button>
+
+        <button
+          onClick={() => {
+            setActiveTab('moepdf');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className={`flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-colors min-h-[48px] ${
+            activeTab === 'moepdf' ? 'text-rose-700 dark:text-rose-400 font-bold' : 'text-slate-500 dark:text-slate-400'
+          }`}
+        >
+          <FileText className="w-5 h-5" />
+          <span className="text-[10px] mt-0.5">MoE PDF</span>
         </button>
 
         <button

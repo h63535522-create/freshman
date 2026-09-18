@@ -121,7 +121,7 @@ export const FlashcardsModal: React.FC<FlashcardsModalProps> = ({
             </div>
 
             <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">
-              Chapter {currentCard.chapter} • MoSHE Modular Psychology
+              Chapter {currentCard.chapter} • MoE Modular Curriculum
             </div>
           </div>
 

@@ -11,7 +11,7 @@ export const entrepreneurshipCourse: Course = {
   code: 'Mgmt 1012',
   englishTitle: 'Entrepreneurship',
   amharicTitle: 'ስራ ፈጠራና ቢዝነስ አመራር',
-  badge: '6 Units (MoSHE)',
+  badge: '6 Units (166 PDF Pgs)',
   descriptionEn: 'Official Ethiopian Ministry of Science and Higher Education (MoSHE 2019) Entrepreneurship module for university freshman students: Nature of Entrepreneurship and historical evolution, Business Planning and Opportunity Evaluation, Business Formation and Ethiopian MSE Development, Product/Service Development and Intellectual Property Rights (EIPO), Marketing Strategy and Customer Retention, and Business Financing including Lease Financing and Indigenous Institutions (Equib and Edir).',
   descriptionAm: 'የኢ.ፌ.ዲ.ሪ የሳይንስ እና ከፍተኛ ትምህርት ሚኒስቴር (MoSHE) ይፋዊ የአንደኛ ዓመት ስራ ፈጠራ ሞጁል፡ የስራ ፈጠራ ምንነትና ታሪካዊ እድገት፣ የቢዝነስ እቅድ ዝግጅትና የአጋጣሚዎች ግምገማ፣ የቢዝነስ ምስረታና የኢትዮጵያ አነስተኛና ጥቃቅን ኢንተርፕራይዞች (አጥኢ) ልማት፣ የምርት ልማትና የአዕምሯዊ ንብረት ጥበቃ ህግጋት (EIPO)፣ የገበያ ስትራቴጂና የደንበኞች አያያዝ፣ እንዲሁም የቢዝነስ ፋይናንስ፣ የሊዝ ፋይናንስ እና አገር በቀል ተቋማት (እቁብና እድgroup)።',
   creditHours: 3,

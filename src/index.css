@@ -14,12 +14,14 @@
 @layer base {
   html {
     color-scheme: light;
+    scroll-padding-top: 5rem;
   }
 
   html.dark {
     color-scheme: dark;
     background-color: #080d1a;
     color: #e2e8f0;
+    scroll-padding-top: 5rem;
   }
 
   body {

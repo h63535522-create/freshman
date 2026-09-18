@@ -84,7 +84,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>MoSHE Courses ({allCourses.length})</span>
+              <span>MoE Courses ({allCourses.length})</span>
             </div>
 
             {/* Mobile Close Button */}
@@ -142,7 +142,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {isCoursePickerOpen && (
               <div className="mt-1.5 max-h-60 overflow-y-auto rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl p-1.5 space-y-1 z-20">
                 <div className="px-2 py-1 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                  Select from {allCourses.length} MoSHE Courses
+                  Select from {allCourses.length} MoE Courses
                 </div>
                 {allCourses.map((c) => {
                   const isSelected = c.id === currentCourse.id;
@@ -265,11 +265,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     >
                       {isEnglishCourse ? `Unit ${ch.number}` : `Chapter ${ch.number}`}
                     </span>
-                    {isCompleted && (
-                      <span className="text-[10px] text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded-md">
-                        Done
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono font-medium">
+                        32 Pages
                       </span>
-                    )}
+                      {isCompleted && (
+                        <span className="text-[10px] text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded-md">
+                          Done
+                        </span>
+                      )}
+                    </span>
                   </div>
 
                   <div className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate mt-0.5 group-hover:text-emerald-800 dark:group-hover:text-emerald-300 transition-colors">
@@ -293,11 +298,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
           })}
         </nav>
 
-        {/* Sidebar Footer with MoSHE Accreditation */}
+        {/* Sidebar Footer with MoE Accreditation */}
         <div className="p-3 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-850 text-[11px] text-slate-500 dark:text-slate-400 space-y-1">
           <div className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300">
             <GraduationCap className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0" />
-            <span>FDRE MoSHE Higher Education</span>
+            <span>FDRE MoE Higher Education</span>
           </div>
           <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2">
             Writing Team: Jimma, Bahir Dar, Addis Ababa, and Gondar Universities.

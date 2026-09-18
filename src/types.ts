@@ -1,5 +1,5 @@
 export type ViewMode = 'side-by-side' | 'english' | 'amharic';
-export type ActiveTab = 'reader' | 'summary' | 'summaries' | 'qna' | 'exercises' | 'flashcards' | 'dashboard';
+export type ActiveTab = 'reader' | 'summary' | 'summaries' | 'qna' | 'exercises' | 'flashcards' | 'dashboard' | 'moepdf';
 
 export interface BilingualText {
   en: string;
@@ -76,6 +76,56 @@ export interface FlashcardItem {
   chapter: number;
 }
 
+export interface ChapterPage {
+  pageNumber: number; // 1 to 30+
+  headerTitle: BilingualText;
+  subtopic: BilingualText;
+  sectionNumber?: string;
+  paragraphs: ParagraphBlock[];
+  pageType: 'intro' | 'foundations' | 'content' | 'case_study' | 'activity' | 'summary' | 'review' | 'lexicon';
+  studyTip?: BilingualText;
+  selfCheckQuestion?: {
+    qEn: string;
+    qAm: string;
+    aEn: string;
+    aAm: string;
+  };
+  tables?: Array<{
+    id: string;
+    caption: string;
+    headers: string[];
+    rows: (string | number)[][];
+    source?: string;
+    note?: string;
+  }>;
+  figures?: Array<{
+    id: string;
+    caption: string;
+    description?: string;
+    descriptionEn?: string;
+    descriptionAm?: string;
+    source?: string;
+  }>;
+  activities?: Array<{
+    id?: string;
+    title?: string;
+    instructionsEn?: string;
+    instructionsAm?: string;
+    tasksEn?: string[];
+    tasksAm?: string[];
+    questions?: string[];
+  }>;
+  formulas?: Array<{
+    name: string;
+    formula: string;
+    explanation: string;
+  }>;
+  reviewQuestions?: Array<{
+    title: string;
+    questions: string[];
+  }>;
+}
+
 export interface Chapter {
   id: number;
   number: number;
@@ -84,6 +134,8 @@ export interface Chapter {
   overview: BilingualText;
   learningOutcomes: BilingualText[];
   sections: Section[];
+  totalPages?: number;
+  pages?: ChapterPage[];
   coreConcepts?: Array<{
     termEn: string;
     termAm: string;
