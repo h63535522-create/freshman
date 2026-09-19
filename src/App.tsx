@@ -151,8 +151,12 @@ export default function App() {
   const handleSelectCourse = (courseId: string) => {
     setCurrentCourseId(courseId);
     const targetCourse = allCourses.find((c) => c.id === courseId) || allCourses[0];
-    if (targetCourse.chapters.length > 0) {
+    if (targetCourse && targetCourse.chapters.length > 0) {
       setCurrentChapterId(targetCourse.chapters[0].id);
+    }
+    // On mobile screens, open the sidebar so user immediately sees the course's chapters
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setIsSidebarOpen(true);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -353,7 +357,7 @@ export default function App() {
       )}
 
       {/* Main Body Container with Sidebar + Content */}
-      <div className="flex-1 max-w-7xl w-full mx-auto flex">
+      <div className="flex-1 max-w-7xl w-full mx-auto flex items-start">
         {/* Left Navigation Sidebar */}
         <Sidebar
           currentCourse={currentCourse}

@@ -66,8 +66,11 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [isCourseDropdownOpen, setIsCourseDropdownOpen] = useState(false);
+  const [courseFilterQuery, setCourseFilterQuery] = useState('');
+  const [courseStreamTab, setCourseStreamTab] = useState<'all' | 'natural' | 'social' | 'common'>('all');
 
   const getCourseBadgeColor = (courseId: string) => {
+    if (courseId === 'math1011') return 'bg-gradient-to-tr from-amber-600 to-rose-700';
     if (courseId === 'phys1011') return 'bg-gradient-to-tr from-cyan-600 to-blue-800';
     if (courseId === 'flen1012') return 'bg-gradient-to-tr from-teal-600 to-cyan-700';
     if (courseId === 'flen1011') return 'bg-gradient-to-tr from-indigo-600 to-blue-700';
@@ -83,12 +86,12 @@ export const Header: React.FC<HeaderProps> = ({
     if (courseId === 'emte1012') return 'bg-gradient-to-tr from-sky-600 to-blue-700';
     if (courseId === 'snie1012') return 'bg-gradient-to-tr from-emerald-600 to-teal-700';
     if (courseId === 'spsc1011') return 'bg-gradient-to-tr from-amber-600 to-orange-700';
-    if (courseId === 'math1011') return 'bg-gradient-to-tr from-cyan-600 to-teal-700';
     if (courseId === 'biol1012') return 'bg-gradient-to-tr from-emerald-600 to-green-700';
     return 'bg-gradient-to-tr from-slate-700 to-slate-900';
   };
 
   const getCourseInitials = (course: Course) => {
+    if (course.id === 'math1011') return '∑';
     if (course.id === 'phys1011') return 'Φ';
     if (course.id === 'flen1012') return 'E2';
     if (course.id === 'flen1011') return 'E1';
@@ -104,7 +107,6 @@ export const Header: React.FC<HeaderProps> = ({
     if (course.id === 'emte1012') return 'ET';
     if (course.id === 'snie1012') return 'In';
     if (course.id === 'spsc1011') return 'PF';
-    if (course.id === 'math1011') return 'M1';
     if (course.id === 'biol1012') return 'Bio';
     return course.code.slice(0, 2);
   };
@@ -268,22 +270,28 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Left: Hamburger (Mobile) + Course Selector Dropdown */}
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 relative">
             <button
+              id="header-toggle-sidebar-btn"
               onClick={onToggleSidebar}
-              className="lg:hidden p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center shrink-0"
-              aria-label="Open Curriculum Menu"
+              className="p-1.5 sm:px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors min-h-[38px] flex items-center gap-1.5 shrink-0 border border-slate-200/60 dark:border-slate-700"
+              aria-label="Open Side Menu"
+              title="Open Side Menu / Course Chapters"
             >
-              <Menu className="w-4 h-4" />
+              <Menu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span className="hidden sm:inline text-xs font-bold text-slate-800 dark:text-slate-200">
+                Menu
+              </span>
             </button>
 
             {/* Course Selector Pill */}
             <div className="relative">
               <button
+                id="top-nav-course-selector-btn"
                 onClick={() => setIsCourseDropdownOpen(!isCourseDropdownOpen)}
-                className="flex items-center gap-1.5 p-1 sm:px-2.5 sm:py-1 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-750 transition-all text-left group min-h-[38px]"
+                className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-400 dark:hover:border-emerald-600 transition-all text-left group min-h-[40px] shadow-2xs"
                 aria-label="Switch Course"
               >
                 <div
-                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center font-bold text-white text-xs shadow-2xs shrink-0 ${getCourseBadgeColor(
+                  className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs sm:text-sm shadow-xs shrink-0 ${getCourseBadgeColor(
                     currentCourse.id
                   )}`}
                 >
@@ -291,13 +299,16 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
 
                 <div className="min-w-0 pr-1">
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors truncate">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-black text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                       {currentCourse.code}
                     </span>
-                    <ChevronDown className="w-3 h-3 text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-200" />
+                    <span className="hidden sm:inline-block text-[10px] px-1.5 py-0.2 rounded font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                      Courses
+                    </span>
+                    <ChevronDown className={`w-3.5 h-3.5 text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-transform ${isCourseDropdownOpen ? 'rotate-180' : ''}`} />
                   </div>
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate max-w-[110px] sm:max-w-[180px]">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-300 block truncate max-w-[120px] sm:max-w-[200px]">
                     {currentCourse.englishTitle}
                   </span>
                 </div>
@@ -307,62 +318,207 @@ export const Header: React.FC<HeaderProps> = ({
               {isCourseDropdownOpen && (
                 <>
                   <div
-                    className="fixed inset-0 z-30"
-                    onClick={() => setIsCourseDropdownOpen(false)}
+                    className="fixed inset-0 z-40 bg-black/20 backdrop-blur-2xs"
+                    onClick={() => {
+                      setIsCourseDropdownOpen(false);
+                      setCourseFilterQuery('');
+                    }}
                   />
-                  <div className="absolute left-0 top-full mt-2 w-72 sm:w-84 max-h-96 overflow-y-auto bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 z-40 animate-fadeIn">
-                    <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between">
-                      <span>Select Course ({allCourses.length} MoE)</span>
-                      {onOpenDashboard && (
-                        <button
-                          onClick={() => {
-                            setIsCourseDropdownOpen(false);
-                            onOpenDashboard();
-                          }}
-                          className="text-emerald-600 dark:text-emerald-400 hover:underline capitalize"
-                        >
-                          View Stats
-                        </button>
-                      )}
+                  <div className="absolute left-0 top-full mt-2 w-80 sm:w-96 max-h-[80vh] flex flex-col bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 z-50 animate-fadeIn overflow-hidden">
+                    {/* Dropdown Header */}
+                    <div className="p-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-850/80">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
+                          <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                          <span>Select Course ({allCourses.length} MoE Modules)</span>
+                        </div>
+                        {onOpenDashboard && (
+                          <button
+                            onClick={() => {
+                              setIsCourseDropdownOpen(false);
+                              onOpenDashboard();
+                            }}
+                            className="text-xs text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
+                          >
+                            Dashboard
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Course Search Input */}
+                      <div className="relative mb-2">
+                        <Search className="absolute left-2.5 top-2 w-3.5 h-3.5 text-slate-400" />
+                        <input
+                          type="text"
+                          autoFocus
+                          placeholder="Search courses (e.g., Math, Physics, English)..."
+                          value={courseFilterQuery}
+                          onChange={(e) => setCourseFilterQuery(e.target.value)}
+                          className="w-full pl-8 pr-7 py-1.5 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-emerald-500 text-slate-900 dark:text-slate-100 placeholder:text-slate-400"
+                        />
+                        {courseFilterQuery && (
+                          <button
+                            onClick={() => setCourseFilterQuery('')}
+                            className="absolute right-2 top-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Stream Category Filters */}
+                      <div className="flex items-center gap-1 text-[11px] overflow-x-auto pb-0.5 scrollbar-none">
+                        {(
+                          [
+                            { id: 'all', label: 'All (17)' },
+                            { id: 'natural', label: '📐 Natural (Math, Phys, Bio)' },
+                            { id: 'social', label: '⚖️ Social' },
+                            { id: 'common', label: '🌐 Common' }
+                          ] as const
+                        ).map((tab) => (
+                          <button
+                            key={tab.id}
+                            onClick={() => setCourseStreamTab(tab.id)}
+                            className={`px-2 py-0.5 rounded-md font-semibold whitespace-nowrap transition-colors ${
+                              courseStreamTab === tab.id
+                                ? 'bg-emerald-600 text-white shadow-2xs'
+                                : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300 dark:hover:bg-slate-700'
+                            }`}
+                          >
+                            {tab.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                    {allCourses.map((c) => (
-                      <button
-                        key={c.id}
-                        onClick={() => {
-                          onSelectCourse(c.id);
-                          setIsCourseDropdownOpen(false);
-                        }}
-                        className={`w-full text-left p-2 rounded-xl transition-all flex items-start gap-2.5 mb-1 ${
-                          c.id === currentCourse.id
-                            ? 'bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 font-semibold shadow-2xs'
-                            : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
-                        }`}
-                      >
-                        <div
-                          className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-white text-xs shrink-0 mt-0.5 ${getCourseBadgeColor(
-                            c.id
-                          )}`}
-                        >
-                          {getCourseInitials(c)}
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                              {c.code}
-                            </span>
-                            <span className="text-[10px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded-md font-medium text-slate-600 dark:text-slate-400">
-                              {c.badge}
-                            </span>
-                          </div>
-                          <div className="text-[11px] text-slate-800 dark:text-slate-200 truncate">
-                            {c.englishTitle}
-                          </div>
-                        </div>
-                      </button>
-                    ))}
+
+                    {/* Course List */}
+                    <div className="overflow-y-auto p-2 space-y-1 max-h-96">
+                      {allCourses
+                        .filter((c) => {
+                          const q = courseFilterQuery.toLowerCase().trim();
+                          const matchesQuery =
+                            !q ||
+                            c.code.toLowerCase().includes(q) ||
+                            c.englishTitle.toLowerCase().includes(q) ||
+                            c.amharicTitle.includes(q) ||
+                            c.stream.toLowerCase().includes(q);
+
+                          if (!matchesQuery) return false;
+
+                          if (courseStreamTab === 'natural') {
+                            return (
+                              c.stream.toLowerCase().includes('natural') ||
+                              c.id === 'math1011' ||
+                              c.id === 'phys1011' ||
+                              c.id === 'biol1012'
+                            );
+                          }
+                          if (courseStreamTab === 'social') {
+                            return (
+                              c.stream.toLowerCase().includes('social') ||
+                              c.id === 'anth1012' ||
+                              c.id === 'econ1011' ||
+                              c.id === 'mcde1012'
+                            );
+                          }
+                          if (courseStreamTab === 'common') {
+                            return (
+                              c.stream.toLowerCase().includes('common') ||
+                              ['flen1011', 'flen1012', 'psyc1011', 'phil1011', 'hist1012', 'gees1011', 'emte1012', 'snie1012', 'spsc1011', 'gltr1012', 'mgmt1012'].includes(c.id)
+                            );
+                          }
+                          return true;
+                        })
+                        .map((c) => {
+                          const isSelected = c.id === currentCourse.id;
+                          return (
+                            <button
+                              key={c.id}
+                              onClick={() => {
+                                onSelectCourse(c.id);
+                                setIsCourseDropdownOpen(false);
+                                setCourseFilterQuery('');
+                              }}
+                              className={`w-full text-left p-2.5 rounded-xl transition-all flex items-start gap-3 group ${
+                                isSelected
+                                  ? 'bg-emerald-50 dark:bg-emerald-950/60 border-2 border-emerald-500 dark:border-emerald-600 shadow-xs'
+                                  : 'hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-transparent'
+                              }`}
+                            >
+                              <div
+                                className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs shrink-0 mt-0.5 shadow-2xs ${getCourseBadgeColor(
+                                  c.id
+                                )}`}
+                              >
+                                {getCourseInitials(c)}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center justify-between gap-1">
+                                  <span
+                                    className={`text-xs font-bold ${
+                                      isSelected
+                                        ? 'text-emerald-950 dark:text-emerald-200'
+                                        : 'text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400'
+                                    }`}
+                                  >
+                                    {c.code}
+                                  </span>
+                                  <span className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded font-medium shrink-0">
+                                    {c.badge}
+                                  </span>
+                                </div>
+                                <div className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">
+                                  {c.englishTitle}
+                                </div>
+                                <div className="text-[10px] font-amharic text-slate-500 dark:text-slate-400 truncate">
+                                  {c.amharicTitle}
+                                </div>
+                              </div>
+                              {isSelected && (
+                                <div className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0 self-center" />
+                              )}
+                            </button>
+                          );
+                        })}
+                    </div>
                   </div>
                 </>
               )}
+            </div>
+
+            {/* Quick-Access Course Chips (visible on md+ screens, horizontal scroll) */}
+            <div className="hidden md:flex items-center gap-1 pl-2 border-l border-slate-200 dark:border-slate-800 overflow-x-auto scrollbar-none py-0.5 max-w-[260px] lg:max-w-[420px] xl:max-w-[560px]">
+              {[
+                { id: 'math1014', label: '∑ Applied Math (1014B)', isMathChip: true },
+                { id: 'math1011', label: '∑ Math 1011', isMathChip: true },
+                { id: 'phys1011', label: 'Φ Phys 1011', isMathChip: false },
+                { id: 'flen1011', label: 'E1 English I', isMathChip: false },
+                { id: 'flen1012', label: 'E2 English II', isMathChip: false },
+                { id: 'psyc1011', label: 'Ψ Psyc 1011', isMathChip: false },
+                { id: 'econ1011', label: 'Ec Econ 1011', isMathChip: false },
+                { id: 'biol1012', label: 'Bio Biol 1012', isMathChip: false },
+                { id: 'hist1012', label: 'H Hist 1012', isMathChip: false },
+              ].map((item) => {
+                const isSelected = currentCourse.id === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    id={`header-quick-course-${item.id}`}
+                    onClick={() => onSelectCourse(item.id)}
+                    className={`px-2 py-1 rounded-lg text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
+                      isSelected
+                        ? item.isMathChip
+                          ? 'bg-amber-600 text-white shadow-2xs ring-2 ring-amber-400/50'
+                          : 'bg-emerald-600 text-white shadow-2xs ring-2 ring-emerald-400/50'
+                        : item.isMathChip
+                        ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-800/60 hover:bg-amber-100 dark:hover:bg-amber-900/50'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 

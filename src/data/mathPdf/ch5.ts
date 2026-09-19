@@ -2,771 +2,765 @@ import { OfficialPdfPage } from './types';
 
 export const mathCh5Pages: OfficialPdfPage[] = [
   {
-    pdfPageNumber: 76,
-    bookPageLabel: 'Page 76',
-    chapterNumber: 5,
-    sectionRef: '5.1',
-    titleEn: 'Chapter 5: Integrals and Applications — 5.1 Antiderivatives and Indefinite Integrals',
-    titleAm: 'ምዕራፍ 5፡ ኢንተግራል እና ተግባራዊ ጥቅሞቹ — 5.1 አንቲዲሪቬቲቭ እና ኢንዲፊኒት ኢንተግራል',
-    subtopicEn: 'Definition of Antiderivative F’(x) = f(x), General Family F(x) + C, Integral Symbol, Table of Fundamental Indefinite Integrals',
-    subtopicAm: 'የአንቲዲሪቬቲቭ ትርጓሜ፣ የ C ቋሚ ቁጥር አስፈላጊነት፣ የመሰረታዊ ኢንተግራል ቀመሮች ሰንጠረዥ',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Integrals and Applications
-
-5.1 Antiderivatives and Indefinite Integrals
-Definition: A function F is called an antiderivative of f on an interval I if:
-F'(x) = f(x)  for all x in I.
-
-Theorem: If F is an antiderivative of f on an interval I, then the most general antiderivative of f on I is:
-F(x) + C
-where C is an arbitrary constant.
-
-Notation (Indefinite Integral):
-The collection of all antiderivatives of f is called the indefinite integral of f with respect to x, denoted:
-∫ f(x) dx = F(x) + C  ⟺  F'(x) = f(x)
-
-Table of Standard Indefinite Integrals:
-1. ∫ c dx = cx + C
-2. ∫ xⁿ dx = (xⁿ⁺¹ / (n + 1)) + C,  (n ≠ -1)
-3. ∫ (1/x) dx = ln|x| + C
-4. ∫ eˣ dx = eˣ + C
-5. ∫ aˣ dx = (aˣ / ln a) + C
-6. ∫ sin x dx = -cos x + C
-7. ∫ cos x dx = sin x + C
-8. ∫ sec²x dx = tan x + C
-9. ∫ csc²x dx = -cot x + C
-10. ∫ sec x tan x dx = sec x + C
-11. ∫ (1 / (1 + x²)) dx = arctan x + C
-12. ∫ (1 / √(1 - x²)) dx = arcsin x + C`,
-    contentAm: `አዲስ አበባ ሳይንስ እና ቴክኖሎጂ ዩኒቨርሲቲ (AASTU)
-የሂሳብ ትምህርት ክፍል
-ምዕራፍ 5፡ ኢንተግራል እና ተግባራዊ ጥቅሞቹ
-
-5.1 አንቲዲሪቬቲቭ እና ኢንዲፊኒት ኢንተግራል
-ትርጓሜ፡ F'(x) = f(x) ከሆነ F የ f አንቲዲሪቬቲቭ (Antiderivative) ይባላል።
-ቴዎረም፡ አጠቃላይ አንቲዲሪቬቲቭ F(x) + C ነው (C የኢንተግሬሽን ቋሚ ቁጥር ነው)።
-
-ኢንዲፊኒት ኢንተግራል ምልክት፡
-∫ f(x) dx = F(x) + C
-
-መሰረታዊ የኢንተግራል ቀመሮች፡
-1. ∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C (n ≠ -1)
-2. ∫ (1/x) dx = ln|x| + C
-3. ∫ eˣ dx = eˣ + C
-4. ∫ sin x dx = -cos x + C
-5. ∫ cos x dx = sin x + C
-6. ∫ sec²x dx = tan x + C
-7. ∫ (1/(1+x²)) dx = arctan x + C
-8. ∫ (1/√(1-x²)) dx = arcsin x + C`,
-    formulas: [
-      { name: 'Indefinite Integral Power Rule', formula: '∫ xⁿ dx = [xⁿ⁺¹ / (n + 1)] + C,  n ≠ -1', explanation: 'Reverses the derivative power rule for all real exponents except -1.' },
-      { name: 'Reciprocal Integral', formula: '∫ (1/x) dx = ln|x| + C', explanation: 'Antiderivative yielding natural logarithm.' }
-    ]
-  },
-  {
-    pdfPageNumber: 77,
-    bookPageLabel: 'Page 77',
-    chapterNumber: 5,
-    sectionRef: '5.2',
-    titleEn: '5.2 The Definite Integral: The Area Problem & Riemann Sums',
-    titleAm: '5.2 ዲፊኒት ኢንተግራል፡ የስፋት ችግር እና የሪማን ድምር (Riemann Sum)',
-    subtopicEn: 'Area Under Curve, Partition Δx = (b-a)/n, Sample Points x_i*, Definition of Definite Integral as Limit of Riemann Sums',
-    subtopicAm: 'ከከርቭ በታች ያለ ስፋት፣ የክፍፍል ስፋት Δx፣ የሪማን ድምር እና የዲፊኒት ኢንተግራል ሊሚት ትርጓሜ',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 2
-
-5.2 The Definite Integral
-The Area Problem:
-Find the area of the region S that lies under the curve y = f(x) from a to b, where f(x) ≥ 0.
-
-We divide the interval [a, b] into n subintervals of equal width:
-Δx = (b - a) / n
-Let x₀ = a, x₁ = a + Δx, ..., xₙ = b be the endpoints of the subintervals.
-In each subinterval [xᵢ₋₁, xᵢ], choose a sample point xᵢ*.
-The area under the curve is approximated by the sum of areas of n rectangles:
-Rₙ = ∑ᵢ₌₁ⁿ f(xᵢ*) Δx  (called a Riemann Sum)
-
-Definition (The Definite Integral):
-Let f be a function defined on [a, b]. The definite integral of f from a to b is:
-∫ₐᵇ f(x) dx = lim_{n ⟶ ∞} ∑ᵢ₌₁ⁿ f(xᵢ*) Δx
-provided this limit exists. If it exists, we say that f is integrable on [a, b].
-
-Components:
-- a is the lower limit of integration.
-- b is the upper limit of integration.
-- f(x) is the integrand.
-- dx indicates that the independent variable is x.
-
-Theorem: If f is continuous on [a, b], or if f has only a finite number of jump discontinuities, then f is integrable on [a, b].`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 77
-
-5.2 ዲፊኒት ኢንተግራል (The Definite Integral)
-የስፋት ችግር፡ ከከርቭ y = f(x) በታች ከ a እስከ b ያለውን ስፋት ማስላት።
-[a, b] ክልልን ወደ n እኩል ንዑስ ክፍሎች ስንከፍል ስፋታቸው፡
-Δx = (b - a) / n
-የ n አራት ማዕዘኖች ድምር (የሪማን ድምር)፡
-Rₙ = ∑ᵢ₌₁ⁿ f(xᵢ*) Δx
-
-የዲፊኒት ኢንተግራል ፎርማል ትርጓሜ፡
-∫ₐᵇ f(x) dx = lim_{n ⟶ ∞} ∑ᵢ₌₁ⁿ f(xᵢ*) Δx
-
-ቴዎረም፡ f በ [a, b] ላይ ቀጣይ ከሆነ f በ [a, b] ላይ የግድ ኢንተግሬብል (Integrable) ነው።`,
-    formulas: [
-      { name: 'Definite Integral as Riemann Limit', formula: '∫ₐᵇ f(x) dx = lim_{n ⟶ ∞} ∑ᵢ₌₁ⁿ f(xᵢ*) Δx', explanation: 'Exact analytical definition of definite integral.' }
-    ]
-  },
-  {
-    pdfPageNumber: 78,
-    bookPageLabel: 'Page 78',
-    chapterNumber: 5,
-    sectionRef: '5.2.1',
-    titleEn: '8 Fundamental Properties of Definite Integrals',
-    titleAm: '8ቱ መሰረታዊ የዲፊኒት ኢንተግራል ባህሪያት',
-    subtopicEn: 'Constant Integrals, Linearity, Reversing Limits, Zero-Width Integral, Additivity of Intervals, Comparison Properties',
-    subtopicAm: 'የቋሚ ቁጥር ኢንተግራል፣ የሊኒያሪቲ ህጎች፣ የድንበር መቀያየር፣ የክልል መደመር፣ የማነጻጸሪያ ህጎች',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 3
-
-Properties of Definite Integrals:
-Let f and g be integrable functions on [a, b], and let c be any constant:
-
-1. ∫ₐᵇ c dx = c (b - a)
-2. ∫ₐᵇ [f(x) ± g(x)] dx = ∫ₐᵇ f(x) dx ± ∫ₐᵇ g(x) dx
-3. ∫ₐᵇ c f(x) dx = c ∫ₐᵇ f(x) dx
-4. Reversing limits changes the sign:
-∫ₐᵇ f(x) dx = - ∫ᵦᵃ f(x) dx
-5. Zero-width integral:
-∫ₐᵃ f(x) dx = 0
-6. Additivity of intervals:
-For any c between a and b (or anywhere f is integrable):
-∫ₐᵇ f(x) dx = ∫ₐᶜ f(x) dx + ∫꜀ᵇ f(x) dx
-
-Comparison Properties:
-7. If f(x) ≥ 0 for all a ≤ x ≤ b, then ∫ₐᵇ f(x) dx ≥ 0.
-8. If f(x) ≥ g(x) for all a ≤ x ≤ b, then ∫ₐᵇ f(x) dx ≥ ∫ₐᵇ g(x) dx.
-9. If m ≤ f(x) ≤ M for all a ≤ x ≤ b, then:
-m(b - a) ≤ ∫ₐᵇ f(x) dx ≤ M(b - a)`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 78
-
-8ቱ የዲፊኒት ኢንተግራል ባህሪያት፡
-1. ∫ₐᵇ c dx = c(b - a)
-2. ∫ₐᵇ [f ± g] dx = ∫ f dx ± ∫ g dx (የድምር/ልዩነት ህግ)
-3. ∫ₐᵇ c f(x) dx = c ∫ₐᵇ f(x) dx (የእስካላር ብዜት ህግ)
-4. የድንበር መቀያየር ምልክት ይቀይራል፡ ∫ₐᵇ f dx = - ∫ᵦᵃ f dx
-5. ድንበሩ እኩል ሲሆን ዜሮ ነው፡ ∫ₐᵃ f dx = 0
-6. ክልሎችን ማገናኘት፡ ∫ₐᵇ f dx = ∫ₐᶜ f dx + ∫꜀ᵇ f dx
-
-የማነጻጸሪያ ህጎች፡
-7. f(x) ≥ 0 ከሆነ፡ ∫ₐᵇ f(x) dx ≥ 0
-8. f(x) ≥ g(x) ከሆነ፡ ∫ₐᵇ f dx ≥ ∫ₐᵇ g dx
-9. m ≤ f(x) ≤ M ከሆነ፡ m(b - a) ≤ ∫ₐᵇ f dx ≤ M(b - a)`,
-    formulas: [
-      { name: 'Interval Additivity', formula: '∫ₐᵇ f(x) dx = ∫ₐᶜ f(x) dx + ∫꜀ᵇ f(x) dx', explanation: 'Partitioning integral across subintervals.' },
-      { name: 'Integral Bounding Property', formula: 'm(b - a) ≤ ∫ₐᵇ f(x) dx ≤ M(b - a)', explanation: 'Upper and lower box bounds on definite integral.' }
-    ]
-  },
-  {
-    pdfPageNumber: 79,
-    bookPageLabel: 'Page 79',
-    chapterNumber: 5,
-    sectionRef: '5.3',
-    titleEn: '5.3 The Fundamental Theorem of Calculus (FTC Part 1 & Part 2)',
-    titleAm: '5.3 የካልኩለስ መሰረታዊ ቴዎረም (FTC ክፍል 1 እና ክፍል 2)',
-    subtopicEn: 'FTC Part 1 (d/dx [∫ₐˣ f(t) dt] = f(x)), FTC Part 2 / Evaluation Theorem (∫ₐᵇ f(x) dx = F(b) - F(a)), Historical Significance',
-    subtopicAm: 'የ FTC ክፍል 1 (የኢንተግራል ዲሪቬቲቭ)፣ የ FTC ክፍል 2 (የስሌት ቴዎረም ∫ f dx = F(b) - F(a))',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 4
-
-5.3 The Fundamental Theorem of Calculus (FTC)
-The Fundamental Theorem of Calculus establishes the deep inverse connection between differentiation and integration, developed independently by Isaac Newton and Gottfried Wilhelm Leibniz.
-
-The Fundamental Theorem of Calculus, Part 1 (FTC 1):
-If f is continuous on [a, b], then the function g defined by:
-g(x) = ∫ₐˣ f(t) dt,  a ≤ x ≤ b
-is continuous on [a, b] and differentiable on (a, b), and:
-g'(x) = (d/dx) [∫ₐˣ f(t) dt] = f(x)
-
-The Fundamental Theorem of Calculus, Part 2 (FTC 2 / Evaluation Theorem):
-If f is continuous on [a, b], then:
-∫ₐᵇ f(x) dx = F(b) - F(a)
-where F is any antiderivative of f, that is, F' = f.
-
-Notation:
-F(b) - F(a) is often written as [F(x)]ₐᵇ or F(x)|ₐᵇ.
-
-Summary:
-- FTC 1 says: Differentiation undoes integration: (d/dx)[∫ₐˣ f(t) dt] = f(x).
-- FTC 2 says: Integration undoes differentiation: ∫ₐᵇ F'(x) dx = F(b) - F(a).`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 79
-
-5.3 የካልኩለስ መሰረታዊ ቴዎረም (Fundamental Theorem of Calculus - FTC)
-FTC በዲፈረንሼሽን እና በኢንተግሬሽን መካከል ያለውን የኢንቨርስ ዝምድና የሚያረጋግጥ ዋና ቴዎረም ነው።
-
-የካልኩለስ መሰረታዊ ቴዎረም (ክፍል 1)፡
-f በ [a, b] ላይ ቀጣይ ከሆነ g(x) = ∫ₐˣ f(t) dt ዲፈረንሼብል ሲሆን ዲሪቬቲቩ፡
-g'(x) = d/dx [∫ₐˣ f(t) dt] = f(x) ይሆናል።
-
-የካልኩለስ መሰረታዊ ቴዎረም (ክፍል 2 / Evaluation Theorem)፡
-f በ [a, b] ላይ ቀጣይ ከሆነ፡
-∫ₐᵇ f(x) dx = F(b) - F(a) = [F(x)]ₐᵇ
-F የ f ማንኛውም አንቲዲሪቬቲቭ (F' = f) ነው።`,
-    formulas: [
-      { name: 'FTC Part 1', formula: 'd/dx [∫ₐˣ f(t) dt] = f(x)', explanation: 'Derivative of definite integral with respect to upper limit.' },
-      { name: 'FTC Part 2 (Evaluation Theorem)', formula: '∫ₐᵇ f(x) dx = F(b) - F(a)', explanation: 'Definite integral evaluation via antiderivative endpoints.' }
-    ]
-  },
-  {
-    pdfPageNumber: 80,
-    bookPageLabel: 'Page 80',
-    chapterNumber: 5,
-    sectionRef: '5.3.1',
-    titleEn: 'FTC Solved Problems: Leibniz Rule with Chain Rule & Definite Integrals',
-    titleAm: 'በ FTC የተሰሩ ምሳሌዎች፡ የላይብኒዝ ህግ ከቼይን ህግ ጋር እና የዲፊኒት ኢንተግራል ስሌቶች',
-    subtopicEn: 'd/dx[∫₁ˣ √(t³+1) dt], d/dx[∫₀^(x²) cos t dt] = 2x cos(x²), Evaluation of ∫₁³ eˣ dx, Evaluation of ∫₀^π sin x dx = 2',
-    subtopicAm: 'የኢንተግራል ዲሪቬቲቭ ከቼይን ህግ ጋር፣ የ eˣ እና sin x ኢንተግራል ስሌቶች',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 5
-
-Examples Applying FTC:
-
-Example 1: Find the derivative of g(x) = ∫₁ˣ √(t³ + 1) dt.
-Solution:
-By FTC 1:
-g'(x) = √(x³ + 1).
-
-Example 2: Find (d/dx) [∫₀^(x²) cos t dt].
-Solution:
-Here the upper limit is u = x², not simply x. By the Chain Rule:
-Let g(u) = ∫₀ᵘ cos t dt, then (d/du)[g(u)] = cos u.
-(d/dx)[g(x²)] = (dg/du) · (du/dx) = cos(x²) · (d/dx)[x²] = 2x cos(x²).
-
-Example 3: Evaluate ∫₁³ eˣ dx.
-Solution:
-An antiderivative of f(x) = eˣ is F(x) = eˣ.
-∫₁³ eˣ dx = [eˣ]₁³ = e³ - e¹ = e(e² - 1).
-
-Example 4: Evaluate ∫₀^π sin x dx.
-Solution:
-An antiderivative of sin x is F(x) = -cos x.
-∫₀^π sin x dx = [-cos x]₀^π = (-cos π) - (-cos 0) = -(-1) - (-1) = 1 + 1 = 2.
-(The total area under one arch of the sine wave is exactly 2 square units).`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 80
-
-በ FTC የተሰሩ ምሳሌዎች፡
-ምሳሌ 1፡ g'(x) = d/dx [∫₁ˣ √(t³ + 1) dt] = √(x³ + 1)
-
-ምሳሌ 2፡ d/dx [∫₀^(x²) cos t dt] = cos(x²) · (2x) = 2x cos(x²) (በቼይን ህግ)
-
-ምሳሌ 3፡ ∫₁³ eˣ dx = [eˣ]₁³ = e³ - e
-
-ምሳሌ 4፡ ∫₀^π sin x dx = [-cos x]₀^π = (-cos π) - (-cos 0) = 1 - (-1) = 2
-(የሳይን ከርቭ አንድ ጉብታ ስፋት በትክክል 2 ስኩዌር ዩኒት ነው)።`,
-    formulas: [
-      { name: 'Leibniz Integral Rule', formula: 'd/dx [∫ₐ^(u(x)) f(t) dt] = f(u(x)) · u\'(x)', explanation: 'Combining FTC Part 1 with chain rule for variable limit functions.' }
-    ]
-  },
-  {
-    pdfPageNumber: 81,
-    bookPageLabel: 'Page 81',
-    chapterNumber: 5,
-    sectionRef: '5.4',
-    titleEn: '5.4 Techniques of Integration: The Substitution Rule (u-Substitution)',
-    titleAm: '5.4 የኢንተግሬሽን ዘዴዎች፡ የተካፊ ህግ (The Substitution Rule / u-Substitution)',
-    subtopicEn: 'Theorem for Indefinite and Definite u-Substitution, Changing Limits of Integration, Solved Radical Algebraic Example',
-    subtopicAm: 'የ u-ሰብስትቲዩሽን ቴዎረም ለኢንዲፊኒት እና ዲፊኒት ኢንተግራል፣ የድንበሮች ለውጥ፣ የተሰራ ምሳሌ',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 6
-
-5.4 Techniques of Integration
-1. The Substitution Rule (u-substitution)
-The Substitution Rule for integration corresponds to the Chain Rule for differentiation.
-
-Theorem (Substitution for Indefinite Integrals):
-If u = g(x) is a differentiable function whose range is an interval I and f is continuous on I, then:
-∫ f(g(x)) g'(x) dx = ∫ f(u) du
-
-Theorem (Substitution for Definite Integrals):
-If g' is continuous on [a, b] and f is continuous on the range of u = g(x), then:
-∫ₐᵇ f(g(x)) g'(x) dx = ∫_{g(a)}^{g(b)} f(u) du
-
-Example 1: Evaluate ∫ x² √(x³ + 5) dx.
-Solution:
-Let u = x³ + 5.
-Then du = (d/dx)(x³ + 5) dx = 3x² dx ⟹ x² dx = du / 3.
-Substitute into integral:
-∫ x² √(x³ + 5) dx = ∫ √u (du / 3) = (1/3) ∫ u^(1/2) du
-= (1/3) [u^(3/2) / (3/2)] + C = (2/9) u^(3/2) + C
-= (2/9) (x³ + 5)^(3/2) + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 81
-
-5.4 የኢንተግሬሽን ዘዴዎች (Techniques of Integration)
-1. የተካፊ ህግ (Substitution Rule / u-substitution)
-ይህ ዘዴ የዲሪቬቲቭ ቼይን ህግ ተገላቢጦሽ ነው።
-
-ቴዎረም፡ u = g(x) ቢሆን du = g'(x) dx ስለሚሆን፡
-∫ f(g(x)) g'(x) dx = ∫ f(u) du
-ለዲፊኒት ኢንተግራል ድንበሮቹም አብረው ይቀየራሉ፡ ከ a ወደ g(a)፤ ከ b ወደ g(b)።
-
-ምሳሌ 1፡ ∫ x² √(x³ + 5) dx
-u = x³ + 5 ⟹ du = 3x² dx ⟹ x² dx = du/3
-= (1/3) ∫ u^(1/2) du = (2/9) u^(3/2) + C = (2/9)(x³ + 5)^(3/2) + C`,
-    formulas: [
-      { name: 'Substitution Rule', formula: '∫ f(g(x)) g\'(x) dx = ∫ f(u) du', explanation: 'Simplifies composite integrands by variable substitution.' }
-    ]
-  },
-  {
-    pdfPageNumber: 82,
-    bookPageLabel: 'Page 82',
-    chapterNumber: 5,
-    sectionRef: '5.4.1',
-    titleEn: 'Definite Substitution with Transformed Bounds & Symmetry Integrals',
-    titleAm: 'የዲፊኒት ሰብስትቲዩሽን ከድንበር ለውጥ ጋር እና የሲሜትሪ ኢንተግራሎች',
-    subtopicEn: 'Evaluation of ∫₀¹ x/(x²+1) dx = (1/2)ln 2, Even Functions ∫_{-a}^a f = 2∫₀^a f, Odd Functions ∫_{-a}^a f = 0 Proof',
-    subtopicAm: 'የ ∫₀¹ x/(x²+1) dx ስሌት፣ የኢቭን ፈንክሽን ሲሜትሪ 2∫₀^a f፣ የኦድ ፈንክሽን ሲሜትሪ ∫_{-a}^a f = 0',
-    pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 7
-
-Example 2 (Definite Substitution): Evaluate ∫₀¹ (x / (x² + 1)) dx.
-Solution:
-Let u = x² + 1 ⟹ du = 2x dx ⟹ x dx = du / 2.
-Change the limits of integration:
-When x = 0: u = 0² + 1 = 1.
-When x = 1: u = 1² + 1 = 2.
-∫₀¹ (x / (x² + 1)) dx = ∫₁² (1/u) (du / 2) = (1/2) ∫₁² (1/u) du
-= (1/2) [ln|u|]₁² = (1/2) (ln 2 - ln 1) = (1/2) ln 2.
-
-Integrals of Symmetric Functions:
-Theorem: Suppose f is continuous on [-a, a]:
-a) If f is even [f(-x) = f(x)], then:
-∫_{-a}ᵃ f(x) dx = 2 ∫₀ᵃ f(x) dx
-b) If f is odd [f(-x) = -f(x)], then:
-∫_{-a}ᵃ f(x) dx = 0
-
-Example: Evaluate ∫_{-1}¹ ((x⁷ + sin x) / (x⁴ + 1)) dx.
-Solution:
-f(-x) = ((-x)⁷ + sin(-x)) / ((-x)⁴ + 1) = (-x⁷ - sin x) / (x⁴ + 1) = - f(x).
-Since the integrand is an odd function integrated over symmetric interval [-1, 1], the integral is immediately 0.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 82
-
-ምሳሌ 2 (የዲፊኒት ሰብስትቲዩሽን)፡ ∫₀¹ (x / (x² + 1)) dx
-u = x² + 1 ⟹ du = 2x dx፤ x = 0 ሲሆን u = 1፤ x = 1 ሲሆን u = 2
-= (1/2) ∫₁² (1/u) du = (1/2) [ln u]₁² = (1/2) ln 2
-
-የሲሜትሪክ ፈንክሽኖች ኢንተግራል፡
-f በ [-a, a] ላይ ቀጣይ ቢሆን፡
-ሀ) ኢቭን (Even) ከሆነ፡ ∫_{-a}ᵃ f(x) dx = 2 ∫₀ᵃ f(x) dx
-ለ) ኦድ (Odd) ከሆነ፡ ∫_{-a}ᵃ f(x) dx = 0
-
-ምሳሌ፡ ∫_{-1}¹ ((x⁷ + sin x) / (x⁴ + 1)) dx
-ፈንክሽኑ ኦድ (Odd) ስለሆነ መልሱ በቀጥታ 0 ነው!`,
-    formulas: [
-      { name: 'Odd Function Integral', formula: 'f(-x) = -f(x) ⟹ ∫_{-a}ᵃ f(x) dx = 0', explanation: 'Cancellation of signed area for odd symmetric functions.' }
-    ]
-  },
-  {
     pdfPageNumber: 83,
     bookPageLabel: 'Page 83',
     chapterNumber: 5,
-    sectionRef: '5.4.2',
-    titleEn: 'Integration by Parts Formula, LIATE Heuristic & Solved Example ∫ x eˣ dx',
-    titleAm: 'የክፍሎች ኢንተግሬሽን ቀመር (Integration by Parts)፣ የ LIATE መመሪያ እና የ ∫ x eˣ dx ስሌት',
-    subtopicEn: 'Derivation from Product Rule ∫ u dv = uv - ∫ v du, Definite Formula, LIATE Acronym, Complete Solution for ∫ x eˣ dx = (x-1)eˣ + C',
-    subtopicAm: 'ከብዜት ህግ የተገኘ ቀመር ∫ u dv = uv - ∫ v du፣ የ LIATE ቅደም ተከተል፣ የ ∫ x eˣ dx ስሌት',
+    sectionRef: '5.1',
+    titleEn: 'Chapter 5: Integrations — 5.1 Indefinite Integrals & Basic Rules (1–5)',
+    titleAm: 'ምዕራፍ 5፡ ኢንቴግሬሽን — 5.1 ያልተወሰነ ኢንቴግራሎች (Indefinite Integrals) እና ህጎች (1–5)',
+    subtopicEn: 'Definition of Anti-derivative, Indefinite Integral Notation ∫ f(x)dx = F(x) + C, Basic Rules for Powers and Reciprocals',
+    subtopicAm: 'የአንቲ-ዲሪቬቲቭ ትርጓሜ፣ የኢንቴግራ ምልክት ∫ f(x)dx፣ የፓወርና ሎጋሪዝም ህጎች',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 8
+    contentEn: `Applied MathI: Integrations 2022
+CHAPTER 5: INTEGRATIONS
+5.1 Indefinite Integrals
 
-2. Integration by Parts
-Integration by parts corresponds to the Product Rule for differentiation.
-The Product Rule states: (d/dx)[u(x) v(x)] = u'(x) v(x) + u(x) v'(x).
-Integrating both sides:
-u(x) v(x) = ∫ v(x) u'(x) dx + ∫ u(x) v'(x) dx
-Rearranging gives the Integration by Parts Formula:
-∫ u dv = u v - ∫ v du
+Definition:
+Let f be a function whose domain is an open interval I. Then any function F such that:
+F'(x) = f(x)  for each x in I
+is called an anti-derivative of f on I.
 
-Definite Integration by Parts Formula:
-∫ₐᵇ u dv = [u v]ₐᵇ - ∫ₐᵇ v du
+Example 1:
+F(x) = x³ + c is an anti-derivative of f(x) = 3x² on (-∞, ∞), since F'(x) = 3x².
 
-The LIATE Rule for Choosing u:
-A rule of thumb for choosing which factor to set as u (in order of priority):
-L: Logarithmic functions (ln x, log_a x)
-I: Inverse trigonometric functions (arcsin x, arctan x)
-A: Algebraic functions (polynomials, x², √x)
-T: Trigonometric functions (sin x, cos x)
-E: Exponential functions (eˣ, 2ˣ)
+Theorem:
+If F is an anti-derivative of f on an open interval I, then the most general anti-derivative of f on I is F(x) + C, where C is an arbitrary constant.
 
-Example 1: Find ∫ x eˣ dx.
-Solution:
-Following LIATE, choose Algebraic over Exponential for u:
-Let u = x ⟹ du = dx.
-Let dv = eˣ dx ⟹ v = ∫ eˣ dx = eˣ.
-Apply formula:
-∫ x eˣ dx = u v - ∫ v du = x eˣ - ∫ eˣ dx = x eˣ - eˣ + C = (x - 1)eˣ + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 83
+Definition — Indefinite Integral:
+The collection of all anti-derivatives of f is called the indefinite integral of f with respect to x, denoted by:
+∫ f(x) dx = F(x) + C
+where ∫ is the integral sign, f(x) is the integrand, x is the variable of integration, and C is the constant of integration.
 
-2. የክፍሎች ኢንተግሬሽን (Integration by Parts)
-ይህ ዘዴ የዲሪቬቲቭ ብዜት ህግ (Product Rule) ተገላቢጦሽ ነው።
-ቀመር፡ ∫ u dv = u v - ∫ v du
+Basic Integration Rules:
+1) ∫ dx = x + C
+2) ∫ c dx = c ∫ dx = cx + C
+3) ∫ [f(x) ± g(x)] dx = ∫ f(x) dx ± ∫ g(x) dx
+4) ∫ x^r dx = x^(r + 1) / (r + 1) + C,  (r ≠ -1)
+5) ∫ (1/x) dx = ln|x| + C,  (x ≠ 0)`,
+    contentAm: `ምዕራፍ 5፡ ኢንቴግሬሽን (Integrations)
+5.1 ያልተወሰነ ኢንቴግራል (Indefinite Integrals)
 
-ለ u ምርጫ የ LIATE ቅደም-ተከተል መመሪያ፡
-L: ሎጋሪዝሚክ (ln x)
-I: ኢንቨርስ ትሪጎኖሜትሪክ (arctan x)
-A: አልጀብራዊ (x, x²)
-T: ትሪጎኖሜትሪክ (sin x, cos x)
-E: ኤክስፖኔንሺያል (eˣ)
+ትርጓሜ — አንቲ-ዲሪቬቲቭ (Anti-derivative)፡
+F'(x) = f(x) የሚያሟላ ማንኛውም F(x) ፈንክሽን የ f(x) አንቲ-ዲሪቬቲቭ ይባላል።
+አጠቃላይ ውክልና፡ ∫ f(x) dx = F(x) + C (C ቋሚ ቁጥር ነው)።
 
-ምሳሌ 1፡ ∫ x eˣ dx
-u = x ⟹ du = dx
-dv = eˣ dx ⟹ v = eˣ
-∫ x eˣ dx = x eˣ - ∫ eˣ dx = x eˣ - eˣ + C = (x - 1)eˣ + C`,
+መሰረታዊ ህጎች (1–5)፡
+1) ∫ dx = x + C
+2) ∫ c dx = cx + C
+3) ∫ [f(x) ± g(x)] dx = ∫ f(x) dx ± ∫ g(x) dx
+4) ∫ x^r dx = x^(r+1)/(r+1) + C, (r ≠ -1)
+5) ∫ (1/x) dx = ln|x| + C`,
     formulas: [
-      { name: 'Integration by Parts', formula: '∫ u dv = uv - ∫ v du', explanation: 'Fundamental integration by parts identity.' }
+      { name: 'Indefinite Integral Definition', formula: '\\int f(x) dx = F(x) + C \\iff F\'(x) = f(x)', explanation: 'Inverse operation of differentiation.' },
+      { name: 'Power Rule for Integration', formula: '\\int x^r dx = \\frac{x^{r+1}}{r+1} + C \\quad (r \\neq -1)', explanation: 'Reverses power differentiation.' }
     ]
   },
   {
     pdfPageNumber: 84,
     bookPageLabel: 'Page 84',
     chapterNumber: 5,
-    sectionRef: '5.4.3',
-    titleEn: 'Natural Logarithm & Cyclic Integration by Parts ∫ eˣ sin x dx',
-    titleAm: 'የተፈጥሮ ሎጋሪዝም ኢንተግራል እና ዑደታዊ ኢንተግሬሽን ∫ eˣ sin x dx',
-    subtopicEn: 'Integral of ln x (∫ ln x dx = x ln x - x + C), Repeated Integration by Parts, Algebraic Solving for Cyclic Integral ∫ eˣ sin x dx',
-    subtopicAm: 'የ ∫ ln x dx ስሌት፣ ተደጋጋሚ ኢንተግሬሽን፣ የ ∫ eˣ sin x dx ዑደታዊ አልጀብራ መፍትሔ',
+    sectionRef: '5.2',
+    titleEn: 'Trig, Exponential & Hyperbolic Rules; 5.2 Integration by Substitution',
+    titleAm: 'የትሪግ፣ ኤክስፖኔንሻልና ሃይፐርቦሊክ ህጎች፤ 5.2 በተለዋዋጭ መተካት (Substitution)',
+    subtopicEn: 'Rules 6–9 (Trig, Exp, Hyperbolic, Inverse), 5.2.A Integration by Substitution Theorem & Example 1',
+    subtopicAm: 'የኢንቴግሬሽን ህጎች 6–9፣ የሰብስቲትዩሽን ስልት ቴዎረም እና ምሳሌ 1',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 9
+    contentEn: `5.1 Indefinite Integrals (continued) & 5.2 Techniques of Integration (Page 84)
 
-Example 2: Find ∫ ln x dx.
-Solution:
-Let u = ln x ⟹ du = (1/x) dx.
-Let dv = dx ⟹ v = x.
-∫ ln x dx = u v - ∫ v du = (ln x)(x) - ∫ x (1/x) dx = x ln x - ∫ 1 dx = x ln x - x + C.
+Basic Integration Rules (continued):
+6) Trigonometric Integrals:
+• ∫ sin x dx = -cos x + C
+• ∫ cos x dx = sin x + C
+• ∫ sec² x dx = tan x + C
+• ∫ csc² x dx = -cot x + C
+• ∫ sec x tan x dx = sec x + C
+• ∫ csc x cot x dx = -csc x + C
 
-Example 3 (Cyclic Integration by Parts): Evaluate I = ∫ eˣ sin x dx.
-Solution:
-Let u = sin x ⟹ du = cos x dx.
-Let dv = eˣ dx ⟹ v = eˣ.
-I = eˣ sin x - ∫ eˣ cos x dx.
+7) Exponential Integrals:
+• ∫ e^x dx = e^x + C
+• ∫ a^x dx = a^x / ln a + C,  (a > 0, a ≠ 1)
 
-Apply integration by parts again to ∫ eˣ cos x dx:
-Let u = cos x ⟹ du = -sin x dx.
-Let dv = eˣ dx ⟹ v = eˣ.
-∫ eˣ cos x dx = eˣ cos x - ∫ eˣ (-sin x) dx = eˣ cos x + ∫ eˣ sin x dx = eˣ cos x + I.
+8) Hyperbolic Integrals:
+• ∫ sinh x dx = cosh x + C
+• ∫ cosh x dx = sinh x + C
+• ∫ sech² x dx = tanh x + C
 
-Substitute back:
-I = eˣ sin x - [eˣ cos x + I] = eˣ sin x - eˣ cos x - I.
-Add I to both sides:
-2I = eˣ (sin x - cos x)
-I = (1/2) eˣ (sin x - cos x) + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 84
+9) Inverse Trigonometric Forms:
+• ∫ dx / √(1 - x²) = sin^(-1) x + C
+• ∫ dx / (1 + x²) = tan^(-1) x + C
+• ∫ dx / (|x| √(x² - 1)) = sec^(-1) x + C
 
-ምሳሌ 2፡ ∫ ln x dx
-u = ln x ⟹ du = (1/x) dx፤ dv = dx ⟹ v = x
-∫ ln x dx = x ln x - ∫ x (1/x) dx = x ln x - x + C
+5.2 Techniques (or rules) of Integration
+A. Integration by substitution (Change of Variables):
+Theorem: If u = g(x) is a differentiable function whose range is an interval I and f is continuous on I, then:
+∫ f(g(x)) g'(x) dx = ∫ f(u) du
 
-ምሳሌ 3 (ዑደታዊ ኢንተግሬሽን)፡ I = ∫ eˣ sin x dx
-ሁለት ጊዜ በክፍሎች ኢንተግሬት ሲደረግ የቀድሞው I ይመለሳል፡
-I = eˣ sin x - eˣ cos x - I
-2I = eˣ (sin x - cos x)
-I = (1/2) eˣ (sin x - cos x) + C`,
+Example 1:
+Evaluate ∫ 2x (x² + 1)^5 dx.
+Let u = x² + 1 ⟹ du = 2x dx.
+∫ (x² + 1)^5 (2x dx) = ∫ u^5 du = u^6 / 6 + C = (x² + 1)^6 / 6 + C.`,
+    contentAm: `መሰረታዊ ህጎች (6–9)፡
+• ∫ sin x dx = -cos x + C
+• ∫ cos x dx = sin x + C
+• ∫ e^x dx = e^x + C
+• ∫ dx / (1 + x²) = tan⁻¹ x + C
+
+5.2 የኢንቴግሬሽን ስልቶች
+ሀ. በተለዋዋጭ መተካት (Integration by Substitution)፡
+u = g(x) በማለት du = g'(x)dx ን መተካት።
+ምሳሌ 1፡ ∫ 2x (x² + 1)^5 dx = (x² + 1)^6 / 6 + C`,
     formulas: [
-      { name: 'Cyclic Exponential-Sine Integral', formula: '∫ eˣ sin x dx = (1/2) eˣ (sin x - cos x) + C', explanation: 'Closed-form solution via cyclic integration by parts.' }
+      { name: 'Substitution Rule', formula: '\\int f(g(x)) g\'(x) dx = \\int f(u) du', explanation: 'Reverses the chain rule of differentiation.' }
     ]
   },
   {
     pdfPageNumber: 85,
     bookPageLabel: 'Page 85',
     chapterNumber: 5,
-    sectionRef: '5.4.4',
-    titleEn: 'Trigonometric Integrals: Strategies for Powers of Sine and Cosine',
-    titleAm: 'የትሪጎኖሜትሪክ ኢንተግራሎች፡ የሳይን እና ኮሳይን ፓወሮች አሰራር ስልቶች',
-    subtopicEn: 'Odd Power of Cosine Strategy, Odd Power of Sine Strategy, Even Powers Half-Angle Strategy, Solved Example ∫ sin³x cos²x dx',
-    subtopicAm: 'የኮሳይን ጎዶሎ ፓወር ስልት፣ የሳይን ጎዶሎ ፓወር ስልት፣ የሁለቱም ሙሉ ፓወር የግማሽ አንግል ስልት፣ የተሰራ ምሳሌ',
+    sectionRef: '5.2',
+    titleEn: 'Substitution Examples & 5.2.B Integration by Parts (∫ u dv = uv - ∫ v du)',
+    titleAm: 'የሰብስቲትዩሽን ምሳሌዎች እና 5.2.ለ በከፊል ማቀናጀት (Integration by Parts)',
+    subtopicEn: 'Roots, Trig, Exp, and Rational Substitutions; Integration by Parts Formula, Example 1 ∫ x e^x dx',
+    subtopicAm: 'የተለያዩ የሰብስቲትዩሽን ምሳሌዎች፤ የኢንቴግሬሽን ባይ ፓርትስ ቀመር እና ምሳሌ 1 ∫ x e^x dx',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 10
+    contentEn: `5.2 Techniques of Integration (Page 85)
 
-3. Trigonometric Integrals
-To evaluate integrals of the form ∫ sinᵐx cosⁿx dx:
+Substitution Examples (continued):
+Example 2: Evaluate ∫ x / √(x² - 1) dx.
+Let u = x² - 1 ⟹ du = 2x dx ⟹ x dx = du / 2.
+∫ (1/2) u^(-1/2) du = (1/2) · 2 u^(1/2) + C = √(x² - 1) + C.
 
-Strategy:
-a) If the power of cosine is odd (n = 2k + 1):
-Save one cosine factor and use cos²x = 1 - sin²x to express the remaining factors in terms of sine:
-∫ sinᵐx cos²ᵏ⁺¹x dx = ∫ sinᵐx (1 - sin²x)ᵏ cos x dx  (substitute u = sin x, du = cos x dx).
+Example 3: Evaluate ∫ sin² x cos x dx.
+Let u = sin x ⟹ du = cos x dx.
+∫ u² du = u³ / 3 + C = (1/3) sin³ x + C.
 
-b) If the power of sine is odd (m = 2k + 1):
-Save one sine factor and use sin²x = 1 - cos²x to express the remaining factors in terms of cosine:
-∫ sin²ᵏ⁺¹x cosⁿx dx = ∫ (1 - cos²x)ᵏ cosⁿx sin x dx  (substitute u = cos x, du = -sin x dx).
+Example 4: Evaluate ∫ e^(tan x) sec² x dx.
+Let u = tan x ⟹ du = sec² x dx.
+∫ e^u du = e^u + C = e^(tan x) + C.
 
-c) If the powers of both sine and cosine are even:
-Use the half-angle identities:
-sin²x = (1 - cos 2x) / 2  and  cos²x = (1 + cos 2x) / 2
+Example 5: Evaluate ∫ x / (1 + x^4) dx.
+Let u = x² ⟹ du = 2x dx ⟹ x dx = du / 2.
+1/2 ∫ du / (1 + u²) = 1/2 tan^(-1)(u) + C = 1/2 tan^(-1)(x²) + C.
 
-Example: Evaluate ∫ sin³x cos²x dx.
-Solution:
-Power of sine is odd (m = 3). Save one sine factor:
-∫ sin³x cos²x dx = ∫ sin²x cos²x sin x dx = ∫ (1 - cos²x) cos²x sin x dx
-Let u = cos x ⟹ du = -sin x dx ⟹ sin x dx = -du.
-= - ∫ (1 - u²) u² du = - ∫ (u² - u⁴) du = - [u³/3 - u⁵/5] + C = (1/5) cos⁵x - (1/3) cos³x + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 85
+B. Integration by Parts:
+Derived from the product rule: (d/dx)(uv) = u' v + u v'.
+Integrating both sides:
+∫ u dv = u v - ∫ v du
 
-3. የትሪጎኖሜትሪክ ኢንተግራሎች (∫ sinᵐx cosⁿx dx)
-የአሰራር ስልቶች፡
-ሀ) የኮሳይን ፓወር ጎዶሎ ከሆነ (n = 2k + 1)፡
-አንድ cos x ነጥሎ ቀሪውን በ cos²x = 1 - sin²x በመቀየር u = sin x መተካት።
+Guideline: Choose u according to the LIATE rule:
+L: Logarithmic, I: Inverse trig, A: Algebraic, T: Trigonometric, E: Exponential.
 
-ለ) የሳይን ፓወር ጎዶሎ ከሆነ (m = 2k + 1)፡
-አንድ sin x ነጥሎ ቀሪውን በ sin²x = 1 - cos²x በመቀየር u = cos x መተካት።
+Example 1: Evaluate ∫ x e^x dx.
+Let u = x ⟹ du = dx.
+dv = e^x dx ⟹ v = e^x.
+∫ x e^x dx = x e^x - ∫ e^x dx = x e^x - e^x + C = e^x(x - 1) + C.`,
+    contentAm: `ተጨማሪ የሰብስቲትዩሽን ምሳሌዎች፡
+• ∫ sin²x cosx dx = (1/3) sin³x + C
+• ∫ e^(tanx) sec²x dx = e^(tanx) + C
+• ∫ x / (1 + x^4) dx = 1/2 tan⁻¹(x²) + C
 
-ሐ) የሁለቱም ፓወር ሙሉ (Even) ከሆነ፡
-የግማሽ አንግል ቀመሮችን መጠቀም፡
-sin²x = (1 - cos 2x)/2፤ cos²x = (1 + cos 2x)/2
-
-ምሳሌ፡ ∫ sin³x cos²x dx = (1/5) cos⁵x - (1/3) cos³x + C`,
+ለ. በከፊል ማቀናጀት (Integration by Parts)፡
+የብዜት ህግን በመቀልበስ የሚሰራ፡
+∫ u dv = u v - ∫ v du
+ምሳሌ 1፡ ∫ x e^x dx = x e^x - e^x + C = e^x(x - 1) + C`,
     formulas: [
-      { name: 'Half-Angle Sine', formula: 'sin²x = (1 - cos 2x) / 2', explanation: 'Reduces quadratic trigonometric powers.' },
-      { name: 'Half-Angle Cosine', formula: 'cos²x = (1 + cos 2x) / 2', explanation: 'Reduces quadratic cosine powers.' }
+      { name: 'Integration by Parts', formula: '\\int u \\, dv = u v - \\int v \\, du', explanation: 'Integral analog of the product rule.' }
     ]
   },
   {
     pdfPageNumber: 86,
     bookPageLabel: 'Page 86',
     chapterNumber: 5,
-    sectionRef: '5.4.5',
-    titleEn: 'Trigonometric Substitution for Radical Algebraic Forms',
-    titleAm: 'የትሪጎኖሜትሪክ ሰብስትቲዩሽን ለራዲካል አልጀብራዊ ቅርጾች',
-    subtopicEn: 'Table of 3 Canonical Forms (√(a²-x²), √(a²+x²), √(x²-a²)), Associated Trig Identities, Right-Triangle Inversion Method',
-    subtopicAm: 'የ 3ቱ መሰረታዊ ራዲካሎች ሰንጠረዥ፣ የተጣማሪ ትሪጎኖሜትሪክ ቀመሮች፣ የቀኝ ሶስት ማዕዘን ተገላቢጦሽ ስሌት',
+    sectionRef: '5.2',
+    titleEn: 'Integration by Parts Examples: ln x, x² cos x, e^x sin x & Tabular Method',
+    titleAm: 'የባይ ፓርትስ ምሳሌዎች፡ ln x፣ x² cos x፣ e^x sin x እና የታቡላር ስልት',
+    subtopicEn: '∫ ln x dx = x ln x - x + C, Repeated Parts, Cyclic Integration for e^x sin x, Tabular Integration Steps',
+    subtopicAm: 'የ ln x ኢንቴግራል፣ ተደጋጋሚ ባይ ፓርትስ፣ ዑደታዊ ኢንቴግራል e^x sin x፣ የሰንጠረዥ (Tabular) ስልት',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 11
+    contentEn: `5.2 Techniques of Integration (Page 86)
 
-4. Trigonometric Substitution
-Trigonometric substitution is used to eliminate radical expressions of the form √(a² - x²), √(a² + x²), and √(x² - a²).
+Integration by Parts Examples:
+Example 2: Evaluate ∫ ln x dx.
+Let u = ln x ⟹ du = (1/x) dx.
+dv = dx ⟹ v = x.
+∫ ln x dx = x ln x - ∫ x (1/x) dx = x ln x - ∫ dx = x ln x - x + C = x(ln x - 1) + C.
 
-Table of Substitutions:
-| Expression | Substitution | Differential | Identity |
-| :--- | :--- | :--- | :--- |
-| √(a² - x²) | x = a sin θ, -π/2 ≤ θ ≤ π/2 | dx = a cos θ dθ | 1 - sin²θ = cos²θ |
-| √(a² + x²) | x = a tan θ, -π/2 < θ < π/2 | dx = a sec²θ dθ | 1 + tan²θ = sec²θ |
-| √(x² - a²) | x = a sec θ, 0 ≤ θ < π/2 | dx = a sec θ tan θ dθ | sec²θ - 1 = tan²θ |
+Example 3: Evaluate ∫ x² cos x dx.
+Let u = x² ⟹ du = 2x dx; dv = cos x dx ⟹ v = sin x.
+∫ x² cos x dx = x² sin x - 2 ∫ x sin x dx.
+Apply parts to ∫ x sin x dx: u₁ = x, dv₁ = sin x dx ⟹ du₁ = dx, v₁ = -cos x.
+∫ x sin x dx = -x cos x - ∫ (-cos x) dx = -x cos x + sin x.
+Therefore:
+∫ x² cos x dx = x² sin x + 2x cos x - 2 sin x + C.
 
-Example: Evaluate ∫ (1 / (x² √(4 - x²))) dx.
-Solution:
-Expression √(4 - x²) has form √(a² - x²) with a = 2.
-Let x = 2 sin θ ⟹ dx = 2 cos θ dθ.
-√(4 - x²) = √(4 - 4 sin²θ) = 2√(cos²θ) = 2 cos θ.
-Substitute into integral:
-∫ (1 / [4 sin²θ · 2 cos θ]) · (2 cos θ dθ) = (1/4) ∫ (1 / sin²θ) dθ = (1/4) ∫ csc²θ dθ = - (1/4) cot θ + C.
+Example 4 — Cyclic Integration:
+Evaluate I = ∫ e^x sin x dx.
+Let u = e^x, dv = sin x dx ⟹ du = e^x dx, v = -cos x.
+I = -e^x cos x + ∫ e^x cos x dx.
+Apply parts again: u₁ = e^x, dv₁ = cos x dx ⟹ du₁ = e^x dx, v₁ = sin x.
+I = -e^x cos x + e^x sin x - ∫ e^x sin x dx = e^x(sin x - cos x) - I.
+2I = e^x(sin x - cos x) ⟹ I = (1/2) e^x(sin x - cos x) + C.
 
-Convert back to x using reference right triangle (sin θ = x / 2 ⟹ opp = x, hyp = 2, adj = √(4 - x²)):
-cot θ = adj / opp = √(4 - x²) / x.
-Final Answer: - √(4 - x²) / (4x) + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 86
+Tabular Integration Method:
+For integrals of the form ∫ p(x) f(x) dx where p(x) is a polynomial. Differentiate p(x) to 0, integrate f(x), and multiply along diagonals with alternating signs (+, -, +, ...).`,
+    contentAm: `ምሳሌ 2፡ ∫ ln x dx = x ln x - x + C
+ምሳሌ 3፡ ∫ x² cos x dx = x² sin x + 2x cos x - 2 sin x + C
+ምሳሌ 4 (ዑደታዊ ኢንቴግራል)፡ ∫ e^x sin x dx = (1/2) e^x(sin x - cos x) + C
 
-4. የትሪጎኖሜትሪክ ሰብስትቲዩሽን (Trigonometric Substitution)
-የራዲካል ምልክቶችን ለማስወገድ የሚያገለግል ስልት ነው፡
-1. √(a² - x²) ሲሆን፡ x = a sin θ (1 - sin²θ = cos²θ)
-2. √(a² + x²) ሲሆን፡ x = a tan θ (1 + tan²θ = sec²θ)
-3. √(x² - a²) ሲሆን፡ x = a sec θ (sec²θ - 1 = tan²θ)
-
-ምሳሌ፡ ∫ (1 / (x² √(4 - x²))) dx
-x = 2 sin θ ⟹ dx = 2 cos θ dθ፤ √(4 - x²) = 2 cos θ
-= (1/4) ∫ csc²θ dθ = - (1/4) cot θ + C
-በሶስት ማዕዘን ሲመለስ፡ cot θ = √(4 - x²) / x
-መልስ፡ - √(4 - x²) / (4x) + C`,
+የታቡላር ኢንቴግሬሽን ስልት (Tabular Method)፡
+ለፖሊኖሚያል ብዜቶች ፈጣን አሰራር፤ አንዱን ወደ ዜሮ እያወረዱ ዲፈረንሺየት ማድረግ፣ ሌላውን ደግሞ ኢንቴግሬት በማድረግ በተለዋዋጭ ምልክት ማባዛት።`,
     formulas: [
-      { name: 'Sine Radical Elimination', formula: '√(a² - x²) = a cos θ, when x = a sin θ', explanation: 'Converts difference of squares into single cosine term.' }
+      { name: 'Integral of ln x', formula: '\\int \\ln x \\, dx = x \\ln x - x + C', explanation: 'Standard logarithmic integral.' },
+      { name: 'Cyclic Integral', formula: '\\int e^x \\sin x \\, dx = \\frac{1}{2} e^x (\\sin x - \\cos x) + C', explanation: 'Solved by equating recurring original integral.' }
     ]
   },
   {
     pdfPageNumber: 87,
     bookPageLabel: 'Page 87',
     chapterNumber: 5,
-    sectionRef: '5.4.6',
-    titleEn: 'Partial Fractions Decomposition for Rational Integrals',
-    titleAm: 'የፓርሻል ፍራክሽን መበተን ዘዴ ለራሽናል ፈንክሽኖች ኢንተግሬሽን',
-    subtopicEn: 'Proper Rational Functions P(x)/Q(x), Case 1 Distinct Linear Factors A/(x-r₁), Equating Coefficients, Solved Rational Example',
-    subtopicAm: 'ትክክለኛ ራሽናል ፈንክሽን P(x)/Q(x)፣ የተነጣጣሉ ሊኒየር አባላት መበተን፣ የተሰራ ምሳሌ',
+    sectionRef: '5.2',
+    titleEn: '5.2.C Trigonometric Integrals: Powers of Sine and Cosine (∫ sin^m x cos^n x dx)',
+    titleAm: '5.2.ሐ የትሪጎኖሜትሪክ ኢንቴግራሎች፡ የሳይን እና ኮሳይን ፓወሮች (∫ sin^m x cos^n x dx)',
+    subtopicEn: 'Strategy for Odd Powers of cos, Odd Powers of sin, Even Powers (Half-angle Formulas), Example 1 ∫ sin³x cos²x dx',
+    subtopicAm: 'ኢ-ተጋማሽ ፓወሮች ስልት፣ ተጋማሽ ፓወሮች በግማሽ-አንግል ቀመር፣ ምሳሌ 1 ∫ sin³x cos²x dx',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 12
+    contentEn: `5.2 Techniques of Integration (Page 87)
 
-5. Integration of Rational Functions by Partial Fractions
-This technique allows integrating any rational function P(x) / Q(x) by decomposing it into simpler fractions.
-- If deg(P) ≥ deg(Q), perform polynomial long division first to write P(x)/Q(x) = S(x) + R(x)/Q(x) where deg(R) < deg(Q).
+C. Trigonometric Integrals:
+Integrals of the form ∫ sin^m x cos^n x dx:
 
-Case 1: The denominator Q(x) is a product of distinct linear factors:
-Q(x) = (a₁x + b₁)(a₂x + b₂) ··· (aₖx + bₖ)
-Decomposition:
-R(x) / Q(x) = A₁ / (a₁x + b₁) + A₂ / (a₂x + b₂) + ··· + Aₖ / (aₖx + bₖ)
+Case 1: If the power of cosine n is odd (n = 2k + 1):
+Save one cosine factor cos x dx and use cos² x = 1 - sin² x to express the remaining factors in terms of sine:
+∫ sin^m x cos^(2k+1) x dx = ∫ sin^m x (1 - sin² x)^k cos x dx.
+Then substitute u = sin x, du = cos x dx.
 
-Example: Evaluate ∫ ((x - 9) / ((x + 5)(x - 2))) dx.
-Solution:
-Set up partial fractions:
-(x - 9) / ((x + 5)(x - 2)) = A / (x + 5) + B / (x - 2)
-Multiply both sides by (x + 5)(x - 2):
-x - 9 = A(x - 2) + B(x + 5)
-Substitute x = 2:
-2 - 9 = B(2 + 5) ⟹ -7 = 7B ⟹ B = -1.
-Substitute x = -5:
--5 - 9 = A(-5 - 2) ⟹ -14 = -7A ⟹ A = 2.
+Case 2: If the power of sine m is odd (m = 2k + 1):
+Save one sine factor sin x dx and use sin² x = 1 - cos² x to express the remaining factors in terms of cosine:
+∫ sin^(2k+1) x cos^n x dx = ∫ (1 - cos² x)^k cos^n x sin x dx.
+Then substitute u = cos x, du = -sin x dx.
 
-Now integrate:
-∫ ((x - 9) / ((x + 5)(x - 2))) dx = ∫ [2 / (x + 5) - 1 / (x - 2)] dx
-= 2 ln|x + 5| - ln|x - 2| + C = ln [ (x + 5)² / |x - 2| ] + C.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 87
+Case 3: If both m and n are even:
+Use the half-angle identities:
+sin² x = (1 - cos 2x) / 2
+cos² x = (1 + cos 2x) / 2
+sin x cos x = (1/2) sin 2x.
 
-5. የፓርሻል ፍራክሽን ዘዴ (Partial Fractions)
-የራሽናል ፈንክሽን P(x)/Q(x) ክፍልፋዮችን ነጣጥሎ በቀላሉ ኢንተግሬት የማድረጊያ ዘዴ ነው።
-የ Q(x) ዲግሪ ከ P(x) በላይ መሆን አለበት (ካልሆነ ሎንግ ዲቪዥን ይሰራል)።
+Example 1:
+Evaluate ∫ sin³ x cos² x dx.
+Power of sine is odd (m = 3).
+∫ sin³ x cos² x dx = ∫ sin² x cos² x (sin x dx) = ∫ (1 - cos² x) cos² x (sin x dx).
+Let u = cos x ⟹ du = -sin x dx.
+-∫ (1 - u²) u² du = -∫ (u² - u^4) du = - [u³/3 - u^5/5] + C
+= (1/5) cos^5 x - (1/3) cos³ x + C.`,
+    contentAm: `ሐ. የትሪጎኖሜትሪክ ኢንቴግራሎች (∫ sin^m x cos^n x dx)፡
+1. የኮሳይን ፓወር n ኢ-ተጋማሽ ከሆነ ⟹ አንድ cos x አስቀርቶ cos²x = 1 - sin²x በመጠቀም u = sin x ማድረግ።
+2. የሳይን ፓወር m ኢ-ተጋማሽ ከሆነ ⟹ አንድ sin x አስቀርቶ sin²x = 1 - cos²x በመጠቀም u = cos x ማድረግ።
+3. ሁለቱም ተጋማሽ ከሆኑ ⟹ የግማሽ አንግል ቀመር sin²x = (1 - cos 2x)/2 እና cos²x = (1 + cos 2x)/2 መጠቀም።
 
-ሁኔታ 1፡ የ Q(x) ታችኛው ክፍል የተነጣጣሉ ሊኒየር ብዜቶች ሲሆኑ፡
-(x - 9) / ((x + 5)(x - 2)) = A / (x + 5) + B / (x - 2)
-x - 9 = A(x - 2) + B(x + 5)
-x = 2 ሲተካ፡ B = -1
-x = -5 ሲተካ፡ A = 2
-
-ኢንተግሬሽን፡
-∫ [2/(x + 5) - 1/(x - 2)] dx = 2 ln|x + 5| - ln|x - 2| + C = ln[(x + 5)² / |x - 2|] + C`,
+ምሳሌ 1፡ ∫ sin³x cos²x dx = (1/5) cos^5 x - (1/3) cos³ x + C`,
     formulas: [
-      { name: 'Distinct Linear Partial Fractions', formula: 'P(x)/[(x - r₁)(x - r₂)] = A/(x - r₁) + B/(x - r₂)', explanation: 'Linear decomposition model for non-repeating real linear factors.' }
+      { name: 'Half-Angle Identity for Sine', formula: '\\sin^2 x = \\frac{1 - \\cos 2x}{2}', explanation: 'Used to reduce even powers of sine.' },
+      { name: 'Half-Angle Identity for Cosine', formula: '\\cos^2 x = \\frac{1 + \\cos 2x}{2}', explanation: 'Used to reduce even powers of cosine.' }
     ]
   },
   {
     pdfPageNumber: 88,
     bookPageLabel: 'Page 88',
     chapterNumber: 5,
-    sectionRef: '5.5',
-    titleEn: '5.5 Applications of Integration: Area Enclosed Between Two Curves',
-    titleAm: '5.5 የኢንተግራል ተግባራዊ ጥቅሞች፡ በሁለት ከርቮች መካከል ያለ ስፋት',
-    subtopicEn: 'Area Formula A = ∫ₐᵇ [f(x) - g(x)] dx, Upper vs Lower Boundary Identification, Parabolic Intersection Enclosed Area',
-    subtopicAm: 'የስፋት ቀመር A = ∫ [የላይኛው - የታችኛው] dx፣ የመገናኛ ነጥቦችን መፈለግ፣ በሁለት ፓራቦላዎች መካከል የተሰራ ስፋት',
+    sectionRef: '5.2',
+    titleEn: 'Even Powers of Cosine & Powers of Tangent/Secant (∫ tan^m x sec^n x dx)',
+    titleAm: 'ተጋማሽ የኮሳይን ፓወሮች እና የታንጀንት/ሲካንት ፓወሮች (∫ tan^m x sec^n x dx)',
+    subtopicEn: 'Example 2 ∫ cos^4 x dx, Secant/Tangent Rules (n even substitute u=tanx, m odd substitute u=secx), Examples 3 & 4',
+    subtopicAm: 'የ cos^4 x ስሌት፣ የ secant/tangent ህጎች እና ምሳሌ 3 እና 4',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 13
+    contentEn: `5.2 Techniques of Integration (Page 88)
 
-5.5 Applications of Integration
-1. Area Between Curves
-Theorem: If f and g are continuous functions with f(x) ≥ g(x) throughout [a, b], then the area A of the region bounded by the curves y = f(x), y = g(x), and the vertical lines x = a, x = b is:
-A = ∫ₐᵇ [f(x) - g(x)] dx = ∫ₐᵇ [ (upper curve) - (lower curve) ] dx
+Example 2: Evaluate ∫ cos^4 x dx.
+Both powers are even:
+cos^4 x = (cos² x)² = ((1 + cos 2x)/2)² = (1/4)(1 + 2 cos 2x + cos² 2x)
+= (1/4)(1 + 2 cos 2x + (1 + cos 4x)/2) = 1/8(3 + 4 cos 2x + cos 4x).
+∫ cos^4 x dx = 1/8 [3x + 2 sin 2x + (1/4) sin 4x] + C = (3/8)x + (1/4) sin 2x + (1/32) sin 4x + C.
 
-If the curves cross each other:
-A = ∫ₐᵇ |f(x) - g(x)| dx
+Integrals of the form ∫ tan^m x sec^n x dx:
+Case 1: If power of secant n is even (n = 2k):
+Save sec² x dx and use sec² x = 1 + tan² x. Substitute u = tan x, du = sec² x dx:
+∫ tan^m x sec^(2k) x dx = ∫ tan^m x (1 + tan² x)^(k - 1) sec² x dx.
 
-Example: Find the area of the region enclosed by the parabolas y = x² and y = 2x - x².
-Solution:
-Find the points of intersection:
-x² = 2x - x² ⟹ 2x² - 2x = 0 ⟹ 2x(x - 1) = 0 ⟹ x = 0  and  x = 1.
-On the interval [0, 1], 2x - x² ≥ x² (for instance at x = 0.5: 2(0.5) - 0.25 = 0.75 > 0.25).
-Therefore y = 2x - x² is the upper curve, and y = x² is the lower curve.
+Case 2: If power of tangent m is odd (m = 2k + 1):
+Save sec x tan x dx and use tan² x = sec² x - 1. Substitute u = sec x, du = sec x tan x dx:
+∫ tan^(2k+1) x sec^n x dx = ∫ (sec² x - 1)^k sec^(n - 1) x (sec x tan x dx).
 
-Compute Area:
-A = ∫₀¹ [(2x - x²) - x²] dx = ∫₀¹ (2x - 2x²) dx = 2 ∫₀¹ (x - x²) dx
-= 2 [x² / 2 - x³ / 3]₀¹ = 2 (1/2 - 1/3) = 2 (1/6) = 1/3 square units.`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 88
+Example 3:
+Evaluate ∫ tan³ x sec^4 x dx.
+Using Case 1 (secant power even, n = 4):
+∫ tan³ x (1 + tan² x) sec² x dx. Let u = tan x ⟹ du = sec² x dx.
+∫ (u³ + u^5) du = u^4/4 + u^6/6 + C = (1/4) tan^4 x + (1/6) tan^6 x + C.
 
-5.5 የኢንተግራል ተግባራዊ ጥቅሞች
-1. በሁለት ከርቮች መካከል ያለ ስፋት (Area Between Curves)
-f(x) ≥ g(x) ቢሆን በ [a, b] መካከል ያለው ስፋት፡
-A = ∫ₐᵇ [f(x) - g(x)] dx = ∫ₐᵇ [(የላይኛው ከርቭ) - (የታችኛው ከርቭ)] dx
+Example 4:
+Evaluate ∫ tan³ x sec³ x dx.
+Using Case 2 (tangent power odd, m = 3):
+∫ (sec² x - 1) sec² x (sec x tan x dx). Let u = sec x ⟹ du = sec x tan x dx.
+∫ (u^4 - u²) du = (1/5) sec^5 x - (1/3) sec³ x + C.`,
+    contentAm: `ምሳሌ 2፡ ∫ cos^4 x dx = (3/8)x + (1/4) sin 2x + (1/32) sin 4x + C
 
-ምሳሌ፡ በ y = x² እና y = 2x - x² መካከል የታጠረውን ስፋት ፈልጉ፡
-የመገናኛ ነጥቦች፡ x² = 2x - x² ⟹ 2x(x - 1) = 0 ⟹ x = 0 እና x = 1
-በ [0, 1] ላይ 2x - x² የላይኛው ሲሆን x² የታችኛው ነው፡
-A = ∫₀¹ [(2x - x²) - x²] dx = ∫₀¹ (2x - 2x²) dx
-= [x² - (2/3)x³]₀¹ = 1 - 2/3 = 1/3 ስኩዌር ዩኒት።`,
+የታንጀንትና ሲካንት ኢንቴግራሎች (∫ tan^m x sec^n x dx)፡
+1. የ secant ፓወር ተጋማሽ ከሆነ ⟹ sec²x dx አስቀርቶ sec²x = 1 + tan²x በመጠቀም u = tan x ማድረግ።
+2. የ tangent ፓወር ኢ-ተጋማሽ ከሆነ ⟹ sec x tan x dx አስቀርቶ tan²x = sec²x - 1 በመጠቀም u = sec x ማድረግ።
+
+ምሳሌ 3፡ ∫ tan³x sec^4 x dx = (1/4) tan^4 x + (1/6) tan^6 x + C
+ምሳሌ 4፡ ∫ tan³x sec³x dx = (1/5) sec^5 x - (1/3) sec³ x + C`,
     formulas: [
-      { name: 'Area Between Curves', formula: 'A = ∫ₐᵇ [f(x) - g(x)] dx', explanation: 'Integrated vertical distance between bounding upper and lower curves.' }
+      { name: 'Secant-Tangent Identity', formula: '\\sec^2 x = 1 + \\tan^2 x', explanation: 'Relates secant and tangent powers.' }
     ]
   },
   {
     pdfPageNumber: 89,
     bookPageLabel: 'Page 89',
     chapterNumber: 5,
-    sectionRef: '5.5.1',
-    titleEn: 'Volumes of Revolution (Disk/Washer Method) & Average Value of Function',
-    titleAm: 'የሽክርክሪት ይዘት (የዲስክ ዘዴ) እና የአንድ ፈንክሽን አማካይ ዋጋ',
-    subtopicEn: 'Disk Method V = ∫ π[f(x)]² dx, Derivation of Sphere Volume V = (4/3)πr³, Average Value Definition f_avg = (1/(b-a)) ∫ₐᵇ f(x) dx',
-    subtopicAm: 'የዲስክ ዘዴ ይዘት ቀመር፣ የሉል (ስፊር) ይዘት ማረጋገጫ (4/3)πr³፣ የፈንክሽን አማካይ ዋጋ ቀመር',
+    sectionRef: '5.2',
+    titleEn: '5.2.D Trigonometric Substitutions (Forms √(a² - x²), √(a² + x²), √(x² - a²))',
+    titleAm: '5.2.መ የትሪጎኖሜትሪክ ሰብስቲትዩሽን (የስኩዌር ሩት ቅርጾች)',
+    subtopicEn: 'Table of Trig Substitutions (x = a sinθ, x = a tanθ, x = a secθ), Reference Triangles, Example 1 ∫ √(4 - x²)/x² dx',
+    subtopicAm: 'የትሪግ ሰብስቲትዩሽን ሰንጠረዥ፣ የማመሳከሪያ ትሪያንግል፣ ምሳሌ 1 ∫ √(4 - x²)/x² dx',
     pageType: 'content',
-    contentEn: `Addis Ababa Science and Technology University (AASTU)
-Department of Mathematics
-Chapter 5: Page 14
+    contentEn: `5.2 Techniques of Integration (Page 89)
 
-2. Volume of Solids of Revolution (The Disk Method):
-If a region under y = f(x) from a to b is rotated about the x-axis, the cross-sections perpendicular to the x-axis are circular disks of radius R = f(x).
-Volume formula:
-V = ∫ₐᵇ A(x) dx = ∫ₐᵇ π [f(x)]² dx
+D. Trigonometric Substitutions:
+Used for integrands containing square root expressions of quadratic binomials:
 
-Example (Volume of a Sphere):
-Find the volume of a sphere of radius r by rotating the semicircle y = √(r² - x²) on [-r, r] about the x-axis.
-Solution:
-V = ∫_{-r}ʳ π [√(r² - x²)]² dx = π ∫_{-r}ʳ (r² - x²) dx
-Since (r² - x²) is an even function:
-V = 2π ∫₀ʳ (r² - x²) dx = 2π [r² x - x³ / 3]₀ʳ
-= 2π (r³ - r³ / 3) = 2π (2r³ / 3) = (4/3) π r³.
-(This establishes the classical Archimedean formula for sphere volume).
+Table of Trigonometric Substitutions:
+1. Expression: √(a² - x²),  a > 0
+   Substitution: x = a sin θ,  -π/2 ≤ θ ≤ π/2
+   Identity: √(a² - a² sin² θ) = a cos θ
+   Differential: dx = a cos θ dθ
 
-3. Average Value of a Function:
-The average value of a continuous function f on the interval [a, b] is given by:
-f_avg = (1 / (b - a)) ∫ₐᵇ f(x) dx
+2. Expression: √(a² + x²),  a > 0
+   Substitution: x = a tan θ,  -π/2 < θ < π/2
+   Identity: √(a² + a² tan² θ) = a sec θ
+   Differential: dx = a sec² θ dθ
 
-Mean Value Theorem for Integrals:
-If f is continuous on [a, b], then there exists a number c in [a, b] such that:
-f(c) = f_avg = (1 / (b - a)) ∫ₐᵇ f(x) dx ⟺ ∫ₐᵇ f(x) dx = f(c)(b - a).`,
-    contentAm: `ተግባራዊ ሂሳብ ፩ (Math 1014B)
-ገጽ 89
+3. Expression: √(x² - a²),  a > 0
+   Substitution: x = a sec θ,  0 ≤ θ < π/2 or π ≤ θ < 3π/2
+   Identity: √(a² sec² θ - a²) = a tan θ
+   Differential: dx = a sec θ tan θ dθ
 
-2. የሽክርክሪት ይዘት (The Disk Method)፡
-y = f(x) ከርቭ በ x-አክሲስ ዙሪያ ሲሽከረከር የሚፈጠረው ይዘት፡
-V = ∫ₐᵇ π [f(x)]² dx
+Example 1:
+Evaluate ∫ √(4 - x²) / x² dx.
+Form √(2² - x²): Let x = 2 sin θ ⟹ dx = 2 cos θ dθ.
+√(4 - x²) = √(4 - 4 sin² θ) = 2 cos θ.
+∫ (2 cos θ / (4 sin² θ)) (2 cos θ dθ) = ∫ (cos² θ / sin² θ) dθ = ∫ cot² θ dθ
+= ∫ (csc² θ - 1) dθ = -cot θ - θ + C.
+From reference right triangle with opposite x and hypotenuse 2:
+cot θ = √(4 - x²) / x,  θ = sin^(-1)(x/2).
+Result: - √(4 - x²) / x - sin^(-1)(x/2) + C.`,
+    contentAm: `መ. የትሪጎኖሜትሪክ ሰብስቲትዩሽን (Trigonometric Substitution)፡
+የስኩዌር ሩት አባባሎችን ወደ ትሪጎኖሜትሪክ ማንነት የመቀየሪያ 3 መሰረታዊ ቅርጾች፡
+1. √(a² - x²) ⟹ x = a sin θ መተካት
+2. √(a² + x²) ⟹ x = a tan θ መተካት
+3. √(x² - a²) ⟹ x = a sec θ መተካት
 
-ምሳሌ (የሉል / ስፊር ይዘት)፡
-y = √(r² - x²) ግማሽ ክብ በ x-አክሲስ ዙሪያ ሲሽከረከር፡
-V = π ∫_{-r}ʳ (r² - x²) dx = 2π [r² x - x³/3]₀ʳ = (4/3) π r³ (የአርኪሜዲስ ታዋቂ የሉል ይዘት ቀመር)።
-
-3. የአንድ ፈንክሽን አማካይ ዋጋ (Average Value of a Function)፡
-f_avg = (1 / (b - a)) ∫ₐᵇ f(x) dx
-
-የኢንተግራል መካከለኛ ዋጋ ቴዎረም፡
-f(c) = f_avg የሚያደርግ c በ [a, b] ውስጥ ይገኛል።`,
+ምሳሌ 1፡ ∫ √(4 - x²) / x² dx
+x = 2 sin θ በማለት፡
+መልስ፡ - √(4 - x²) / x - sin⁻¹(x/2) + C`,
     formulas: [
-      { name: 'Disk Volume Method', formula: 'V = π ∫ₐᵇ [f(x)]² dx', explanation: 'Volume of solid generated by revolving y = f(x) about x-axis.' },
-      { name: 'Sphere Volume Formula', formula: 'V = (4/3) π r³', explanation: 'Analytic volume of sphere derived via calculus disk integration.' },
-      { name: 'Average Value Formula', formula: 'f_avg = [1 / (b - a)] ∫ₐᵇ f(x) dx', explanation: 'Mean continuous value over interval [a, b].' }
+      { name: 'Sine Substitution', formula: 'x = a \\sin \\theta \\implies \\sqrt{a^2 - x^2} = a \\cos \\theta', explanation: 'Eliminates difference-of-squares root.' },
+      { name: 'Tangent Substitution', formula: 'x = a \\tan \\theta \\implies \\sqrt{a^2 + x^2} = a \\sec \\theta', explanation: 'Eliminates sum-of-squares root.' },
+      { name: 'Secant Substitution', formula: 'x = a \\sec \\theta \\implies \\sqrt{x^2 - a^2} = a \\tan \\theta', explanation: 'Eliminates reversed difference root.' }
+    ]
+  },
+  {
+    pdfPageNumber: 90,
+    bookPageLabel: 'Page 90',
+    chapterNumber: 5,
+    sectionRef: '5.2',
+    titleEn: 'Trig Substitution Examples & 5.2.E Partial Fractions Decomposition',
+    titleAm: 'የትሪግ ሰብስቲትዩሽን ምሳሌዎች እና 5.2.ሠ በከፊል ክፍልፋዮች መበተን (Partial Fractions)',
+    subtopicEn: '∫ dx / [x² √(x² + 9)], ∫ dx / √(x² - 16), Proper vs Improper Rational Functions, Long Division',
+    subtopicAm: 'ተጨማሪ ምሳሌዎች፤ የክፍልፋይ ፈንክሽኖች ደረጃ (ዲግሪ) ማወዳደር እና የረጅም ክፍፍል ስልት',
+    pageType: 'content',
+    contentEn: `5.2 Techniques of Integration (Page 90)
+
+Trigonometric Substitution Examples (continued):
+Example 2: Evaluate ∫ dx / [x² √(x² + 9)].
+Form √(x² + 3²): Let x = 3 tan θ ⟹ dx = 3 sec² θ dθ, √(x² + 9) = 3 sec θ.
+∫ (3 sec² θ dθ) / [9 tan² θ · 3 sec θ] = (1/9) ∫ (sec θ / tan² θ) dθ
+= (1/9) ∫ (cos θ / sin² θ) dθ = -1 / (9 sin θ) + C.
+From triangle with opp = x, adj = 3, hyp = √(x² + 9):
+sin θ = x / √(x² + 9) ⟹ -1 / (9 sin θ) = - √(x² + 9) / (9x) + C.
+
+Example 3: Evaluate ∫ dx / √(x² - 16).
+Form √(x² - 4²): Let x = 4 sec θ ⟹ dx = 4 sec θ tan θ dθ, √(x² - 16) = 4 tan θ.
+∫ (4 sec θ tan θ dθ) / (4 tan θ) = ∫ sec θ dθ = ln|sec θ + tan θ| + C.
+sec θ = x/4, tan θ = √(x² - 16)/4.
+= ln|x/4 + √(x² - 16)/4| + C = ln|x + √(x² - 16)| + C₁ (where C₁ = C - ln 4).
+
+E. Integration of Rational Functions by Partial Fractions:
+A rational function is f(x) = P(x) / Q(x) where P and Q are polynomials.
+• Proper: deg(P) < deg(Q).
+• Improper: deg(P) ≥ deg(Q). Divide first using polynomial long division:
+P(x) / Q(x) = S(x) + R(x) / Q(x) where deg(R) < deg(Q).`,
+    contentAm: `ምሳሌ 2፡ ∫ dx / [x² √(x² + 9)] = - √(x² + 9) / (9x) + C
+ምሳሌ 3፡ ∫ dx / √(x² - 16) = ln|x + √(x² - 16)| + C₁
+
+ሠ. ራሽናል ፈንክሽኖችን በከፊል ክፍልፋይ (Partial Fractions) ማቀናጀት፡
+f(x) = P(x) / Q(x)
+• የ P(x) ዲግሪ ከ Q(x) ዲግሪ እኩል ወይም ከበለጠ በመጀመሪያ በረጅም ክፍፍል (Long Division) መካፈል አለበት።
+• ከዛም የቀረውን ተገቢ ክፍልፋይ በፓርሻል ፍራክሽን መበተን።`,
+    formulas: [
+      { name: 'Secant Integral', formula: '\\int \\sec \\theta \\, d\\theta = \\ln |\\sec \\theta + \\tan \\theta| + C', explanation: 'Fundamental secant integral.' }
+    ]
+  },
+  {
+    pdfPageNumber: 91,
+    bookPageLabel: 'Page 91',
+    chapterNumber: 5,
+    sectionRef: '5.2',
+    titleEn: 'Four Cases of Partial Fractions Decomposition & Distinct Linear Factors',
+    titleAm: 'አራቱ የከፊል ክፍልፋዮች መበተኛ ሁኔታዎች እና የተለያዩ ሊኒየር ክፍሎች (Distinct Linear)',
+    subtopicEn: 'Case 1 Distinct Linear, Case 2 Repeated Linear, Case 3 Irreducible Quadratic, Case 4 Repeated Quadratic, Example 1',
+    subtopicAm: 'አራቱ የፓርሻል ፍራክሽን ሁኔታዎች፣ ምሳሌ 1 ∫ (5x - 3)/(x² - 2x - 3) dx',
+    pageType: 'content',
+    contentEn: `5.2 Techniques of Integration (Page 91)
+
+Four Cases for Partial Fraction Decomposition:
+
+Case 1 — Distinct Linear Factors:
+Q(x) = (a₁ x + b₁)(a₂ x + b₂) ... (a_k x + b_k).
+P(x)/Q(x) = A₁/(a₁ x + b₁) + A₂/(a₂ x + b₂) + ... + A_k/(a_k x + b_k).
+
+Case 2 — Repeated Linear Factors:
+Q(x) contains a factor (ax + b)^k.
+Contribution: A₁/(ax + b) + A₂/(ax + b)² + ... + A_k/(ax + b)^k.
+
+Case 3 — Distinct Irreducible Quadratic Factors:
+Q(x) contains (ax² + bx + c) where b² - 4ac < 0.
+Contribution: (Ax + B) / (ax² + bx + c).
+
+Case 4 — Repeated Irreducible Quadratic Factors:
+Q(x) contains (ax² + bx + c)^k.
+Contribution: (A₁x + B₁)/(ax² + bx + c) + ... + (A_k x + B_k)/(ax² + bx + c)^k.
+
+Example 1 — Distinct Linear Factors:
+Evaluate ∫ (5x - 3) / (x² - 2x - 3) dx.
+Denominator: x² - 2x - 3 = (x - 3)(x + 1).
+(5x - 3) / [(x - 3)(x + 1)] = A / (x - 3) + B / (x + 1).
+5x - 3 = A(x + 1) + B(x - 3).
+• Setting x = 3: 5(3) - 3 = A(4) ⟹ 12 = 4A ⟹ A = 3.
+• Setting x = -1: 5(-1) - 3 = B(-4) ⟹ -8 = -4B ⟹ B = 2.
+∫ [3 / (x - 3) + 2 / (x + 1)] dx = 3 ln|x - 3| + 2 ln|x + 1| + C.`,
+    contentAm: `አራቱ የፓርሻል ፍራክሽን ሁኔታዎች፡
+1. የተለያዩ ሊኒየር ክፍሎች፡ A / (a₁x + b₁) + B / (a₂x + b₂)
+2. ተደጋጋሚ ሊኒየር ክፍሎች፡ A / (ax + b) + B / (ax + b)² + ...
+3. የማይበተኑ ኳድራቲክ ክፍሎች፡ (Ax + B) / (ax² + bx + c)
+4. ተደጋጋሚ ኳድራቲክ ክፍሎች፡ (A₁x + B₁) / (ax² + bx + c) + (A₂x + B₂) / (ax² + bx + c)²
+
+ምሳሌ 1፡ ∫ (5x - 3)/(x² - 2x - 3) dx
+= ∫ [3/(x - 3) + 2/(x + 1)] dx
+= 3 ln|x - 3| + 2 ln|x + 1| + C`,
+    formulas: [
+      { name: 'Linear Partial Fraction', formula: '\\frac{P(x)}{(x-r_1)(x-r_2)} = \\frac{A}{x-r_1} + \\frac{B}{x-r_2}', explanation: 'Decomposition for distinct real roots.' }
+    ]
+  },
+  {
+    pdfPageNumber: 92,
+    bookPageLabel: 'Page 92',
+    chapterNumber: 5,
+    sectionRef: '5.2',
+    titleEn: 'Repeated Linear Factors & Irreducible Quadratic Partial Fraction Examples',
+    titleAm: 'ተደጋጋሚ ሊኒየር እና የማይበተኑ ኳድራቲክ የፓርሻል ፍራክሽን ምሳሌዎች',
+    subtopicEn: 'Example 2 ∫ (x² + 1)/[x(x - 1)²] dx, Example 3 ∫ (2x² - x + 4)/(x³ + 4x) dx',
+    subtopicAm: 'ምሳሌ 2 ∫ (x² + 1)/[x(x - 1)²] dx፣ ምሳሌ 3 ∫ (2x² - x + 4)/(x³ + 4x) dx',
+    pageType: 'content',
+    contentEn: `5.2 Techniques of Integration (Page 92)
+
+Partial Fractions Examples (continued):
+Example 2 — Repeated Linear Factor:
+Evaluate ∫ (x² + 1) / [x (x - 1)²] dx.
+Decomposition:
+(x² + 1) / [x (x - 1)²] = A / x + B / (x - 1) + C / (x - 1)².
+x² + 1 = A(x - 1)² + B x (x - 1) + C x.
+• Set x = 0: 1 = A(1) ⟹ A = 1.
+• Set x = 1: 2 = C(1) ⟹ C = 2.
+• Set x = 2: 5 = 1(1) + 2B + 2(2) = 5 + 2B ⟹ B = 0.
+∫ [1/x + 2 / (x - 1)²] dx = ln|x| - 2 / (x - 1) + C.
+
+Example 3 — Irreducible Quadratic Factor:
+Evaluate ∫ (2x² - x + 4) / (x³ + 4x) dx.
+Denominator: x³ + 4x = x(x² + 4). (x² + 4 has no real zeros).
+Decomposition:
+(2x² - x + 4) / [x (x² + 4)] = A / x + (B x + C) / (x² + 4).
+2x² - x + 4 = A(x² + 4) + (B x + C)x = (A + B)x² + C x + 4A.
+Comparing coefficients:
+• Constant: 4A = 4 ⟹ A = 1.
+• Coefficient of x: C = -1.
+• Coefficient of x²: A + B = 2 ⟹ 1 + B = 2 ⟹ B = 1.
+Integral:
+∫ [1/x + (x - 1)/(x² + 4)] dx = ∫ 1/x dx + 1/2 ∫ 2x/(x² + 4) dx - ∫ 1/(x² + 4) dx
+= ln|x| + 1/2 ln(x² + 4) - 1/2 tan^(-1)(x/2) + C.`,
+    contentAm: `ምሳሌ 2 (ተደጋጋሚ ሊኒየር)፡
+∫ (x² + 1) / [x(x - 1)²] dx = ln|x| - 2 / (x - 1) + C
+
+ምሳሌ 3 (ኳድራቲክ)፡
+∫ (2x² - x + 4) / (x³ + 4x) dx
+= ln|x| + 1/2 ln(x² + 4) - 1/2 tan⁻¹(x/2) + C`,
+    formulas: [
+      { name: 'Quadratic Decomposition', formula: '\\frac{P(x)}{x(x^2+a^2)} = \\frac{A}{x} + \\frac{Bx + C}{x^2 + a^2}', explanation: 'Decomposition with an irreducible quadratic factor.' }
+    ]
+  },
+  {
+    pdfPageNumber: 93,
+    bookPageLabel: 'Page 93',
+    chapterNumber: 5,
+    sectionRef: '5.3',
+    titleEn: '5.3 Definite Integrals: Riemann Sums & Properties',
+    titleAm: '5.3 የተወሰነ ኢንቴግራል (Definite Integrals)፡ የሪማን ድምር እና ባህሪያት',
+    subtopicEn: 'Partition P, Norm ||P||, Definition of Definite Integral as Limit of Riemann Sum, Properties (Additivity, Order, Linearity)',
+    subtopicAm: 'የክፍፍል ኖርም፣ የሪማን ድምር ሊሚት ትርጓሜ፣ የተወሰነ ኢንቴግራል መሰረታዊ ባህሪያት',
+    pageType: 'content',
+    contentEn: `5.3 Definite Integrals (Page 93)
+
+Definition — Riemann Sum & Definite Integral:
+Let f be defined on [a, b]. Let P = {x₀, x₁, ..., x_n} be a partition of [a, b] with:
+a = x₀ < x₁ < x₂ < ... < x_n = b.
+Let Δx_i = x_i - x_(i-1) and ||P|| = max {Δx_i}.
+Choose a sample point x_i* in [x_(i-1), x_i].
+The sum:
+∑_{i=1}^n f(x_i*) Δx_i
+is called a Riemann Sum of f for partition P.
+
+Definition of Definite Integral:
+The definite integral of f from a to b is:
+∫_a^b f(x) dx = lim_{||P|| ⟶ 0} ∑_{i=1}^n f(x_i*) Δx_i
+provided this limit exists. If it exists, f is called integrable on [a, b].
+Here a is the lower limit and b is the upper limit of integration.
+
+Properties of the Definite Integral:
+1. ∫_a^a f(x) dx = 0
+2. ∫_b^a f(x) dx = - ∫_a^b f(x) dx
+3. ∫_a^b c dx = c(b - a)
+4. Linearity: ∫_a^b [c f(x) ± d g(x)] dx = c ∫_a^b f(x) dx ± d ∫_a^b g(x) dx
+5. Interval Additivity: ∫_a^b f(x) dx = ∫_a^c f(x) dx + ∫_c^b f(x) dx
+6. Comparison: If f(x) ≥ g(x) on [a, b], then ∫_a^b f(x) dx ≥ ∫_a^b g(x) dx.`,
+    contentAm: `5.3 የተወሰነ ኢንቴግራል (Definite Integrals)፡
+ትርጓሜ — የሪማን ድምር (Riemann Sum)፡
+∫_a^b f(x) dx = lim_{||P|| ⟶ 0} ∑_{i=1}^n f(x_i*) Δx_i
+ይህ ሊሚት ካለ f በ [a, b] ላይ ኢንቴግሬብል ይባላል።
+
+መሰረታዊ ባህሪያት፡
+1. ∫_a^a f(x) dx = 0
+2. ∫_b^a f(x) dx = - ∫_a^b f(x) dx
+3. ∫_a^b c dx = c(b - a)
+4. ∫_a^b [c f ± d g] dx = c ∫ f dx ± d ∫ g dx
+5. ክፍተት ማጣመር፡ ∫_a^b f dx = ∫_a^c f dx + ∫_c^b f dx`,
+    formulas: [
+      { name: 'Definite Integral as Riemann Limit', formula: '\\int_a^b f(x) dx = \\lim_{||P|| \\to 0} \\sum_{i=1}^n f(x_i^*) \\Delta x_i', explanation: 'Formal analytic foundation of definite integration.' }
+    ]
+  },
+  {
+    pdfPageNumber: 94,
+    bookPageLabel: 'Page 94',
+    chapterNumber: 5,
+    sectionRef: '5.3',
+    titleEn: 'Fundamental Theorem of Calculus (Parts 1 and 2) & Evaluation Examples',
+    titleAm: 'የካልኩለስ መሰረታዊ ቴዎረም (FTC ክፍል 1 እና 2) እና የተሰሩ ምሳሌዎች',
+    subtopicEn: 'FTC1 (d/dx ∫_a^x f(t)dt = f(x)), FTC2 (∫_a^b f(x)dx = F(b) - F(a)), Example 1 FTC1, Example 2 ∫_0^2 (x³ - 3x + 1) dx',
+    subtopicAm: 'የ FTC ክፍል 1 እና ክፍል 2 ማብራሪያ፣ ምሳሌ 1 እና ምሳሌ 2',
+    pageType: 'content',
+    contentEn: `5.3 Definite Integrals (Page 94)
+
+Theorem 5.3.1 — Fundamental Theorem of Calculus (FTC):
+
+Part 1 (FTC 1):
+If f is continuous on [a, b], then the function g defined by:
+g(x) = ∫_a^x f(t) dt,  a ≤ x ≤ b
+is continuous on [a, b], differentiable on (a, b), and:
+g'(x) = (d/dx) [∫_a^x f(t) dt] = f(x).
+
+Part 2 (FTC 2 — Evaluation Theorem):
+If f is continuous on [a, b] and F is any anti-derivative of f on [a, b] (F' = f), then:
+∫_a^b f(x) dx = F(b) - F(a) = [F(x)]_a^b.
+
+Example 1 — FTC 1:
+Find the derivative of g(x) = ∫_1^x √(t² + 1) dt.
+By FTC 1: g'(x) = √(x² + 1).
+
+Example 1b — Chain Rule with FTC 1:
+Find (d/dx) [∫_0^(x²) cos t dt].
+Let u = x² ⟹ (d/dx) = (d/du) · (du/dx) = cos(x²) · 2x = 2x cos(x²).
+
+Example 2 — FTC 2 Evaluation:
+Evaluate ∫_0^2 (x³ - 3x + 1) dx.
+Anti-derivative: F(x) = x^4/4 - 3x²/2 + x.
+∫_0^2 (x³ - 3x + 1) dx = [x^4/4 - 3x²/2 + x]_0^2
+= (16/4 - 3(4)/2 + 2) - 0 = 4 - 6 + 2 = 0.`,
+    contentAm: `ቴዎረም 5.3.1 — የካልኩለስ መሰረታዊ ቴዎረም (Fundamental Theorem of Calculus)፡
+ክፍል 1 (FTC 1)፡
+d/dx [∫_a^x f(t) dt] = f(x)
+(ዲፈረንሺየሽንና ኢንቴግሬሽን የተገላቢጦሽ ሂደቶች መሆናቸውን ያረጋግጣል)።
+
+ክፍል 2 (FTC 2)፡
+∫_a^b f(x) dx = F(b) - F(a)
+(የተወሰነ ኢንቴግራልን በአንቲ-ዲሪቬቲቭ ዳርቻዎችን በመቀነስ ማስላት)።
+
+ምሳሌ 2፡ ∫_0^2 (x³ - 3x + 1) dx = [x^4/4 - 3x²/2 + x]_0^2 = 4 - 6 + 2 = 0።`,
+    formulas: [
+      { name: 'FTC Part 1', formula: '\\frac{d}{dx} \\left[ \\int_a^x f(t) dt \\right] = f(x)', explanation: 'Differentiation of definite integral with variable upper limit.' },
+      { name: 'FTC Part 2', formula: '\\int_a^b f(x) dx = F(b) - F(a)', explanation: 'Evaluation of definite integral via antiderivative.' }
+    ]
+  },
+  {
+    pdfPageNumber: 95,
+    bookPageLabel: 'Page 95',
+    chapterNumber: 5,
+    sectionRef: '5.3',
+    titleEn: 'Definite Integrals by Substitution & Symmetry of Even/Odd Functions',
+    titleAm: 'በተለዋዋጭ መተካት የተወሰነ ኢንቴግራል እና የተጋማሽ/ኢ-ተጋማሽ ፈንክሽን ሲሜትሪ',
+    subtopicEn: 'Change of Limits Rule ∫_a^b f(g(x))g\'(x)dx = ∫_{g(a)}^{g(b)} f(u)du, Example 4, Symmetry Integrals on [-a, a]',
+    subtopicAm: 'የዳርቻዎች መቀየር ህግ፣ ምሳሌ 4፣ በ [-a, a] ላይ የሲሜትሪ ህጎች',
+    pageType: 'content',
+    contentEn: `5.3 Definite Integrals (Page 95)
+
+Example 3:
+Evaluate ∫_0^(π/4) sec² x dx = [tan x]_0^(π/4) = tan(π/4) - tan 0 = 1 - 0 = 1.
+
+Substitution Rule for Definite Integrals:
+If g' is continuous on [a, b] and f is continuous on the range of u = g(x), then:
+∫_a^b f(g(x)) g'(x) dx = ∫_{g(a)}^{g(b)} f(u) du
+
+Example 4:
+Evaluate ∫_0^1 x √(x² + 1) dx.
+Let u = x² + 1 ⟹ du = 2x dx ⟹ x dx = du / 2.
+Change of limits:
+When x = 0, u = 0² + 1 = 1.
+When x = 1, u = 1² + 1 = 2.
+∫_0^1 x √(x² + 1) dx = 1/2 ∫_1^2 u^(1/2) du = 1/2 [ (2/3) u^(3/2) ]_1^2
+= 1/3 (2^(3/2) - 1^(3/2)) = (2√2 - 1) / 3.
+
+Integrals of Symmetric Functions on [-a, a]:
+Let f be continuous on [-a, a]:
+(a) If f is even (f(-x) = f(x)), then:
+∫_{-a}^a f(x) dx = 2 ∫_0^a f(x) dx.
+
+(b) If f is odd (f(-x) = -f(x)), then:
+∫_{-a}^a f(x) dx = 0.
+
+Example 5:
+∫_{-π}^π (x^5 + sin x) dx = 0  (since x^5 and sin x are both odd functions).`,
+    contentAm: `በተወሰነ ኢንቴግራል ላይ ሰብስቲትዩሽን ሲደረግ ዳርቻዎችን መቀየር፡
+x = a ሲሆን u = g(a)፤ x = b ሲሆን u = g(b)።
+ምሳሌ 4፡ ∫_0^1 x √(x² + 1) dx = (2√2 - 1) / 3
+
+በ [-a, a] ላይ የሲሜትሪ ህጎች፡
+(a) f(x) ተጋማሽ (Even) ከሆነ፡ ∫_{-a}^a f(x) dx = 2 ∫_0^a f(x) dx
+(b) f(x) ኢ-ተጋማሽ (Odd) ከሆነ፡ ∫_{-a}^a f(x) dx = 0
+ምሳሌ 5፡ ∫_{-π}^π (x^5 + sin x) dx = 0 (ኢ-ተጋማሽ ስለሆኑ)።`,
+    formulas: [
+      { name: 'Definite Substitution with Limits', formula: '\\int_a^b f(g(x)) g\'(x) dx = \\int_{g(a)}^{g(b)} f(u) du', explanation: 'Direct limit transformation avoids back-substitution.' },
+      { name: 'Odd Function Symmetry', formula: 'f(-x) = -f(x) \\implies \\int_{-a}^a f(x) dx = 0', explanation: 'Net cancellations across symmetric origin.' }
+    ]
+  },
+  {
+    pdfPageNumber: 96,
+    bookPageLabel: 'Page 96',
+    chapterNumber: 5,
+    sectionRef: '5.4.1',
+    titleEn: '5.4 Applications of Definite Integrals: 5.4.1 Area Between Curves',
+    titleAm: '5.4 የተወሰነ ኢንቴግራል ተግባራዊ ጥቅሞች፡ 5.4.1 በከርቮች መካከል ያለ ስፋት (Area)',
+    subtopicEn: 'Area Formula A = ∫_a^b [f(x) - g(x)] dx, Finding Intersections, Integrating with respect to x and y, Example 1',
+    subtopicAm: 'የከርቮች ስፋት ቀመር A = ∫ [f(x) - g(x)] dx፣ የመገናኛ ነጥቦች ስሌት፣ ምሳሌ 1',
+    pageType: 'content',
+    contentEn: `5.4 Applications of Definite Integrals (Page 96)
+5.4.1 Area Between Curves
+
+Definition:
+If f and g are continuous functions with f(x) ≥ g(x) on [a, b], then the area A of the region bounded by the curves y = f(x), y = g(x), and the vertical lines x = a, x = b is:
+A = ∫_a^b [f(x) - g(x)] dx = ∫_a^b (y_upper - y_lower) dx
+
+Integrating with respect to y:
+If the region is bounded by x = f(y) and x = g(y) with f(y) ≥ g(y) for c ≤ y ≤ d:
+A = ∫_c^d [f(y) - g(y)] dy = ∫_c^d (x_right - x_left) dy
+
+Example 1:
+Find the area of the region enclosed between the parabolas y = x² and y = 2x - x².
+Solution:
+1. Find intersection points:
+x² = 2x - x² ⟹ 2x² - 2x = 0 ⟹ 2x(x - 1) = 0 ⟹ x = 0 and x = 1.
+2. For x in [0, 1]: 2x - x² ≥ x² (e.g. at x = 0.5: 2(0.5) - 0.25 = 0.75 > 0.25).
+Top curve: y_upper = 2x - x²; Bottom curve: y_lower = x².
+3. Area integral:
+A = ∫_0^1 [(2x - x²) - x²] dx = ∫_0^1 (2x - 2x²) dx = [x² - (2/3)x³]_0^1
+= (1 - 2/3) - 0 = 1/3 square units.`,
+    contentAm: `5.4.1 በከርቮች መካከል ያለ ስፋት (Area Between Curves)፡
+f(x) ≥ g(x) ሲሆን፡
+A = ∫_a^b [f(x) - g(x)] dx = ∫_a^b (y_ላይኛ - y_ታችኛ) dx
+
+በ y አንጻር ሲሰላ፡
+A = ∫_c^d [f(y) - g(y)] dy = ∫_c^d (x_ቀኝ - x_ግራ) dy
+
+ምሳሌ 1፡ በ y = x² እና y = 2x - x² መካከል የታጠረውን ስፋት ፈልጉ፡
+የመገናኛ ነጥቦች፡ x = 0 እና x = 1
+A = ∫_0^1 (2x - 2x²) dx = [x² - (2/3)x³]_0^1 = 1/3 ካሬ ዩኒት።`,
+    formulas: [
+      { name: 'Area Between Curves Formula', formula: 'A = \\int_a^b [f(x) - g(x)] \\, dx', explanation: 'Total enclosed plane area between upper and lower curves.' }
+    ]
+  },
+  {
+    pdfPageNumber: 97,
+    bookPageLabel: 'Page 97',
+    chapterNumber: 5,
+    sectionRef: '5.4.2',
+    titleEn: '5.4.2 Arc Length of a Curve & Complete Applied Mathematics-I Syllabus Summary',
+    titleAm: '5.4.2 የከርቭ ቅስት ርዝመት (Arc Length) እና የአፕላይድ ሂሳብ ፩ ሙሉ ማጠቃለያ',
+    subtopicEn: 'Arc Length Formula L = ∫_a^b √(1 + [f\'(x)]²) dx, Worked Example y = x^(3/2) on [0, 4], Complete 5-Chapter Curriculum Review',
+    subtopicAm: 'የቅስት ርዝመት ቀመር L = ∫ √(1 + (f\')²) dx፣ ምሳሌ ለ y = x^(3/2) በ [0, 4]፣ ባለ 5 ምዕራፍ ማጠቃለያ',
+    pageType: 'content',
+    contentEn: `5.4 Applications of Definite Integrals (Page 97)
+5.4.2 Arc Length of a Smooth Curve
+
+Definition:
+If f' is continuous on [a, b], then the arc length L of the curve y = f(x) from x = a to x = b is:
+L = ∫_a^b √(1 + [f'(x)]²) dx = ∫_a^b √(1 + (dy/dx)²) dx
+
+Similarly, if the curve is given by x = g(y) for c ≤ y ≤ d where g' is continuous:
+L = ∫_c^d √(1 + [g'(y)]²) dy = ∫_c^d √(1 + (dx/dy)²) dy
+
+Example 1:
+Find the length of the arc of the curve y = x^(3/2) from x = 0 to x = 4.
+Solution:
+f(x) = x^(3/2) ⟹ f'(x) = dy/dx = (3/2) x^(1/2).
+1 + [f'(x)]² = 1 + [(3/2) x^(1/2)]² = 1 + (9/4) x.
+L = ∫_0^4 √(1 + 9x/4) dx.
+Let u = 1 + 9x/4 ⟹ du = (9/4) dx ⟹ dx = (4/9) du.
+When x = 0, u = 1. When x = 4, u = 1 + 9 = 10.
+L = (4/9) ∫_1^10 u^(1/2) du = (4/9) [ (2/3) u^(3/2) ]_1^10
+= (8/27) (10^(3/2) - 1) = (8/27) (10√10 - 1) ≈ 9.073 units.
+
+---
+Applied Mathematics-IB (Math 1014 / Math 1014B) Course Completion:
+• Chapter 1: Vectors and Vector Spaces (Pages 1–22)
+• Chapter 2: Matrices, Determinants and Systems of Linear Equations (Pages 23–37)
+• Chapter 3: Limit and Continuity (Pages 38–52)
+• Chapter 4: Derivatives and Application of Derivatives (Pages 53–82)
+• Chapter 5: Integrations & Applications (Pages 83–97)
+All 97 official pages transcribed with bilingual English & Amharic translations, formulas, theorems, and worked solutions.`,
+    contentAm: `5.4.2 የከርቭ ቅስት ርዝመት (Arc Length)፡
+f'(x) በ [a, b] ላይ ቀጣይ ሲሆን የከርቩ ርዝመት L፡
+L = ∫_a^b √(1 + [f'(x)]²) dx
+
+ምሳሌ 1፡ ለከርቩ y = x^(3/2) ከ x = 0 እስከ x = 4 ያለውን ርዝመት ፈልጉ፡
+f'(x) = (3/2) x^(1/2) ⟹ 1 + [f'(x)]² = 1 + 9x/4
+L = ∫_0^4 √(1 + 9x/4) dx = (8/27) (10√10 - 1) ≈ 9.073 ዩኒት።
+
+---
+የአፕላይድ ሂሳብ ፩ቢ (Math 1014B) ኮርስ ማጠቃለያ፡
+• ምዕራፍ 1፡ ቬክተሮች እና የቬክተር ስፔሶች (ገጽ 1–22)
+• ምዕራፍ 2፡ ማትሪክስ፣ ዲተርሚናንት እና ሊኒየር ሲስተሞች (ገጽ 23–37)
+• ምዕራፍ 3፡ ሊሚት እና ቀጣይነት (ገጽ 38–52)
+• ምዕራፍ 4፡ ዲሪቬቲቭ እና ተግባራዊ ጥቅሞቹ (ገጽ 53–82)
+• ምዕራፍ 5፡ ኢንቴግሬሽን እና ተግባራዊ ጥቅሞቹ (ገጽ 83–97)
+ሁሉም 97 ይፋዊ ገጾች ከነሙሉ ርዕስ፣ ማብራሪያ፣ ቀመሮችና መፍትሔዎች ጋር ተካተዋል።`,
+    formulas: [
+      { name: 'Arc Length Formula', formula: 'L = \\int_a^b \\sqrt{1 + [f\'(x)]^2} \\, dx', explanation: 'Differential arc element ds = √(dx² + dy²).' }
     ]
   }
 ];

@@ -5,6 +5,8 @@ import { anthropologyCourse as fullAnthropologyCourse } from './anthropologyCour
 import { entrepreneurshipCourse } from './entrepreneurshipCourse/entrepreneurshipIndex';
 import { historyCourse as fullHistoryCourse } from './historyCourse/historyIndex';
 import { geographyCourse as fullGeographyCourse } from './geographyCourse/geographyIndex';
+import { mathCourse as fullMathCourse } from './mathCourse/mathIndex';
+import { appliedMathCourse as fullAppliedMathCourse } from './mathCourse/appliedMathIndex';
 
 // Helper to create valid Chapter data structure for modular MoE courses
 function makePdfChapter(
@@ -159,34 +161,11 @@ export const emergingTechCourse: Course = {
   ]
 };
 
-// 5. Mathematics for Social Sciences (Math 1011)
-export const mathCourse: Course = {
-  id: 'math1011',
-  code: 'Math 1011',
-  englishTitle: 'Mathematics for Social Sciences',
-  amharicTitle: 'ሒሳብ ለማህበራዊ ሳይንስ ተማሪዎች',
-  badge: '4 Chapters (217 Pages PDF)',
-  descriptionEn: 'Official MoSHE freshman module: Propositional logic and set theory, real functions and graphs, matrices, determinants and linear systems, and differential and integral calculus.',
-  descriptionAm: 'የአመክንዮ ሂሳብ እና የሴት ንድፈ-ሀሳብ፣ ፈንክሽኖች፣ ማትሪክስ እና ዲተርሚናንት፣ እንዲሁም ዲፈረንሺያልና ኢንተግራል ካልኩለስን የያዘ ይፋዊ የMoSHE ሞጁል።',
-  semester: 'Semester 1',
-  stream: 'Social Science',
-  creditHours: 3,
-  hasInteractiveContent: true,
-  pdfModule: {
-    filename: 'Mathematics_for_Social_Sciences_MoSHE_2019.pdf',
-    title: 'Mathematics for Social Sciences Module',
-    authorOrCommittee: 'Dr. Berhanu Bekele, Ato Mulugeta Naizghi, Dr. Simon Derkee, Ato Wondwosen Zemene (MoSHE)',
-    publishedYear: '2019',
-    totalUnitsOrChapters: 4
-  },
-  metadata: { courseCode: 'Math 1011', creditHours: 3, academicYear: 'Freshman Year' },
-  chapters: [
-    makePdfChapter(701, 1, 'Propositional Logic and Set Theory', 'የመግለጫዎች አመክንዮ እና የሴት ንድፈ-ሀሳብ', 'Propositional logic, connectives, truth tables, tautology, contradiction, open statements, universal and existential quantifiers, valid arguments, rules of inference, set operations, and Venn diagrams.', 'ስነ-አመክንዮ፣ አገናኞች፣ የእውነት ሠንጠረዥ፣ ታውቶሎጂ፣ ተቃርኖ፣ ክፍት መግለጫዎች፣ አማካዮች (∀ እና ∃)፣ ተቀባይነት ያላቸው ክርክሮች፣ የማረጋገጫ ደንቦች፣ የሴት ስራዎች እና የቬን ዲያግራም።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Tautology', termAm: 'ታውቶሎጂ', defEn: 'A compound proposition that is always true regardless of component truth values.', defAm: 'በሁሉም ሁኔታዎች ሁልጊዜ እውነት የሚሆን ውሁድ መግለጫ።' }, { termEn: 'Rule of Inference', termAm: 'የመደምደሚያ ደንብ', defEn: 'Logical argument form guaranteed to yield a valid conclusion from true premises.', defAm: 'ከእውነተኛ መነሻዎች ወደ ትክክለኛ መደምደሚያ የሚያደርስ አመክንዮአዊ ደንብ።' }], ['De Morgan\'s laws apply symmetrically across both propositional logic and set theory.'], ['የዲ ሞርጋን ህጎች በሁለቱም በአመክንዮ እና በሴት ንድፈ-ሀሳብ ላይ በእኩልነት ይሰራሉ።'], [], []),
-    makePdfChapter(702, 2, 'Functions and Their Graphs', 'ፈንክሽኖች እና ግራፎቻቸው', 'Real number system, linear and quadratic equations and inequalities, relations, domains, operations on functions, one-to-one, onto, polynomial zeros, rational functions and asymptotes, exponential, logarithmic, and trigonometric functions.', 'የእውነተኛ ቁጥሮች ስርአት፣ ሊኒየር እና ኳድራቲክ እኩልታዎችና አለእኩልነቶች፣ ዝምድናዎች፣ ዶሜይንና ሬንጅ፣ የፈንክሽን ስሌቶች፣ አንድ-ለአንድ፣ ፖሊኖሚያል፣ ረሽናል ፈንክሽኖች እና አስምፕቶቶች፣ ኤክስፖኔንሻል፣ ሎጋሪዝም እና ትሪጎኖሜትሪ።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Injective Function', termAm: 'አንድ ለአንድ ፈንክሽን', defEn: 'Function where distinct domain inputs produce distinct outputs; passes horizontal line test.', defAm: 'የተለያዩ ግቤቶች የተለያዩ ውጤቶችን የሚያስገኙበት ፈንክሽን።' }, { termEn: 'Asymptote', termAm: 'አስምፕቶት', defEn: 'A line that a graph approaches closer and closer as coordinates approach infinity.', defAm: 'አንድ ኩርባ መስመር ወደ ወሰን-አልባ ሲጓዝ እየተጠጋው የሚሄድ መስመር።' }], ['Only one-to-one functions have an inverse function.'], ['ግልባጭ (Inverse) ሊኖራቸው የሚችለው አንድ-ለአንድ የሆኑ ፈንክሽኖች ብቻ ናቸው።'], [], []),
-    makePdfChapter(703, 3, 'Matrices, Determinants and Systems of Linear Equations', 'ማትሪክስ፣ ዲተርሚናንት እና የመስመራዊ እኩልታዎች ስርአት', 'Matrix algebra, addition, scalar multiplication, matrix multiplication, transpose, elementary row operations, row echelon forms (REF & RREF), rank, minors, cofactors, determinants, adjoint, matrix inversion, Gaussian elimination, and Cramer\'s rule.', 'ማትሪክስ አልጀብራ፣ መደመር፣ ማባዛት፣ ትራንስፖዝ፣ መሰረታዊ የረድፍ ስራዎች፣ የኤቼሎን ቅጾች (REF እና RREF)፣ ደረጃ (Rank)፣ ዲተርሚናንት፣ አድጆይንት፣ ግልባጭ ማትሪክስ፣ የጋውስ ማጣሪያ እና የክሬመርስ ህግ።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Reduced Row Echelon Form', termAm: 'የተቀነሰ የረድፍ ኤቼሎን ቅጽ', defEn: 'Matrix where each leading entry is 1 and the only nonzero entry in its column.', defAm: 'እያንዳንዱ መሪ አባል 1 ሆኖ በአምዱ ውስጥ ከእሱ ውጪ ሌሎቹ በሙሉ ዜሮ የሆኑበት ቅጽ።' }, { termEn: 'Cramer\'s Rule', termAm: 'የክሬመርስ ህግ', defEn: 'Explicit determinant-based formula for solving square systems of linear equations.', defAm: 'በዲተርሚናንት ስሌት የመስመራዊ እኩልታዎችን መፍትሔ በቀጥታ የሚያስገኝ ቀመር።' }], ['Matrix multiplication is associative but generally non-commutative (AB ≠ BA).'], ['የማትሪክስ ብዜት የማጣመር ህግን ያሟላል ነገር ግን የመቀያየር ህግን አያሟላም (AB ≠ BA)።'], [], []),
-    makePdfChapter(704, 4, 'Introduction to Calculus', 'የመግቢያ ካልኩለስ', 'Limits and continuity, one-sided limits, squeeze theorem, asymptotes, Intermediate Value Theorem, derivative definition, product/quotient/chain rules, trig/exponential/log derivatives, relative extrema, optimization, indefinite and definite integrals, substitution, integration by parts, and Fundamental Theorem of Calculus.', 'ወሰኖች (Limits) እና ቀጣይነት፣ የስኩዊዝ ቴዎረም፣ አስምፕቶቶች፣ የመካከለኛ ዋጋ ቴዎረም (IVT)፣ የዲሪቬቲቭ ትርጉም፣ የማስላት ደንቦች፣ ከፍተኛና ዝቅተኛ ዋጋ፣ ማመቻቸት (Optimization)፣ ያልተወሰነና የተወሰነ ኢንተግራል፣ በቅያሪና በክፍል መስራት፣ እና የካልኩለስ መሰረታዊ ቴዎረም።', 'Dr. Berhanu Bekele et al. (MoSHE)', [{ termEn: 'Fundamental Theorem of Calculus', termAm: 'የካልኩለስ መሰረታዊ ቴዎረም', defEn: 'Establishes the inverse relationship between differentiation and integration.', defAm: 'በዲፈረንሺዬሽን እና በኢንተግሬሽን መካከል ያለውን የተቃራኒ ግንኙነት የሚያረጋግጥ ቴዎረም።' }, { termEn: 'Intermediate Value Theorem', termAm: 'የመካከለኛ ዋጋ ቴዎረም', defEn: 'Continuous function takes all intermediate values between its endpoints.', defAm: 'ቀጣይ የሆነ ፈንክሽን በሁለቱ ጫፎች መካከል የሚገኙትን እሴቶች በሙሉ ያገኛል።' }], ['The derivative represents instantaneous rate of change and geometric tangent line slope.'], ['ዲሪቬቲቭ ቅጽበታዊ የለውጥ ምጣኔን እና የታንጀንት መስመር ቁልቁለትን ይወክላል።'], [], [])
-  ]
-};
+// 5. Applied Mathematics I (Math 1014B) - Full 5-Chapter / 97-Page Official AASTU Curriculum
+export const appliedMathCourse: Course = fullAppliedMathCourse;
+
+// 6. Mathematics (Math 1011) - Full 6-Chapter Interactive Curriculum
+export const mathCourse: Course = fullMathCourse;
 
 // 6. Social Anthropology (Anth 1012) - Full 6-Unit Interactive Curriculum
 export const anthropologyCourse: Course = fullAnthropologyCourse;
@@ -655,13 +634,14 @@ export const biologyCourse: Course = {
   ]
 };
 
-// Array of all 14 MoE PDF courses
+// Array of all 15 MoE PDF courses (including both Applied Mathematics & Freshman Mathematics)
 export const moePdfCoursesList: Course[] = [
+  appliedMathCourse,
+  mathCourse,
   logicCourse,
   geographyCourse,
   historyCourse,
   emergingTechCourse,
-  mathCourse,
   anthropologyCourse,
   civicsCourse,
   inclusivenessCourse,

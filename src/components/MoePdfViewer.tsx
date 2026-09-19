@@ -66,7 +66,9 @@ import {
 } from '../data/biologyPdf';
 import {
   mathOfficialPdfPages,
-  TOTAL_MATH_PDF_PAGES
+  appliedMathOfficialPdfPages,
+  TOTAL_MATH_PDF_PAGES,
+  TOTAL_APPLIED_MATH_PDF_PAGES
 } from '../data/mathPdf';
 import { ViewMode } from '../types';
 import {
@@ -183,42 +185,51 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
 
   // Sync with prop when external course changes
   useEffect(() => {
+    let targetCourseKey: PdfCourseKey | null = null;
     if (courseId === 'flen1011' || courseId === 'english1') {
-      setSelectedPdfCourse('english1');
+      targetCourseKey = 'english1';
     } else if (courseId === 'flen1012' || courseId === 'enla102' || courseId === 'english2') {
-      setSelectedPdfCourse('english2');
+      targetCourseKey = 'english2';
     } else if (courseId === 'gees1011') {
-      setSelectedPdfCourse('geography');
+      targetCourseKey = 'geography';
     } else if (courseId === 'phys1011') {
-      setSelectedPdfCourse('physics');
+      targetCourseKey = 'physics';
     } else if (courseId === 'anth1012') {
-      setSelectedPdfCourse('anthropology');
+      targetCourseKey = 'anthropology';
     } else if (courseId === 'mgmt1012') {
-      setSelectedPdfCourse('entrepreneurship');
+      targetCourseKey = 'entrepreneurship';
     } else if (courseId === 'psyc1011') {
-      setSelectedPdfCourse('psychology');
+      targetCourseKey = 'psychology';
     } else if (courseId === 'phil1011' || courseId === 'logic') {
-      setSelectedPdfCourse('logic');
+      targetCourseKey = 'logic';
     } else if (courseId === 'snie1012' || courseId === 'inclusiveness') {
-      setSelectedPdfCourse('inclusiveness');
+      targetCourseKey = 'inclusiveness';
     } else if (courseId === 'emte1012' || courseId === 'emergingTech' || courseId === 'emerging') {
-      setSelectedPdfCourse('emergingTech');
+      targetCourseKey = 'emergingTech';
     } else if (courseId === 'gltr1012' || courseId === 'glaf1012' || courseId === 'globalAffairs' || courseId === 'globalTrends') {
-      setSelectedPdfCourse('globalAffairs');
+      targetCourseKey = 'globalAffairs';
     } else if (courseId === 'mcde1012' || courseId === 'mced1011' || courseId === 'moralCitizenship' || courseId === 'civics' || courseId === 'citizenship') {
-      setSelectedPdfCourse('moralCitizenship');
+      targetCourseKey = 'moralCitizenship';
     } else if (courseId === 'econ1011' || courseId === 'economics' || courseId === 'econ') {
-      setSelectedPdfCourse('economics');
+      targetCourseKey = 'economics';
     } else if (courseId === 'spsc1011' || courseId === 'fitness' || courseId === 'physicalFitness' || courseId === 'sports') {
-      setSelectedPdfCourse('fitness');
+      targetCourseKey = 'fitness';
     } else if (courseId === 'biol1012' || courseId === 'biology' || courseId === 'biol') {
-      setSelectedPdfCourse('biology');
-    } else if (courseId === 'math1011' || courseId === 'math' || courseId === 'mathematics') {
-      setSelectedPdfCourse('math');
+      targetCourseKey = 'biology';
+    } else if (courseId === 'math1014' || courseId === 'math1011' || courseId === 'math' || courseId === 'mathematics' || courseId === 'appliedMath') {
+      targetCourseKey = 'math';
     } else if (courseId === 'hist102' || courseId === 'hist1012') {
-      setSelectedPdfCourse('history');
+      targetCourseKey = 'history';
     }
-  }, [courseId]);
+
+    if (targetCourseKey && targetCourseKey !== selectedPdfCourse) {
+      setSelectedPdfCourse(targetCourseKey);
+      setCurrentPageNum(1);
+      setInputPageNum('1');
+      setSelectedChapterFilter('all');
+      setSearchQuery('');
+    }
+  }, [courseId, selectedPdfCourse]);
 
   const isEnglish1 = selectedPdfCourse === 'english1';
   const isEnglish2 = selectedPdfCourse === 'english2';
@@ -273,11 +284,11 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
       case 'biology':
         return biologyOfficialPdfPages;
       case 'math':
-        return mathOfficialPdfPages;
+        return courseId === 'math1011' ? mathOfficialPdfPages : appliedMathOfficialPdfPages;
       default:
         return english1OfficialPdfPages;
     }
-  }, [selectedPdfCourse]);
+  }, [selectedPdfCourse, courseId]);
 
   const totalPages = currentDataset.length;
 
@@ -358,7 +369,7 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
           : c === 'english2'
           ? 'flen1012'
           : c === 'history'
-          ? 'hist102'
+          ? 'hist1012'
           : c === 'geography'
           ? 'gees1011'
           : c === 'physics'
@@ -383,6 +394,8 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
           ? 'spsc1011'
           : c === 'biology'
           ? 'biol1012'
+          : c === 'math'
+          ? 'math1011'
           : 'psyc1011';
       onSelectCourse(mappedId);
     }
@@ -706,14 +719,13 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
   ];
 
   const mathFilters = [
-    { label: `All Pages (${TOTAL_MATH_PDF_PAGES})`, value: 'all' },
-    { label: 'Cover & TOC', value: 0 },
-    { label: 'Ch 1: Vectors & Vector Spaces', value: 1 },
-    { label: 'Ch 2: Matrices & Linear Systems', value: 2 },
-    { label: 'Ch 3: Limit & Continuity', value: 3 },
-    { label: 'Ch 4: Derivatives & Applications', value: 4 },
-    { label: 'Ch 5: Integration & Applications', value: 5 },
-    { label: 'Ch 6: Sequences & Series', value: 6 }
+    { label: `All Pages (${totalPages})`, value: 'all' },
+    { label: 'Ch 1: Vectors & Vector Spaces (pp. 1–22)', value: 1 },
+    { label: 'Ch 2: Matrices & Linear Systems (pp. 23–37)', value: 2 },
+    { label: 'Ch 3: Limit & Continuity (pp. 38–52)', value: 3 },
+    { label: 'Ch 4: Derivatives & Applications (pp. 53–82)', value: 4 },
+    { label: 'Ch 5: Integrations & Arc Length (pp. 83–97)', value: 5 },
+    ...(totalPages > 97 ? [{ label: 'Ch 6: Sequences & Infinite Series (pp. 98–168)', value: 6 }] : [])
   ];
 
   const activeFilters = isEnglish1
@@ -784,6 +796,8 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
     ? 'Physical Fitness (SpSc 1011)'
     : isBiology
     ? 'General Biology (Biol 1012)'
+    : isMath
+    ? (courseId === 'math1011' ? 'Mathematics (Math 1011)' : 'Applied Mathematics I (Math 1014B)')
     : 'General Psychology (Psyc 1011)';
 
   return (
@@ -1139,11 +1153,33 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
             </span>
           </button>
 
-          {/* Mathematics for Social Sciences */}
+          {/* Applied Mathematics (Math 1014B) */}
           <button
-            onClick={() => handleSwitchPdfCourse('math')}
+            onClick={() => {
+              if (onSelectCourse) onSelectCourse('math1014');
+              handleSwitchPdfCourse('math');
+            }}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
-              isMath
+              isMath && (courseId === 'math1014' || totalPages === 97)
+                ? 'bg-gradient-to-r from-amber-600 to-orange-700 text-white shadow-xs'
+                : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <Calculator className="w-3.5 h-3.5 text-amber-300" />
+            <span>Applied Math (Math 1014B)</span>
+            <span className="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px]">
+              {TOTAL_APPLIED_MATH_PDF_PAGES} pgs
+            </span>
+          </button>
+
+          {/* Mathematics (Math 1011) */}
+          <button
+            onClick={() => {
+              if (onSelectCourse) onSelectCourse('math1011');
+              handleSwitchPdfCourse('math');
+            }}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
+              isMath && courseId === 'math1011'
                 ? 'bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-xs'
                 : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
             }`}
@@ -1151,7 +1187,7 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
             <Calculator className="w-3.5 h-3.5 text-blue-300" />
             <span>Math (Math 1011)</span>
             <span className="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px]">
-              {TOTAL_MATH_PDF_PAGES} pgs
+              168 pgs
             </span>
           </button>
         </div>
@@ -1311,7 +1347,7 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
                   : isBiology
                   ? 'MoE Biol 1012'
                   : isMath
-                  ? 'MoSHE Math 1011'
+                  ? (courseId === 'math1011' ? 'MoSHE Math 1011' : 'AASTU Math 1014B')
                   : 'MoE Psyc 1011'}
               </span>
             </div>
@@ -1358,7 +1394,7 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
                   : isBiology
                   ? 'General Biology'
                   : isMath
-                  ? 'Mathematics for Social Sciences'
+                  ? (courseId === 'math1011' ? 'Mathematics (Math 1011)' : 'Applied Mathematics I (Math 1014B)')
                   : 'General Psychology & Life Skills'}
               </h1>
               {isHeaderCardOpen && (
@@ -1394,7 +1430,9 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
                     : isBiology
                     ? 'Complete verbatim transcription of all 6 chapters (pages 1 to 142): Introduction to biology & scientific methods, biological macromolecules & biochemical reactions, cellular biology & organelles, cellular metabolism & enzymes, genetics & patterns of inheritance, and ecology & natural resource conservation in Ethiopia with bilingual English & Amharic translations.'
                     : isMath
-                    ? 'Complete verbatim transcription of all 6 chapters (pages 1 to 168): Vectors and Vector Spaces, Matrices & Systems of Linear Equations, Limits & Continuity, Derivatives & Tangent Problems, Integration Techniques & Applications, and Sequences & Infinite Series with proofs, theorems, formulas, worksheets, and bilingual English & Amharic translations.'
+                    ? (courseId === 'math1011'
+                      ? 'Complete verbatim transcription of all 6 chapters (pages 1 to 168): Vectors and Vector Spaces, Matrices & Systems of Linear Equations, Limits & Continuity, Derivatives & Tangent Problems, Integration Techniques & Applications, and Sequences & Infinite Series with proofs, theorems, formulas, worksheets, and bilingual English & Amharic translations.'
+                      : 'Complete verbatim transcription of all 5 chapters (pages 1 to 97): Vectors & Vector Spaces (Ch 1), Matrices & Linear Systems (Ch 2), Limits & Continuity (Ch 3), Derivatives & Applications (Ch 4), and Integrations & Arc Length (Ch 5) with all official theorems, formulas, subtitles, and bilingual English & Amharic translations.')
                     : 'Complete verbatim transcription of all 11 chapters: biological bases of behavior, sensation & perception, conditioning theories, memory models, motivation & emotion, personality traits, DSM clinical disorders & treatments, intrapersonal communication, conflict resolution, SQ3R, and APA research formatting with bilingual English & Amharic translations.'}
                 </p>
               )}
@@ -1433,7 +1471,7 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
                   : isBiology
                   ? 'አጠቃላይ ባዮሎጂ'
                   : isMath
-                  ? 'ሒሳብ ለማህበራዊ ሳይንስ ተማሪዎች'
+                  ? (courseId === 'math1011' ? 'ሒሳብ (Math 1011)' : 'አፕላይድ ሒሳብ ፩ቢ (Math 1014B)')
                   : 'አጠቃላይ ስነ-ልቦና እና የህይወት ክህሎት'}
               </h2>
               {isHeaderCardOpen && (
@@ -1469,7 +1507,9 @@ export const MoePdfViewer: React.FC<MoePdfViewerProps> = ({
                     : isBiology
                     ? 'ሁሉንም 6 ምዕራፎች (ከገጽ 1 እስከ 142)፡ የባዮሎጂ ሳይንስ መግቢያ፣ ማክሮሞለኪውሎች፣ የሴል አወቃቀርና ኦርጋኔሎች፣ ሴሉላር ሜታቦሊዝምና ኢንዛይሞች፣ ጄኔቲክስና ዝግመተ-ለውጥ፣ እና ኢኮሎጂና በኢትዮጵያ የተፈጥሮ ሀብት ጥበቃ በሁለትዮሽ ቋንቋ አካቶ የያዘ ይፋዊ የMoE ሞጁል።'
                     : isMath
-                    ? 'ሁሉንም 4 ምዕራፎች (ከገጽ 1 እስከ 217)፡ የመግለጫዎች አመክንዮ እና የሴት ንድፈ-ሀሳብ፣ የእውነተኛ ቁጥሮች ፈንክሽኖች፣ ማትሪክስ፣ ዲተርሚናንት እና የመስመራዊ እኩልታዎች ስርአት፣ እንዲሁም ዲፈረንሺያል እና ኢንተግራል ካልኩለስን በሙሉ ይዘታቸው በሁለትዮሽ ቋንቋ አካቶ የያዘ ይፋዊ የMoSHE ሞጁል።'
+                    ? (courseId === 'math1011'
+                      ? 'ሁሉንም 6 ምዕራፎች (ከገጽ 1 እስከ 168)፡ ቬክተሮችና የቬክተር ስፔሶች፣ ማትሪክሶችና የሊኒየር እኩልታዎች ስርአት፣ ወሰኖችና ቀጣይነት፣ ዲሪቬቲቭ፣ ኢንተግራል፣ እንዲሁም ሲክዌንሶችና ሲሪስን በሙሉ ይዘታቸው በሁለትዮሽ ቋንቋ አካቶ የያዘ ይፋዊ የMoSHE/MoE ሞጁል።'
+                      : 'ሁሉንም 5 ምዕራፎች (ከገጽ 1 እስከ 97)፡ ቬክተሮችና የቬክተር ስፔሶች (ምዕራፍ 1)፣ ማትሪክሶችና የሊኒየር እኩልታዎች (ምዕራፍ 2)፣ ወሰኖችና ቀጣይነት (ምዕራፍ 3)፣ ዲሪቬቲቭና አፕሊኬሽኖቹ (ምዕራፍ 4)፣ እንዲሁም ኢንተግራልና የከርቭ ርዝመት (ምዕራፍ 5) ከነቀመሮቻቸውና ከነርዕሶቻቸው በሙሉ በሁለትዮሽ ቋንቋ አካቶ የያዘ ይፋዊ የAASTU ሞጁል።')
                     : 'ሁሉንም 11 ምዕራፎች፣ ኒውሮባዮሎጂ፣ የመማር ንድፈ-ሀሳቦች፣ የማስታወስ ሂደት፣ ስብዕና፣ የአእምሮ ህመሞችና ህክምና፣ የጆሃሪ መስኮት፣ ግጭት አፈታትና የጥናት ስልቶችን በሙሉ ይዘታቸው አካቶ የያዘ ይፋዊ የዩኒቨርሲቲ ሞጁል።'}
                 </p>
               )}
